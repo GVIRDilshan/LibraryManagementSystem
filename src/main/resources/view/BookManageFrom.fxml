@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" prefHeight="640.0" prefWidth="1003.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.library.controller.BookManageFromController">
+   <children>
+      <JFXTextField fx:id="txtBookID" labelFloat="true" layoutX="58.0" layoutY="75.0" prefHeight="45.0" prefWidth="543.0" promptText="BookId">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtBookName" labelFloat="true" layoutX="58.0" layoutY="160.0" prefHeight="45.0" prefWidth="543.0" promptText="Book Name">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtBookQty" labelFloat="true" layoutX="58.0" layoutY="275.0" prefHeight="45.0" prefWidth="543.0" promptText="Book Qty">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXTextField>
+      <JFXButton buttonType="RAISED" layoutX="784.0" layoutY="391.0" onAction="#OnAdd" prefHeight="45.0" prefWidth="191.0" style="-fx-background-color: lightblue;" text="Add">
+         <font>
+            <Font size="25.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXComboBox fx:id="cmbPulisherID" layoutX="58.0" layoutY="555.0" onAction="#OnSelectPulisherID" prefHeight="45.0" prefWidth="543.0" promptText="Publisher ID" />
+      <JFXComboBox fx:id="cmbSupplierId" layoutX="58.0" layoutY="373.0" onAction="#OnSelectSuplierId" prefHeight="45.0" prefWidth="543.0" promptText="Supplier ID" />
+      <JFXComboBox fx:id="cmbAutorId" layoutX="58.0" layoutY="470.0" onAction="#onSelectAutorId" prefHeight="45.0" prefWidth="543.0" promptText="Autor  ID" />
+      <JFXButton buttonType="RAISED" layoutX="784.0" layoutY="466.0" onAction="#OnUpdate" prefHeight="54.0" prefWidth="191.0" style="-fx-background-color: lightgreen;" text="Update">
+         <font>
+            <Font size="25.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="784.0" layoutY="546.0" onAction="#OnDelete" prefHeight="45.0" prefWidth="191.0" style="-fx-background-color: lightpink;" text="Delete">
+         <font>
+            <Font size="25.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="824.0" layoutY="174.0" onAction="#OnSearch" prefHeight="54.0" prefWidth="165.0" style="-fx-background-color: #32ff7e;" text="Search">
+         <font>
+            <Font size="25.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXTextField fx:id="txtBookID1" labelFloat="true" layoutX="658.0" layoutY="98.0" prefHeight="45.0" prefWidth="222.0" promptText="BookId">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXTextField>
+   </children>
+</AnchorPane>
