@@ -13,6 +13,7 @@ import lk.ijse.library.dto.Member;
 import lk.ijse.library.model.MemberModel;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class MemberManageFromController {
     @FXML
@@ -64,7 +65,7 @@ public class MemberManageFromController {
     private Label lbl7;
 
     @FXML
-    void OnAdd(ActionEvent event) {
+    void OnAdd(ActionEvent event) throws SQLException {
         String memberId = txtMemberId.getText();
         String memberName = txtMemberName.getText();
         String memberAddress = txtMemberAddress.getText();
@@ -83,7 +84,7 @@ public class MemberManageFromController {
         memberss.setEmail(memberEmail);
         memberss.setGender(memberGender);
 
-        boolean member1 = MemberModel.memberAddFrom(memberss);
+        boolean member1 = MemberModel.memberAdd(memberss);
 
     }
 
