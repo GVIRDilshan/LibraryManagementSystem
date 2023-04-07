@@ -3,10 +3,7 @@ package lk.ijse.library.model;
 import lk.ijse.library.db.DBConnection;
 import lk.ijse.library.dto.Member;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class MemberModel {
 
@@ -26,5 +23,26 @@ public class MemberModel {
 
         return stm.executeUpdate() > 0;
     }
+    public static Member searchFrom(String id) throws SQLException {
+        Connection con = DBConnection.getInstance().getConnection();
+        String sql = "select * from member where memberId=?";
 
+        PreparedStatement stm = con.prepareStatement(sql);
+        stm.setObject(1,id);
+
+        ResultSet result = stm.executeQuery();
+
+        if (result.next()) {
+            Member member = new Member();
+            member.setId(result.getString(1));
+            member.setName(result.getString(2));
+            member.setAddress(result.getString(3));
+            member.setContact(result.getString(4));
+            member.setAge(Integer.parseInt(result.getString(5)));
+            member.setEmail(result.getString(6));
+            member.setGender(result.getString(7));
+            return member;
+        }
+        return null;
+    }
 }

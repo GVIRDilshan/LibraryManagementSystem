@@ -101,7 +101,18 @@ public class MemberManageFromController {
         }
     }
 
-    public void OnSearch(ActionEvent actionEvent) {
+    public void OnSearch(ActionEvent actionEvent) throws SQLException {
+        String SearchID = txtMemberIdSearch.getText();
+
+        Member m1 = MemberModel.searchFrom(SearchID);
+
+        txtMemberId.setText(m1.getId());
+        txtMemberName.setText(m1.getName());
+        txtMemberAddress.setText(m1.getAddress());
+        txtMemberAge.setText(String.valueOf(m1.getAge()));
+        txtMemberEmail.setText(m1.getEmail());
+        txtMemberContact.setText(m1.getContact());
+        txtMemberGender.setText(m1.getGender());
 
     }
 
