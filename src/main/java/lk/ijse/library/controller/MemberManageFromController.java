@@ -116,8 +116,25 @@ public class MemberManageFromController {
 
     }
 
-    public void OnUpdate(ActionEvent actionEvent) {
+    public void OnUpdate(ActionEvent actionEvent) throws SQLException {
+        String memberId = txtMemberId.getText();
+        String memberName = txtMemberName.getText();
+        String memberAddress = txtMemberAddress.getText();
+        String memberContact = txtMemberContact.getText();
+        int memberAge = Integer.parseInt(txtMemberAge.getText());
+        String memberEmail = txtMemberEmail.getText();
+        String memberGender = txtMemberGender.getText();
 
+        Member member = new Member();
+        member.setId(memberId);
+        member.setName(memberName);
+        member.setAddress(memberAddress);
+        member.setContact(memberContact);
+        member.setAge(memberAge);
+        member.setEmail(memberEmail);
+        member.setGender(memberGender);
+
+        boolean m2 = MemberModel.updateMember(member);
     }
 
     public void OnDelete(ActionEvent actionEvent) {
