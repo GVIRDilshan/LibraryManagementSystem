@@ -10,6 +10,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.library.dto.Autor;
 import lk.ijse.library.model.AutorModel;
+import org.checkerframework.checker.units.qual.A;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -50,12 +51,31 @@ public class AutorAddFromController {
 
     }
 
-    public void OnSearch(ActionEvent actionEvent) {
+    public void OnSearch(ActionEvent actionEvent) throws SQLException {
+        String AutorID = txtEnterAutorID.getText();
+
+        Autor autor = AutorModel.searchFrom(AutorID);
+
+        txtAutorID.setText(autor.getAutorID());
+        txtAutorName.setText(autor.getAutorName());
+        txtBookID.setText(autor.getBookID());
+        txtBookName.setText(autor.getBookName());
 
     }
 
-    public void OnUpdate(ActionEvent actionEvent) {
+    public void OnUpdate(ActionEvent actionEvent) throws SQLException {
+        String AutorID = txtAutorID.getText();
+        String AutorsName = txtAutorName.getText();
+        String BookID = txtBookID.getText();
+        String BookName = txtBookName.getText();
 
+        Autor autor1 = new Autor();
+        autor1.setAutorID(AutorID);
+        autor1.setAutorName(AutorsName);
+        autor1.setBookName(BookName);
+        autor1.setBookID(BookID);
+
+        boolean A1 = AutorModel.updateAutor(autor1);
     }
 
     public void OnAdd(ActionEvent actionEvent) throws SQLException {
