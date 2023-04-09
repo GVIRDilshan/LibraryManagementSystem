@@ -11,6 +11,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.library.dto.Member;
 import lk.ijse.library.model.MemberModel;
+import lk.ijse.library.util.Alerts;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -86,6 +87,12 @@ public class MemberManageFromController {
 
         boolean member1 = MemberModel.memberAdd(memberss);
 
+        if(member1) {
+//            Alerts alerts = new Alerts();
+//            alerts.notification("Member Delete Sucses....!", "Memebr Delete");
+            clear();
+        }
+
     }
 
     @FXML
@@ -113,7 +120,7 @@ public class MemberManageFromController {
         txtMemberEmail.setText(m1.getEmail());
         txtMemberContact.setText(m1.getContact());
         txtMemberGender.setText(m1.getGender());
-
+        
     }
 
     public void OnUpdate(ActionEvent actionEvent) throws SQLException {
@@ -135,9 +142,34 @@ public class MemberManageFromController {
         member.setGender(memberGender);
 
         boolean m2 = MemberModel.updateMember(member);
+
+        if(m2) {
+//            Alerts alerts = new Alerts();
+//            alerts.notification("Member Delete Sucses....!", "Memebr Delete");
+            clear();
+        }
     }
 
-    public void OnDelete(ActionEvent actionEvent) {
+    public void OnDelete(ActionEvent actionEvent) throws SQLException {
 
+        String memberID = txtMemberId.getText();
+
+        boolean d1 = MemberModel.deleteFrom(memberID);
+
+        if(d1) {
+//            Alerts alerts = new Alerts();
+//            alerts.notification("Member Delete Sucses....!", "Memebr Delete");
+            clear();
+        }
+
+    }
+    public void clear(){
+        txtMemberId.setText("");
+        txtMemberName.setText("");
+        txtMemberAddress.setText("");
+        txtMemberContact.setText("");
+        txtMemberAge.setText("");
+        txtMemberEmail.setText("");
+        txtMemberGender.setText("");
     }
 }

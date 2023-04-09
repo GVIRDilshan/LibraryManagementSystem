@@ -12,6 +12,7 @@ import lk.ijse.library.dto.Autor;
 import lk.ijse.library.model.AutorModel;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class AutorAddFromController {
     @FXML
@@ -57,7 +58,7 @@ public class AutorAddFromController {
 
     }
 
-    public void OnAdd(ActionEvent actionEvent) {
+    public void OnAdd(ActionEvent actionEvent) throws SQLException {
         String AutorID = txtAutorID.getText();
         String AutorName = txtAutorName.getText();
         String BookName = txtBookName.getText();

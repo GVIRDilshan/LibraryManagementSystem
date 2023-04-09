@@ -1,35 +1,29 @@
 package lk.ijse.library.model;
 
+import lk.ijse.library.db.DBConnection;
 import lk.ijse.library.dto.Autor;
 
 import java.sql.*;
 import java.util.ArrayList;
 
 public class AutorModel {
-    public static boolean AutorAdd(Autor Aotor) {
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
+    public static boolean AutorAdd(Autor Aotor) throws SQLException {
+        Connection con = DBConnection.getInstance().getConnection();
+        String sql = "insert into autor values(?,?,?,?)";
 
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Library",
-                    "root", "1234");
+        PreparedStatement stm = con.prepareStatement(sql);
 
-            PreparedStatement stm = connection.prepareStatement("insert into autor values(?,?,?,?)");
+        stm.setObject(1,Aotor.getAutorID());
+        stm.setObject(2,Aotor.getAutorName());
+        stm.setObject(3,Aotor.getBookName());
+        stm.setObject(4,Aotor.getBookID());
 
-            stm.setObject(1,Aotor.getAutorID());
-            stm.setObject(2,Aotor.getAutorName());
-            stm.setObject(3,Aotor.getBookName());
-            stm.setObject(4,Aotor.getBookID());
+        int result = stm.executeUpdate();
 
-            int result = stm.executeUpdate();
-
-            if (result > 0) {
-                return true;
-            } else {
-                return false;
-            }
-
-        } catch (ClassNotFoundException | SQLException e) {
-            throw new RuntimeException(e);
+        if (result > 0) {
+            return true;
+        } else {
+            return false;
         }
     }
     public static ArrayList<String> loadAllAutorIds() {

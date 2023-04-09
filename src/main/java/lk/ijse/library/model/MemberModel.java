@@ -67,4 +67,20 @@ public class MemberModel {
         }
         return null;
     }
+    public static boolean deleteFrom(String id) throws SQLException {
+            Connection con = DBConnection.getInstance().getConnection();
+            String sql = "delete from member where memberId =?";
+
+            PreparedStatement stm = con.prepareStatement(sql);
+
+            stm.setObject(1, id);
+
+            int result = stm.executeUpdate();
+
+            if (result > 0) {
+                return true;
+            } else {
+                return false;
+            }
+    }
 }
