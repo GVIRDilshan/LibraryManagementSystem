@@ -15,6 +15,8 @@ import org.checkerframework.checker.units.qual.A;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import static com.jfoenix.svg.SVGGlyphLoader.clear;
+
 public class AutorAddFromController {
     @FXML
     private AnchorPane root;
@@ -47,8 +49,16 @@ public class AutorAddFromController {
         }
     }
 
-    public void OnDelete(ActionEvent actionEvent) {
+    public void OnDelete(ActionEvent actionEvent) throws SQLException {
+        String AutorID = txtAutorID.getText();
 
+        boolean d1 = AutorModel.deleteFrom(AutorID);
+
+        if(d1) {
+//            Alerts alerts = new Alerts();
+//            alerts.notification("Member Delete Sucses....!", "Memebr Delete");
+            clear();
+        }
     }
 
     public void OnSearch(ActionEvent actionEvent) throws SQLException {
@@ -76,6 +86,13 @@ public class AutorAddFromController {
         autor1.setBookID(BookID);
 
         boolean A1 = AutorModel.updateAutor(autor1);
+
+        if(A1) {
+//            Alerts alerts = new Alerts();
+//            alerts.notification("Member Delete Sucses....!", "Memebr Delete");
+            clear();
+        }
+
     }
 
     public void OnAdd(ActionEvent actionEvent) throws SQLException {
@@ -93,5 +110,17 @@ public class AutorAddFromController {
 
         boolean b1 = AutorModel.AutorAdd(autor);
 
+        if(b1) {
+//            Alerts alerts = new Alerts();
+//            alerts.notification("Member Delete Sucses....!", "Memebr Delete");
+            clear();
+        }
+
+    }
+    public void clear(){
+        txtAutorID.setText("");
+        txtAutorName.setText("");
+        txtBookID.setText("");
+        txtBookName.setText("");
     }
 }

@@ -71,6 +71,24 @@ public class AutorModel {
         }
         return null;
     }
+    public static boolean deleteFrom(String id) throws SQLException {
+
+        Connection con = DBConnection.getInstance().getConnection();
+
+        String sql = "delete from autor where AutorId =?";
+
+        PreparedStatement stm = con.prepareStatement(sql);
+
+        stm.setObject(1, id);
+
+        int result = stm.executeUpdate();
+
+        if (result > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     public static ArrayList<String> loadAllAutorIds() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
