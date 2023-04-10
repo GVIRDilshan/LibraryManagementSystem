@@ -1,32 +1,29 @@
 package lk.ijse.library.model;
 
+import lk.ijse.library.db.DBConnection;
+import lk.ijse.library.dto.Book;
+import lk.ijse.library.dto.Member;
+
 import java.sql.*;
 import java.util.ArrayList;
 
 public class BookModel {
 
-//    public static ArrayList<String> loadAllBookIds() {
-//        try {
-//            Class.forName("com.mysql.cj.jdbc.Driver");
-//
-//            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/library",
-//                    "root", "1234");
-//
-//            PreparedStatement stm = connection.prepareStatement("select bookId from book");
-//
-//            ResultSet result = stm.executeQuery();
-//
-//            ArrayList<String> BookIds = new ArrayList<>();
-//
-//            while (result.next()) {
-//                BookIds.add(result.getString(1));
-//            }
-//            return BookIds;
-//
-//        } catch (ClassNotFoundException e) {
-//            throw new RuntimeException(e);
-//        } catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
+        public static boolean BookAdd(Book book) throws SQLException {
+            Connection con = DBConnection.getInstance().getConnection();
+            String sql = "insert into book values(?,?,?,?,?,?)";
+
+            PreparedStatement stm = con.prepareStatement(sql);
+
+
+//            stm.setObject(1, member.getId());
+//            stm.setObject(2,member.getName());
+//            stm.setObject(3,member.getAddress());
+//            stm.setObject(5,member.getAge());
+//            stm.setObject(4,member.getContact());
+//            stm.setObject(6,member.getEmail());
+//            stm.setObject(7,member.getGender());
+
+            return stm.executeUpdate() > 0;
+        }
 }

@@ -12,6 +12,7 @@ import lk.ijse.library.dto.Publisher;
 import lk.ijse.library.model.PublisherModel;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.time.LocalDate;
 
 
@@ -48,15 +49,21 @@ public class PublisherAddFromController {
 
     }
 
-    public void OnSearch(ActionEvent actionEvent) {
+    public void OnSearch(ActionEvent actionEvent) throws SQLException {
+        String PublisherSearchID = txtEnterPbID.getText();
 
+        Publisher p1 = PublisherModel.searchFrom(PublisherSearchID);
+
+        txtPublisherID.setText(p1.getPublisherID());
+        txtPublisherName.setText(p1.getPublisherName());
+        txtBookID.setText(p1.getBookID());
     }
 
     public void OnUpdate(ActionEvent actionEvent) {
 
     }
 
-    public void OnAdd(ActionEvent actionEvent) {
+    public void OnAdd(ActionEvent actionEvent) throws SQLException {
         String PublisherID = txtPublisherID.getText();
         String PublisherName = txtPublisherName.getText();
         String BookID = txtBookID.getText();
@@ -69,5 +76,6 @@ public class PublisherAddFromController {
         publisher.setBookID(BookID);
 
         boolean P1 = PublisherModel.PublisherAdd(publisher);
+
     }
 }
