@@ -54,16 +54,15 @@ public class PublisherAddFromController {
     }
 
     public void OnSearch(ActionEvent actionEvent) throws SQLException {
-        System.out.println("Hi");
         String PublisherSearchID = txtEnterPbID.getText();
 
         Publisher p1 = PublisherModel.searchFrom(PublisherSearchID);
 
         Publisher p2 = new Publisher();
 
-        txtPublisherID.setText(p2.getPublisherID());
-        txtPublisherName.setText(p2.getPublisherName());
-        txtBookID.setText(p2.getBookID());
+        txtPublisherID.setText(p1.getPublisherID());
+        txtPublisherName.setText(p1.getPublisherName());
+        txtBookID.setText(p1.getBookID());
 
     }
 
