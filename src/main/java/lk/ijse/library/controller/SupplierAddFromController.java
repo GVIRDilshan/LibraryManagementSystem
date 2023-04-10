@@ -12,6 +12,7 @@ import lk.ijse.library.dto.Supplier;
 import lk.ijse.library.model.SupplierModel;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class SupplierAddFromController {
     @FXML
@@ -47,7 +48,7 @@ public class SupplierAddFromController {
         }
     }
 
-    public void OnAdd(ActionEvent actionEvent) {
+    public void OnAdd(ActionEvent actionEvent) throws SQLException {
         String SupplierID = txtSupllierID.getText();
         String SupplierName = txtSupplierName.getText();
         String SupplierAddress = txtSupplierAddress.getText();
@@ -67,6 +68,19 @@ public class SupplierAddFromController {
     }
 
     public void OnUpdate(ActionEvent actionEvent) {
+        String SupplierID      =  txtSupllierID.getText();
+        String SupplierName    =  txtSupplierName.getText();
+        String SupplierContact =  txtContact.getText();
+        String SupplierAddress =  txtSupplierAddress.getText();
+        String BookID          =  txtBookID.getText();
+
+        Supplier supplier = new Supplier();
+        supplier.setSupplierID(SupplierID);
+        supplier.setSupplierName(SupplierName);
+        supplier.setSupplierContact(SupplierContact);
+        supplier.setSupplierAddress(SupplierAddress);
+        supplier.setBookID(BookID);
+
 
     }
 
@@ -74,7 +88,16 @@ public class SupplierAddFromController {
 
     }
 
-    public void OnSearch(ActionEvent actionEvent) {
+    public void OnSearch(ActionEvent actionEvent) throws SQLException {
 
+        String SupplierID = txtSearchID.getText();
+
+        Supplier S1 = SupplierModel.searchFrom(SupplierID);
+
+        txtSupllierID.setText(S1.getSupplierID());
+        txtSupplierName.setText(S1.getSupplierName());
+        txtContact.setText(S1.getSupplierContact());
+        txtSupplierAddress.setText(S1.getSupplierAddress());
+        txtBookID.setText(S1.getBookID());
     }
 }
