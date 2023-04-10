@@ -32,17 +32,17 @@
             <Font size="19.0" />
          </font>
       </JFXTextField>
-      <JFXButton layoutX="852.0" layoutY="389.0" onAction="#OnAdd" prefHeight="56.0" prefWidth="170.0" style="-fx-background-color: #636e72;" text="Add">
+      <JFXButton layoutX="852.0" layoutY="389.0" onAction="#OnAdd" prefHeight="56.0" prefWidth="170.0" style="-fx-background-color: lightblue;" text="Add">
          <font>
             <Font size="22.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="852.0" layoutY="472.0" onAction="#OnUpdate" prefHeight="56.0" prefWidth="170.0" style="-fx-background-color: #636e72;" text="Update">
+      <JFXButton layoutX="852.0" layoutY="472.0" onAction="#OnUpdate" prefHeight="56.0" prefWidth="170.0" style="-fx-background-color: lightgreen;" text="Update">
          <font>
             <Font size="22.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="852.0" layoutY="550.0" onAction="#OnDelete" prefHeight="56.0" prefWidth="170.0" style="-fx-background-color: #636e72;" text="Delete">
+      <JFXButton layoutX="852.0" layoutY="550.0" onAction="#OnDelete" prefHeight="56.0" prefWidth="170.0" style="-fx-background-color: lightpink;" text="Delete">
          <font>
             <Font size="22.0" />
          </font>
@@ -52,7 +52,7 @@
             <Font size="19.0" />
          </font>
       </JFXTextField>
-      <JFXButton layoutX="859.0" layoutY="136.0" onAction="#OnSearch" prefHeight="56.0" prefWidth="170.0" style="-fx-background-color: #636e72;" text="Search">
+      <JFXButton layoutX="859.0" layoutY="136.0" onAction="#OnSearch" prefHeight="56.0" prefWidth="170.0" style="-fx-background-color: lightgreen;" text="Search">
          <font>
             <Font size="22.0" />
          </font>

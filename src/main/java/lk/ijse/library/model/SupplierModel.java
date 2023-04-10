@@ -43,19 +43,14 @@ public class SupplierModel {
         }
         return null;
     }
-    public static Boolean updateMember(Member member) throws SQLException {
+    public static boolean updateMember(Supplier supplier) throws SQLException {
         Connection con = DBConnection.getInstance().getConnection();
-        String sql = "update member set name=?,address=?,contact=?,age=?,email=?,Gender=? where memberId=?";
+        String sql = "update supplier set name=?,Contact=?,Addresse=?, Book_Id=? where SupplierId=?";
 
         PreparedStatement stm = con.prepareStatement(sql);
 
-        stm.setObject(1, member.getName());
-        stm.setObject(2, member.getAddress());
-        stm.setObject(3, member.getContact());
-        stm.setObject(4, member.getAge());
-        stm.setObject(5,member.getEmail());
-        stm.setObject(6,member.getGender());
-        stm.setObject(7, member.getId());
+       // stm.setObject(1, member.getName());
+
 
 
         int result = stm.executeUpdate();

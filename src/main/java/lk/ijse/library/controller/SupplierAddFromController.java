@@ -67,7 +67,7 @@ public class SupplierAddFromController {
 
     }
 
-    public void OnUpdate(ActionEvent actionEvent) {
+    public void OnUpdate(ActionEvent actionEvent) throws SQLException {
         String SupplierID      =  txtSupllierID.getText();
         String SupplierName    =  txtSupplierName.getText();
         String SupplierContact =  txtContact.getText();
@@ -75,12 +75,14 @@ public class SupplierAddFromController {
         String BookID          =  txtBookID.getText();
 
         Supplier supplier = new Supplier();
+
         supplier.setSupplierID(SupplierID);
         supplier.setSupplierName(SupplierName);
         supplier.setSupplierContact(SupplierContact);
         supplier.setSupplierAddress(SupplierAddress);
         supplier.setBookID(BookID);
 
+        boolean s2 = SupplierModel.updateMember(supplier);
 
     }
 
