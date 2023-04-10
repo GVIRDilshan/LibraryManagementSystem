@@ -60,6 +60,9 @@ public class PublisherAddFromController {
     }
 
     public void OnUpdate(ActionEvent actionEvent) {
+        String PublisherID = txtPublisherID.getText();
+        String PublisherName = txtPublisherName.getText();
+        String BookID = txtBookID.getText();
 
     }
 

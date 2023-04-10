@@ -43,4 +43,42 @@ public class PublisherModel {
         }
         return null;
     }
+    public static Boolean updatePublisher(Publisher publisher) throws SQLException {
+        Connection con = DBConnection.getInstance().getConnection();
+        String sql = "update publisher set name=?,Book_Id=?,pdDate=? where pbId=?";
+
+        PreparedStatement stm = con.prepareStatement(sql);
+
+//        stm.setObject(1, member.getName());
+//        stm.setObject(2, member.getAddress());
+//        stm.setObject(3, member.getContact());
+//        stm.setObject(4, member.getAge());
+//        stm.setObject(5,member.getEmail());
+//        stm.setObject(6,member.getGender());
+//        stm.setObject(7, member.getId());
+
+
+        int result = stm.executeUpdate();
+
+        if (result == 1) {
+            return true;
+        }
+        return null;
+    }
+    public static boolean deleteFrom(String id) throws SQLException {
+        Connection con = DBConnection.getInstance().getConnection();
+        String sql = "delete from member where memberId =?";
+
+        PreparedStatement stm = con.prepareStatement(sql);
+
+        stm.setObject(1, id);
+
+        int result = stm.executeUpdate();
+
+        if (result > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
