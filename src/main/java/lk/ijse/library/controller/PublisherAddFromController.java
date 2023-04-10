@@ -45,18 +45,26 @@ public class PublisherAddFromController {
         }
     }
 
-    public void OnDelete(ActionEvent actionEvent) {
+    public void OnDelete(ActionEvent actionEvent) throws SQLException {
+
+        String PublisherID = txtEnterPbID.getText();
+
+        boolean P2 = PublisherModel.deleteFrom(PublisherID);
 
     }
 
     public void OnSearch(ActionEvent actionEvent) throws SQLException {
+        System.out.println("Hi");
         String PublisherSearchID = txtEnterPbID.getText();
 
         Publisher p1 = PublisherModel.searchFrom(PublisherSearchID);
 
-        txtPublisherID.setText(p1.getPublisherID());
-        txtPublisherName.setText(p1.getPublisherName());
-        txtBookID.setText(p1.getBookID());
+        Publisher p2 = new Publisher();
+
+        txtPublisherID.setText(p2.getPublisherID());
+        txtPublisherName.setText(p2.getPublisherName());
+        txtBookID.setText(p2.getBookID());
+
     }
 
     public void OnUpdate(ActionEvent actionEvent) throws SQLException {

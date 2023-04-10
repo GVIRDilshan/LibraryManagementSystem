@@ -38,8 +38,7 @@ public class PublisherModel {
             publisher.setPublisherID(result.getString(1));
             publisher.setPublisherName(result.getString(2));
             publisher.setBookID(result.getString(3));
-            publisher.setPublishDate(String.valueOf(LocalDate.now()));
-
+            return publisher;
         }
         return null;
     }
@@ -63,7 +62,7 @@ public class PublisherModel {
     }
     public static boolean deleteFrom(String id) throws SQLException {
         Connection con = DBConnection.getInstance().getConnection();
-        String sql = "delete from member where memberId =?";
+        String sql = "delete from publisher where pbId =?";
 
         PreparedStatement stm = con.prepareStatement(sql);
 
