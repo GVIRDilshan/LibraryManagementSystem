@@ -2,6 +2,8 @@ package lk.ijse.library.controller;
 
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,9 +15,13 @@ import javafx.stage.Stage;
 import lk.ijse.library.dto.Autor;
 import lk.ijse.library.dto.Book;
 import lk.ijse.library.model.AutorModel;
+import lk.ijse.library.model.PublisherModel;
+import lk.ijse.library.model.SupplierModel;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class BookManageFromController implements Initializable {
@@ -81,12 +87,18 @@ public class BookManageFromController implements Initializable {
 
     @FXML
     void onSelectAutorId(ActionEvent event) {
-       // Autor autor = AutorModel.
+
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        AutorModel.loadAllAutorIds();
+        try {
+            loadAutorIds();
+            loadSupplierIds();
+            loadPublisherIds();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void OnUpdate(ActionEvent actionEvent) {
@@ -99,5 +111,35 @@ public class BookManageFromController implements Initializable {
 
     public void OnSearch(ActionEvent actionEvent) {
 
+    }
+    public void loadAutorIds() throws SQLException {
+        ArrayList<String> AutorIds = AutorModel.loadAllAutorIds();
+
+        ObservableList ids = FXCollections.observableArrayList();
+
+        for (String id : AutorIds){
+            ids.add(id);
+        }
+        cmbAutorId.setItems(ids);
+    }
+    public void loadPublisherIds() throws SQLException {
+        ArrayList<String> PublisherIds = PublisherModel.loadAllPublisherIds();
+
+        ObservableList ids = FXCollections.observableArrayList();
+
+        for (String id : PublisherIds){
+            ids.add(id);
+        }
+        cmbPulisherID.setItems(ids);
+    }
+    public void loadSupplierIds() throws SQLException {
+        ArrayList<String> SupplierIds = SupplierModel.loadAllSupplierIds();
+
+        ObservableList ids = FXCollections.observableArrayList();
+
+        for (String id : SupplierIds){
+            ids.add(id);
+        }
+        cmbSupplierId.setItems(ids);
     }
 }

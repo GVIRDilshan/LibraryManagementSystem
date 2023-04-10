@@ -6,6 +6,7 @@ import lk.ijse.library.dto.Publisher;
 
 import java.sql.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class PublisherModel {
     public static boolean PublisherAdd(Publisher publisher) throws SQLException {
@@ -75,5 +76,22 @@ public class PublisherModel {
         } else {
             return false;
         }
+    }
+    public static ArrayList<String> loadAllPublisherIds() throws SQLException {
+
+        Connection con = DBConnection.getInstance().getConnection();
+
+        String sql = "select pbId from publisher";
+
+        PreparedStatement stm = con.prepareStatement(sql);
+
+        ResultSet result = stm.executeQuery();
+
+        ArrayList<String> PublisherIds = new ArrayList<>();
+
+        while (result.next()) {
+            PublisherIds.add(result.getString(1));
+        }
+        return PublisherIds;
     }
 }

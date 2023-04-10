@@ -89,14 +89,13 @@ public class AutorModel {
             return false;
         }
     }
-    public static ArrayList<String> loadAllAutorIds() {
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
+    public static ArrayList<String> loadAllAutorIds() throws SQLException {
 
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/library",
-                    "root", "1234");
+        Connection con = DBConnection.getInstance().getConnection();
 
-            PreparedStatement stm = connection.prepareStatement("select AutorId from Autor");
+        String sql = "select AutorId from Autor";
+
+        PreparedStatement stm = con.prepareStatement(sql);
 
             ResultSet result = stm.executeQuery();
 
@@ -107,10 +106,5 @@ public class AutorModel {
             }
             return AutorIds;
 
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
     }
 }

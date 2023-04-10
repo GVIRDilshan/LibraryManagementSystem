@@ -6,6 +6,7 @@ import lk.ijse.library.dto.Publisher;
 import lk.ijse.library.dto.Supplier;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class SupplierModel {
 
@@ -77,5 +78,22 @@ public class SupplierModel {
         } else {
             return false;
         }
+    }
+    public static ArrayList<String> loadAllSupplierIds() throws SQLException {
+
+        Connection con = DBConnection.getInstance().getConnection();
+
+        String sql = "select SupplierId from supplier";
+
+        PreparedStatement stm = con.prepareStatement(sql);
+
+        ResultSet result = stm.executeQuery();
+
+        ArrayList<String> SupplierIds = new ArrayList<>();
+
+        while (result.next()) {
+            SupplierIds.add(result.getString(1));
+        }
+        return SupplierIds;
     }
 }
