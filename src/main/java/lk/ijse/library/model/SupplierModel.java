@@ -64,7 +64,7 @@ public class SupplierModel {
     }
     public static boolean deleteFrom(String id) throws SQLException {
         Connection con = DBConnection.getInstance().getConnection();
-        String sql = "delete from member where memberId =?";
+        String sql = "delete from supplier where SupplierId =?";
 
         PreparedStatement stm = con.prepareStatement(sql);
 

@@ -86,8 +86,16 @@ public class SupplierAddFromController {
 
     }
 
-    public void OnDelete(ActionEvent actionEvent) {
+    public void OnDelete(ActionEvent actionEvent) throws SQLException {
+        String SupplierID = txtSearchID.getText();
 
+        boolean s3 = SupplierModel.deleteFrom(SupplierID);
+
+        if(s3) {
+//            Alerts alerts = new Alerts();
+//            alerts.notification("Member Delete Sucses....!", "Memebr Delete");
+            clear();
+        }
     }
 
     public void OnSearch(ActionEvent actionEvent) throws SQLException {
@@ -101,5 +109,13 @@ public class SupplierAddFromController {
         txtContact.setText(S1.getSupplierContact());
         txtSupplierAddress.setText(S1.getSupplierAddress());
         txtBookID.setText(S1.getBookID());
+
+    }
+    public void clear(){
+        txtSupllierID.setText("");
+        txtSupplierName.setText("");
+        txtSupplierAddress.setText("");
+        txtContact.setText("");
+        txtBookID.setText("");
     }
 }
