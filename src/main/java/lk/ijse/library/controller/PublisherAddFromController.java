@@ -59,10 +59,17 @@ public class PublisherAddFromController {
         txtBookID.setText(p1.getBookID());
     }
 
-    public void OnUpdate(ActionEvent actionEvent) {
+    public void OnUpdate(ActionEvent actionEvent) throws SQLException {
         String PublisherID = txtPublisherID.getText();
         String PublisherName = txtPublisherName.getText();
         String BookID = txtBookID.getText();
+
+        Publisher publisher = new Publisher();
+        publisher.setPublisherID(PublisherID);
+        publisher.setPublisherName(PublisherName);
+        publisher.setBookID(BookID);
+
+         boolean b1 = PublisherModel.updatePublisher(publisher);
 
     }
 

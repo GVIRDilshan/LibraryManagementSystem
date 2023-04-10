@@ -49,13 +49,9 @@ public class PublisherModel {
 
         PreparedStatement stm = con.prepareStatement(sql);
 
-//        stm.setObject(1, member.getName());
-//        stm.setObject(2, member.getAddress());
-//        stm.setObject(3, member.getContact());
-//        stm.setObject(4, member.getAge());
-//        stm.setObject(5,member.getEmail());
-//        stm.setObject(6,member.getGender());
-//        stm.setObject(7, member.getId());
+        stm.setObject(1,publisher.getPublisherName());
+        stm.setObject(2,publisher.getBookID());
+        stm.setObject(3,publisher.getPublisherID());
 
 
         int result = stm.executeUpdate();
