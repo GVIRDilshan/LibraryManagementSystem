@@ -7,7 +7,6 @@ public class Member {
     private String Contact;
     private int age;
     private String Email;
-
     private String Gender;
 
     public String getId() {

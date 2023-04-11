@@ -1,12 +1,18 @@
 package lk.ijse.library.controller;
 
 import com.jfoenix.controls.JFXTextField;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.library.dto.Member;
@@ -14,11 +20,30 @@ import lk.ijse.library.model.MemberModel;
 import lk.ijse.library.util.Alerts;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
 
-public class MemberManageFromController {
+public class MemberManageFromController implements Initializable {
     @FXML
     private AnchorPane root;
+
+    @FXML
+    private TableView<Member> tblMembers;
+
+    @FXML
+    private TableColumn<?, ?> colMemberID;
+
+    @FXML
+    private TableColumn<?, ?> ColName;
+
+    @FXML
+    private TableColumn<?, ?> colAge;
+
+    @FXML
+    private TableColumn<?, ?> colEmail;
+
 
     @FXML
     private JFXTextField txtMemberId;
@@ -171,5 +196,15 @@ public class MemberManageFromController {
         txtMemberAge.setText("");
         txtMemberEmail.setText("");
         txtMemberGender.setText("");
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+
+    }
+
+    public void GoView(ActionEvent actionEvent) {
+
     }
 }

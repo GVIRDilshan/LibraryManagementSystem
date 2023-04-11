@@ -15,6 +15,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static com.sun.javafx.scene.control.skin.Utils.getResource;
+
 public class DashBoardFromController implements Initializable {
 
     @FXML
@@ -131,4 +133,19 @@ public class DashBoardFromController implements Initializable {
 //            e.printStackTrace();
 //        }
     }
+
+    public void GoDashBoard(ActionEvent actionEvent) throws IOException {
+        try {
+            Parent view = FXMLLoader.load(this.getClass().getResource("/view/DashBoardFrom.fxml"));
+            Stage primaryStage = (Stage) root.getScene().getWindow();
+            Scene scene = new Scene(view);
+            primaryStage.setScene(scene);
+            primaryStage.centerOnScreen();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
+
+
+

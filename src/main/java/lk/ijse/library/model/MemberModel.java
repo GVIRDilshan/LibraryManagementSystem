@@ -4,6 +4,7 @@ import lk.ijse.library.db.DBConnection;
 import lk.ijse.library.dto.Member;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class MemberModel {
 
@@ -83,4 +84,31 @@ public class MemberModel {
                 return false;
             }
     }
+    public static ArrayList<Member> loadAllMember() throws SQLException {
+
+        Connection con = DBConnection.getInstance().getConnection();
+        String sql = "select * from member";
+
+            PreparedStatement stm = con.prepareStatement(sql);
+
+            ResultSet result = stm.executeQuery();
+
+            ArrayList<Member> members = new ArrayList<>();
+
+            while (result.next()) {
+                Member member = new Member();
+
+                member.setId(result.getString(1));
+                member.setName(result.getString(2));
+                member.setAddress(result.getString(3));
+                member.setContact(result.getString(4));
+                member.setAge(Integer.parseInt(result.getString(5)));
+                member.setEmail(result.getString(6));
+                member.setGender(result.getString(7));
+
+                members.add(member);
+            }
+
+            return members;
+        }
 }

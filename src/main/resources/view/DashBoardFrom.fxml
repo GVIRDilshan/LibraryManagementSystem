@@ -1,72 +1,129 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane fx:id="root" prefHeight="771.0" prefWidth="1303.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.library.controller.DashBoardFromController">
    <children>
       <AnchorPane fx:id="MainPane" layoutX="213.0" layoutY="121.0" prefHeight="640.0" prefWidth="1080.0" style="-fx-background-color: #dcdde1; -fx-background-radius: 35;">
          <children>
-            <AnchorPane fx:id="dashBoardPane" layoutX="14.0" layoutY="16.0" prefHeight="594.0" prefWidth="1049.0" style="-fx-background-color: fff;" />
+            <AnchorPane fx:id="dashBoardPane" layoutX="14.0" layoutY="16.0" prefHeight="594.0" prefWidth="1049.0" style="-fx-background-color: fff;">
+               <children>
+                  <LineChart layoutX="25.0" layoutY="158.0" prefHeight="400.0" prefWidth="803.0">
+                    <xAxis>
+                      <CategoryAxis side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis side="LEFT" />
+                    </yAxis>
+                  </LineChart>
+                  <JFXButton layoutX="872.0" layoutY="139.0" onAction="#goAutor" prefHeight="43.0" prefWidth="145.0" style="-fx-background-color: #95a5a6;" text="Autor">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton layoutX="872.0" layoutY="222.0" onAction="#GoSuppliers" prefHeight="43.0" prefWidth="145.0" style="-fx-background-color: #95a5a6;" text="Supplies">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton layoutX="872.0" layoutY="307.0" onAction="#GoPublishers" prefHeight="51.0" prefWidth="145.0" style="-fx-background-color: #95a5a6;" text="publishers">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton layoutX="872.0" layoutY="60.0" prefHeight="51.0" prefWidth="145.0" style="-fx-background-color: #95a5a6;" text="Donetion">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton layoutX="872.0" layoutY="391.0" prefHeight="43.0" prefWidth="145.0" style="-fx-background-color: #95a5a6;" text="Setting">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </JFXButton>
+               </children></AnchorPane>
          </children>
       </AnchorPane>
-      <Pane layoutX="14.0" layoutY="8.0" prefHeight="758.0" prefWidth="180.0" style="-fx-background-color: #192a56; -fx-background-radius: 45;" AnchorPane.bottomAnchor="7.0" AnchorPane.topAnchor="8.0">
+      <Pane layoutX="4.0" layoutY="8.0" prefHeight="756.0" prefWidth="167.0" style="-fx-background-color: #192a56; -fx-background-radius: 45;" AnchorPane.bottomAnchor="7.0" AnchorPane.topAnchor="8.0">
          <children>
-            <JFXButton layoutX="13.0" layoutY="154.0" onAction="#GoBook" prefHeight="51.0" prefWidth="145.0" style="-fx-background-color: #95a5a6;" text="Book Manage">
+            <JFXButton buttonType="RAISED" layoutX="37.0" layoutY="235.0" onAction="#GoBook" prefHeight="68.0" prefWidth="79.0" style="-fx-background-color: #192a56;" text=".">
                <font>
                   <Font size="16.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutX="13.0" layoutY="218.0" onAction="#GoIssuse" prefHeight="51.0" prefWidth="145.0" style="-fx-background-color: #95a5a6;" text="Issuse">
+            <JFXButton layoutX="37.0" layoutY="316.0" onAction="#GoIssuse" prefHeight="68.0" prefWidth="78.0" style="-fx-background-color: #95a5a6;" text="Issuse">
                <font>
                   <Font size="24.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutX="13.0" layoutY="282.0" onAction="#GoReturn" prefHeight="51.0" prefWidth="145.0" style="-fx-background-color: #95a5a6;" text="     Return Books">
+            <JFXButton layoutX="37.0" layoutY="396.0" onAction="#GoReturn" prefHeight="68.0" prefWidth="78.0" style="-fx-background-color: #95a5a6;" text=".">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="37.0" layoutY="156.0" onAction="#GoMember" prefHeight="68.0" prefWidth="78.0" style="-fx-background-color: #192a56;" text=".">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="49.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../mods/user.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="37.0" layoutY="79.0" onAction="#GoDashBoard" prefHeight="68.0" prefWidth="78.0" style="-fx-background-color: #192a56;" text="." textAlignment="JUSTIFY">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="38.0" layoutY="481.0" onAction="#GoReturn" prefHeight="68.0" prefWidth="78.0" style="-fx-background-color: #95a5a6;" text="     Return Books">
                <font>
                   <Font size="21.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutX="13.0" layoutY="90.0" onAction="#GoMember" prefHeight="51.0" prefWidth="145.0" style="-fx-background-color: #95a5a6;" text="Member">
+            <JFXButton layoutX="36.0" layoutY="561.0" onAction="#GoReturn" prefHeight="68.0" prefWidth="80.0" style="-fx-background-color: #95a5a6;" text="     Return Books">
                <font>
-                  <Font size="16.0" />
+                  <Font size="21.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutX="13.0" layoutY="478.0" onAction="#goAutor" prefHeight="51.0" prefWidth="145.0" style="-fx-background-color: #95a5a6;" text="Autor">
+            <Text fill="#d7d7d7" fontSmoothingType="LCD" layoutX="44.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DashBoard" wrappingWidth="71.6708984375">
                <font>
-                  <Font size="26.0" />
+                  <Font size="13.0" />
                </font>
-            </JFXButton>
-            <JFXButton layoutX="13.0" layoutY="346.0" prefHeight="51.0" prefWidth="145.0" style="-fx-background-color: #95a5a6;" text="Donetion">
+            </Text>
+            <Text fill="WHITE" layoutX="50.0" layoutY="214.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Member">
                <font>
-                  <Font size="24.0" />
+                  <Font size="13.5" />
                </font>
-            </JFXButton>
-            <JFXButton layoutX="13.0" layoutY="411.0" onAction="#GoPublishers" prefHeight="51.0" prefWidth="145.0" style="-fx-background-color: #95a5a6;" text="publishers">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </JFXButton>
-            <JFXButton layoutX="13.0" layoutY="615.0" prefHeight="51.0" prefWidth="145.0" style="-fx-background-color: #95a5a6;" text="Setting">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </JFXButton>
-            <ImageView fitHeight="43.0" fitWidth="59.0" layoutX="21.0" layoutY="286.0" pickOnBounds="true" preserveRatio="true">
+            </Text>
+            <Text fill="WHITE" layoutX="56.0" layoutY="294.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Book" wrappingWidth="39.6708984375" />
+            <ImageView fitHeight="54.0" fitWidth="67.0" layoutX="50.0" layoutY="226.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Pic/IMG-20230326-WA0020.jpg" />
+                  <Image url="@../../../../../../mods/open-book.png" />
                </image>
             </ImageView>
-            <JFXButton layoutX="13.0" layoutY="547.0" onAction="#GoSuppliers" prefHeight="51.0" prefWidth="145.0" style="-fx-background-color: #95a5a6;" text="Supplies">
-               <font>
-                  <Font size="26.0" />
-               </font>
-            </JFXButton>
+            <ImageView fitHeight="49.0" fitWidth="47.0" layoutX="54.0" layoutY="85.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../mods/home.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="54.0" fitWidth="67.0" layoutX="48.0" layoutY="396.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../mods/return%20book.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
       <Label fx:id="lblTopic" layoutX="227.0" layoutY="33.0" prefHeight="69.0" prefWidth="424.0" text="DashBoard        " textFill="#0066ff">
