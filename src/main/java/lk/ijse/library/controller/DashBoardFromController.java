@@ -123,6 +123,7 @@ public class DashBoardFromController implements Initializable {
         Node node;
         node = FXMLLoader.load(getClass().getResource("/view/SupplierAddFrom.fxml"));
         MainPane.getChildren().setAll(node);
+        lblTopic.setText("Supplier From");
 //        try {
 //            Parent view = FXMLLoader.load(this.getClass().getResource("/view/SupplierAddFrom.fxml"));
 //            Stage primaryStage = (Stage) root.getScene().getWindow();
@@ -144,6 +145,17 @@ public class DashBoardFromController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void GetReport(ActionEvent actionEvent) {
+
+    }
+
+    public void getEmail(ActionEvent actionEvent) throws IOException {
+        Node node;
+        node = FXMLLoader.load(getClass().getResource("/view/EmailFrom.fxml"));
+        MainPane.getChildren().setAll(node);
+        lblTopic.setText("Send Email");
     }
 }
 
