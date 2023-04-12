@@ -146,8 +146,10 @@ public class BookModel {
 
             book.setId(result.getString(1));
             book.setName(result.getString(2));
-
-
+            book.setAuthor(result.getString(3));
+            book.setPublisher(result.getString(4));
+            book.setSupplier(result.getString(5));
+            book.setQty(Integer.parseInt(result.getString(6)));
 
             return book;
         }

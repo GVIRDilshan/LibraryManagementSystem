@@ -7,6 +7,8 @@ public class Issuse {
     private String bookId;
     private String dueDate;
 
+    private String issuseQty;
+
     public String getIssusId() {
         return issusId;
     }
@@ -45,5 +47,13 @@ public class Issuse {
 
     public void setDueDate(String dueDate) {
         this.dueDate = dueDate;
+    }
+
+    public String getIssuseQty() {
+        return issuseQty;
+    }
+
+    public void setIssuseQty(String issuseQty) {
+        this.issuseQty = issuseQty;
     }
 }

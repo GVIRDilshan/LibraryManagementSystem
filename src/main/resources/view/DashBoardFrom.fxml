@@ -6,6 +6,8 @@
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -19,7 +21,7 @@
          <children>
             <AnchorPane fx:id="dashBoardPane" layoutX="9.0" layoutY="7.0" prefHeight="624.0" prefWidth="1094.0" style="-fx-background-color: fff; -fx-background-radius: 25;">
                <children>
-                  <LineChart layoutX="14.0" layoutY="192.0" prefHeight="210.0" prefWidth="952.0">
+                  <LineChart layoutX="14.0" layoutY="132.0" prefHeight="210.0" prefWidth="952.0">
                     <xAxis>
                       <CategoryAxis side="BOTTOM" />
                     </xAxis>
@@ -36,8 +38,14 @@
                            <image>
                               <Image url="@../Pic/Writer-icon-removebg-preview.png" />
                            </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </ImageView>
                      </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </JFXButton>
                   <JFXButton layoutX="980.0" layoutY="252.0" onAction="#GoSuppliers" prefHeight="89.0" prefWidth="92.0" style="-fx-background-color: #192a56; -fx-background-radius: 26;" text="." textFill="WHITE">
                      <font>
@@ -48,13 +56,22 @@
                            <image>
                               <Image url="@../Pic/images-removebg-preview.png" />
                            </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </ImageView>
                      </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </JFXButton>
                   <JFXButton layoutX="980.0" layoutY="365.0" onAction="#GoPublishers" prefHeight="89.0" prefWidth="92.0" style="-fx-background-color: #192a56; -fx-background-radius: 26;" text="pub" textFill="WHITE">
                      <font>
                         <Font size="24.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </JFXButton>
                   <JFXButton layoutX="980.0" layoutY="33.0" prefHeight="93.0" prefWidth="101.0" style="-fx-background-color: #192a56; -fx-background-radius: 26;" text="." textFill="WHITE">
                      <font>
@@ -65,8 +82,14 @@
                            <image>
                               <Image url="@../Pic/help-icon-charity-icons-icon-donation-icon-LCk9EpcG-removebg-preview.png" />
                            </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </ImageView>
                      </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </JFXButton>
                   <JFXButton layoutX="980.0" layoutY="474.0" prefHeight="94.0" prefWidth="92.0" style="-fx-background-color: #192a56; -fx-background-radius: 26;" text="." textFill="WHITE">
                      <font>
@@ -77,8 +100,14 @@
                            <image>
                               <Image url="@../Pic/hd-settings-white-line-icon-transparent-background-11640542805hqo7mmbfed-removebg-preview.png" />
                            </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </ImageView>
                      </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </JFXButton>
                   <Text fill="WHITE" layoutX="987.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="deonetion" wrappingWidth="79.34179162979126">
                      <font>
@@ -105,6 +134,22 @@
                         <Font size="17.0" />
                      </font>
                   </Text>
+                  <TableView fx:id="tblIssuse" layoutX="13.0" layoutY="348.0" prefHeight="253.0" prefWidth="463.0">
+                    <columns>
+                      <TableColumn fx:id="coliid" prefWidth="55.0" text="iid" />
+                      <TableColumn fx:id="colBookId" prefWidth="73.0" text="BookID" />
+                        <TableColumn fx:id="colIssuseDate" prefWidth="75.0" text="IsuDate" />
+                        <TableColumn fx:id="colMemberID" prefWidth="88.0" text="MemberID" />
+                        <TableColumn fx:id="colDueDate" prefWidth="99.0" text="DueDate" />
+                        <TableColumn fx:id="colIssuseQty" prefWidth="72.0" text="Issusqty" />
+                    </columns>
+                  </TableView>
+                  <TableView layoutX="490.0" layoutY="348.0" prefHeight="253.0" prefWidth="445.0">
+                     <columns>
+                        <TableColumn prefWidth="75.0" text="C1" />
+                        <TableColumn prefWidth="75.0" text="C2" />
+                     </columns>
+                  </TableView>
                </children></AnchorPane>
          </children>
       </AnchorPane>
@@ -137,6 +182,9 @@
                      <image>
                         <Image url="@../Pic/pngtree-white-search-icon-image_1344885-removebg-preview.png" />
                      </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </ImageView>
                </graphic>
             </JFXButton>
@@ -152,6 +200,9 @@
                      <image>
                         <Image url="@../Pic/transparent-emails-icon-reply-icon-return-icon-605db657ca7974.5523131916167542638293-removebg-preview.png" />
                      </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </ImageView>
                </graphic>
             </JFXButton>
@@ -197,6 +248,9 @@
                      <image>
                         <Image url="@../Pic/png-mail-email-address-round-outline-white-icon-11637079490wb440m0iml-removebg-preview.png" />
                      </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </ImageView>
                </graphic>
             </JFXButton>

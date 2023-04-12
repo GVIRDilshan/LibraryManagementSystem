@@ -19,6 +19,7 @@ import lk.ijse.library.dto.Book;
 import lk.ijse.library.dto.Issuse;
 import lk.ijse.library.dto.Member;
 import lk.ijse.library.model.BookModel;
+import lk.ijse.library.model.IssuseModel;
 import lk.ijse.library.model.MemberModel;
 
 import java.io.IOException;
@@ -64,6 +65,8 @@ public class IssuseFromController implements Initializable {
     private DatePicker DatePiker;
 
 
+
+
     @FXML
     void OnBack(ActionEvent event) {
         try {
@@ -78,12 +81,13 @@ public class IssuseFromController implements Initializable {
     }
 
     @FXML
-    void OnIssuse(ActionEvent event) {
+    void OnIssuse(ActionEvent event) throws SQLException {
         String IssuseID = txtIssuseID.getText();
         String Qty = txtQty.getText();
         String dueDate = String.valueOf(DatePiker.getValue());
         String BookID = String.valueOf(cmbBookID.getValue());
         String memberID = String.valueOf(cmbMemberID.getValue());
+        String IssuseQty = txtQty.getText();
 
         Issuse issuse = new Issuse();
         issuse.setIssusId(IssuseID);
@@ -91,10 +95,11 @@ public class IssuseFromController implements Initializable {
         issuse.setIssusDate(String.valueOf(LocalDate.now()));
         issuse.setBookId(BookID);
         issuse.setMemberId(memberID);
+        issuse.setIssuseQty(IssuseQty);
 
-        System.out.println(Qty+" "+issuse.getIssusDate()+" "+issuse.getDueDate());
+        System.out.println(Qty+" "+issuse.getIssusDate()+" "+issuse.getDueDate()+" "+issuse.getIssusId()+" "+issuse.getMemberId());
 
-
+        boolean i1 = IssuseModel.issuseFrom(issuse,Qty,BookID);
 
     }
     private void setOrderDate() {
@@ -105,6 +110,7 @@ public class IssuseFromController implements Initializable {
     void OnSelectBookID(ActionEvent event) throws SQLException {
         Book book = BookModel.searchFrom((String) cmbBookID.getValue());
         lblBookName.setText(book.getName());
+        lblQty.setText(String.valueOf(book.getQty()));
     }
 
     @FXML
