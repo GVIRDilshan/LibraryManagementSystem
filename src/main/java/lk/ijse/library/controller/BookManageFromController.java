@@ -10,13 +10,17 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.library.dto.Autor;
 import lk.ijse.library.dto.Book;
-import lk.ijse.library.model.AutorModel;
-import lk.ijse.library.model.PublisherModel;
-import lk.ijse.library.model.SupplierModel;
+import lk.ijse.library.dto.Publisher;
+import lk.ijse.library.dto.Supplier;
+import lk.ijse.library.model.*;
 
 import java.io.IOException;
 import java.net.URL;
@@ -48,7 +52,37 @@ public class BookManageFromController implements Initializable {
     private JFXComboBox<?> cmbAutorId;
 
     @FXML
-    void OnAdd(ActionEvent event) {
+    private Label lblSupplierName;
+
+    @FXML
+    private Label lblAutorName;
+
+    @FXML
+    private Label lblPublisherName;
+
+    @FXML
+    private TableView<Book> tblBooks;
+
+    @FXML
+    private TableColumn<?, ?> colBookID;
+
+    @FXML
+    private TableColumn<?, ?> colName;
+
+    @FXML
+    private TableColumn<?, ?> colAutor;
+
+    @FXML
+    private TableColumn<?, ?> colPublisherID;
+
+    @FXML
+    private TableColumn<?, ?> colSupplierID;
+
+    @FXML
+    private TableColumn<?, ?> colWty;
+
+    @FXML
+    void OnAdd(ActionEvent event) throws SQLException {
         String BookID = txtBookID.getText();
         String BookName = txtBookName.getText();
         int Qty = Integer.parseInt(txtBookQty.getText());
@@ -59,7 +93,10 @@ public class BookManageFromController implements Initializable {
         book.setName(BookName);
         book.setQty(Qty);
         book.setAuthor(String.valueOf(cmbAutorId.getValue()));
+        book.setSupplier(String.valueOf(cmbSupplierId.getValue()));
+        book.setPublisher(String.valueOf(cmbPulisherID.getValue()));
 
+        boolean b1 = BookModel.BookAdd(book);
     }
 
     @FXML
@@ -76,22 +113,27 @@ public class BookManageFromController implements Initializable {
     }
 
     @FXML
-    void OnSelectPulisherID(ActionEvent event) {
+    void OnSelectPulisherID(ActionEvent event) throws SQLException {
+        Publisher publisher = PublisherModel.searchFrom((String) cmbPulisherID.getValue());
+        lblPublisherName.setText(publisher.getPublisherName());
 
     }
 
     @FXML
-    void OnSelectSuplierId(ActionEvent event) {
-
+    void OnSelectSuplierId(ActionEvent event) throws SQLException {
+        Supplier supplier = SupplierModel.searchFrom((String) cmbSupplierId.getValue());
+        lblSupplierName.setText(supplier.getSupplierName());
     }
 
     @FXML
-    void onSelectAutorId(ActionEvent event) {
-
+    void onSelectAutorId(ActionEvent event) throws SQLException {
+        Autor autor = AutorModel.searchFrom((String) cmbAutorId.getValue());
+        lblAutorName.setText(autor.getAutorName());
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         try {
             loadAutorIds();
             loadSupplierIds();
@@ -99,6 +141,21 @@ public class BookManageFromController implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        tblBooks.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("bookId"));
+        tblBooks.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("name"));
+        tblBooks.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("author_Id"));
+        tblBooks.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("Publisher"));
+        tblBooks.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("Supplier"));
+        tblBooks.getColumns().get(5).setCellValueFactory(new PropertyValueFactory<>("qty"));
+
+        ArrayList<Book> books;
+        try {
+            books = BookModel.loadAllBooks();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        tblBooks.setItems(FXCollections.observableArrayList(books));
+
     }
 
     public void OnUpdate(ActionEvent actionEvent) {

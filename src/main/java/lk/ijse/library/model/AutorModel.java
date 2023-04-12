@@ -93,7 +93,7 @@ public class AutorModel {
 
         Connection con = DBConnection.getInstance().getConnection();
 
-        String sql = "select AutorId from Autor";
+        String sql = "select  AutorId from Autor";
 
         PreparedStatement stm = con.prepareStatement(sql);
 
