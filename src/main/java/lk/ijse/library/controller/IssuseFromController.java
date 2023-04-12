@@ -1,19 +1,35 @@
 package lk.ijse.library.controller;
 
 import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.library.dto.Book;
+import lk.ijse.library.dto.Issuse;
+import lk.ijse.library.dto.Member;
+import lk.ijse.library.model.BookModel;
+import lk.ijse.library.model.MemberModel;
 
 import java.io.IOException;
+import java.net.URL;
+import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
 
-public class IssuseFromController {
+public class IssuseFromController implements Initializable {
     @FXML
     private AnchorPane root;
 
@@ -45,6 +61,10 @@ public class IssuseFromController {
     private JFXTextField txtQty;
 
     @FXML
+    private DatePicker DatePiker;
+
+
+    @FXML
     void OnBack(ActionEvent event) {
         try {
             Parent view = FXMLLoader.load(this.getClass().getResource("/view/DashBoardFrom.fxml"));
@@ -59,16 +79,69 @@ public class IssuseFromController {
 
     @FXML
     void OnIssuse(ActionEvent event) {
+        String IssuseID = txtIssuseID.getText();
+        String Qty = txtQty.getText();
+        String dueDate = String.valueOf(DatePiker.getValue());
+        String BookID = String.valueOf(cmbBookID.getValue());
+        String memberID = String.valueOf(cmbMemberID.getValue());
 
+        Issuse issuse = new Issuse();
+        issuse.setIssusId(IssuseID);
+        issuse.setDueDate(dueDate);
+        issuse.setIssusDate(String.valueOf(LocalDate.now()));
+        issuse.setBookId(BookID);
+        issuse.setMemberId(memberID);
+
+        System.out.println(Qty+" "+issuse.getIssusDate()+" "+issuse.getDueDate());
+
+
+
+    }
+    private void setOrderDate() {
+        lblLocalDate.setText(String.valueOf(LocalDate.now()));
     }
 
     @FXML
-    void OnSelectBookID(ActionEvent event) {
-
+    void OnSelectBookID(ActionEvent event) throws SQLException {
+        Book book = BookModel.searchFrom((String) cmbBookID.getValue());
+        lblBookName.setText(book.getName());
     }
 
     @FXML
-    void OnSelectMemberID(ActionEvent event) {
+    void OnSelectMemberID(ActionEvent event) throws SQLException {
+        Member member = MemberModel.searchFrom((String) cmbMemberID.getValue());
+        lblMemberName.setText(member.getName());
+        lblContact.setText(member.getContact());
+    }
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        setOrderDate();
+        try {
+            loadBookIds();
+            loadMemersIds();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public void loadBookIds() throws SQLException {
+        ArrayList<String> BookIds = BookModel.loadAllBookIds();
+
+        ObservableList ids = FXCollections.observableArrayList();
+
+        for (String id : BookIds){
+            ids.add(id);
+        }
+        cmbBookID.setItems(ids);
+    }
+    public void loadMemersIds() throws SQLException {
+        ArrayList<String> MemberIds = MemberModel.loadAllMemberIds();
+
+        ObservableList ids = FXCollections.observableArrayList();
+
+        for (String id : MemberIds){
+            ids.add(id);
+        }
+        cmbMemberID.setItems(ids);
     }
 }

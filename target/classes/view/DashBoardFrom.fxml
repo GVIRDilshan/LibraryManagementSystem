@@ -27,35 +27,88 @@
                       <NumberAxis side="LEFT" />
                     </yAxis>
                   </LineChart>
-                  <JFXButton layoutX="980.0" layoutY="141.0" onAction="#goAutor" prefHeight="89.0" prefWidth="92.0" style="-fx-background-color: #192a56; -fx-background-radius: 26;" text="Aut" textFill="WHITE">
+                  <JFXButton layoutX="980.0" layoutY="141.0" onAction="#goAutor" prefHeight="89.0" prefWidth="92.0" style="-fx-background-color: #192a56; -fx-background-radius: 26;" text="." textFill="WHITE">
                      <font>
-                        <Font size="26.0" />
+                        <Font size="10.0" />
                      </font>
+                     <graphic>
+                        <ImageView fitHeight="65.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Pic/Writer-icon-removebg-preview.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </JFXButton>
-                  <JFXButton layoutX="980.0" layoutY="252.0" onAction="#GoSuppliers" prefHeight="89.0" prefWidth="92.0" style="-fx-background-color: #192a56; -fx-background-radius: 26;" text="Sup" textFill="WHITE">
+                  <JFXButton layoutX="980.0" layoutY="252.0" onAction="#GoSuppliers" prefHeight="89.0" prefWidth="92.0" style="-fx-background-color: #192a56; -fx-background-radius: 26;" text="." textFill="WHITE">
                      <font>
-                        <Font size="26.0" />
+                        <Font size="2.0" />
                      </font>
+                     <graphic>
+                        <ImageView fitHeight="59.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Pic/images-removebg-preview.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </JFXButton>
                   <JFXButton layoutX="980.0" layoutY="365.0" onAction="#GoPublishers" prefHeight="89.0" prefWidth="92.0" style="-fx-background-color: #192a56; -fx-background-radius: 26;" text="pub" textFill="WHITE">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton layoutX="980.0" layoutY="33.0" prefHeight="89.0" prefWidth="92.0" style="-fx-background-color: #192a56; -fx-background-radius: 26;" text="dont" textFill="WHITE">
+                  <JFXButton layoutX="980.0" layoutY="33.0" prefHeight="93.0" prefWidth="101.0" style="-fx-background-color: #192a56; -fx-background-radius: 26;" text="." textFill="WHITE">
                      <font>
-                        <Font size="24.0" />
+                        <Font size="11.0" />
                      </font>
+                     <graphic>
+                        <ImageView fitHeight="72.0" fitWidth="89.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Pic/help-icon-charity-icons-icon-donation-icon-LCk9EpcG-removebg-preview.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </JFXButton>
-                  <JFXButton layoutX="980.0" layoutY="474.0" prefHeight="89.0" prefWidth="92.0" style="-fx-background-color: #192a56; -fx-background-radius: 26;" text="Sett" textFill="WHITE">
+                  <JFXButton layoutX="980.0" layoutY="474.0" prefHeight="94.0" prefWidth="92.0" style="-fx-background-color: #192a56; -fx-background-radius: 26;" text="." textFill="WHITE">
                      <font>
-                        <Font size="24.0" />
+                        <Font size="7.0" />
                      </font>
+                     <graphic>
+                        <ImageView fitHeight="64.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Pic/hd-settings-white-line-icon-transparent-background-11640542805hqo7mmbfed-removebg-preview.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </JFXButton>
+                  <Text fill="WHITE" layoutX="987.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="deonetion" wrappingWidth="79.34179162979126">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="999.0" layoutY="227.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Author" wrappingWidth="79.34179162979126">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="994.0" layoutY="338.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Supplier" wrappingWidth="79.34179162979126">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="988.0" layoutY="443.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Publisher" wrappingWidth="79.34179162979126">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="995.0" layoutY="562.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Setting" wrappingWidth="79.34179162979126">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
                </children></AnchorPane>
          </children>
       </AnchorPane>
-      <Pane layoutX="5.0" layoutY="8.0" prefHeight="756.0" prefWidth="167.0" style="-fx-background-color: #192a56; -fx-background-radius: 45;" AnchorPane.bottomAnchor="7.0" AnchorPane.topAnchor="8.0">
+      <Pane layoutX="7.0" layoutY="7.0" prefHeight="756.0" prefWidth="167.0" style="-fx-background-color: #192a56; -fx-background-radius: 45;" AnchorPane.bottomAnchor="8.0" AnchorPane.topAnchor="7.0">
          <children>
             <JFXButton buttonType="RAISED" layoutX="37.0" layoutY="235.0" onAction="#GoBook" prefHeight="68.0" prefWidth="79.0" style="-fx-background-color: #192a56;" text=".">
                <font>
@@ -64,6 +117,13 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <graphic>
+                  <ImageView fitHeight="48.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Pic/open-book.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </JFXButton>
             <JFXButton buttonType="RAISED" layoutX="37.0" layoutY="316.0" onAction="#GoIssuse" prefHeight="68.0" prefWidth="78.0" style="-fx-background-color: #192a56;" text=".">
                <font>
@@ -72,6 +132,13 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <graphic>
+                  <ImageView fitHeight="55.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Pic/pngtree-white-search-icon-image_1344885-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </JFXButton>
             <JFXButton buttonType="RAISED" layoutX="37.0" layoutY="396.0" onAction="#GoReturn" prefHeight="68.0" prefWidth="78.0" style="-fx-background-color: #192a56;" text=".">
                <font>
@@ -80,6 +147,13 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <graphic>
+                  <ImageView fitHeight="45.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Pic/transparent-emails-icon-reply-icon-return-icon-605db657ca7974.5523131916167542638293-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </JFXButton>
             <JFXButton buttonType="RAISED" layoutX="37.0" layoutY="156.0" onAction="#GoMember" prefHeight="68.0" prefWidth="78.0" style="-fx-background-color: #192a56;" text=".">
                <font>
@@ -88,6 +162,13 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <graphic>
+                  <ImageView fitHeight="58.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Pic/user.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </JFXButton>
             <JFXButton buttonType="RAISED" layoutX="37.0" layoutY="79.0" onAction="#GoDashBoard" prefHeight="68.0" prefWidth="78.0" style="-fx-background-color: #192a56;" text="." textAlignment="JUSTIFY">
                <font>
@@ -96,6 +177,13 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <graphic>
+                  <ImageView fitHeight="55.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Pic/home.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </JFXButton>
             <JFXButton buttonType="RAISED" layoutX="36.0" layoutY="561.0" onAction="#getEmail" prefHeight="72.0" prefWidth="80.0" style="-fx-background-color: #192a56;" text="     Return Books">
                <font>
@@ -104,14 +192,21 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <graphic>
+                  <ImageView fitHeight="54.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Pic/png-mail-email-address-round-outline-white-icon-11637079490wb440m0iml-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </JFXButton>
-            <Text fill="#d7d7d7" fontSmoothingType="LCD" layoutX="40.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DashBoard" wrappingWidth="77.6708984375" />
+            <Text fill="#d7d7d7" fontSmoothingType="LCD" layoutX="39.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DashBoard" wrappingWidth="77.6708984375" />
             <Text fill="WHITE" layoutX="49.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Member">
                <font>
                   <Font size="15.5" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="55.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Book" wrappingWidth="39.6708984375">
+            <Text fill="WHITE" layoutX="55.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Book" wrappingWidth="39.6708984375">
                <font>
                   <Font size="16.0" />
                </font></Text>
@@ -122,23 +217,30 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <graphic>
+                  <ImageView fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Pic/report.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </JFXButton>
-            <Text fill="WHITE" layoutX="51.0" layoutY="379.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Issuse" wrappingWidth="59.506343722343445">
+            <Text fill="WHITE" layoutX="57.0" layoutY="383.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Issuse" wrappingWidth="59.506343722343445">
                <font>
                   <Font size="17.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="47.0" layoutY="459.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Return" wrappingWidth="59.506343722343445">
+            <Text fill="WHITE" layoutX="51.0" layoutY="465.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Return" wrappingWidth="59.506343722343445">
                <font>
                   <Font size="17.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="48.0" layoutY="549.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Report" wrappingWidth="59.506343722343445">
+            <Text fill="WHITE" layoutX="49.0" layoutY="560.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Report" wrappingWidth="59.506343722343445">
                <font>
                   <Font size="17.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="54.0" layoutY="627.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" wrappingWidth="46.1708984375">
+            <Text fill="WHITE" layoutX="54.0" layoutY="639.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" wrappingWidth="46.1708984375">
                <font>
                   <Font size="18.0" />
                </font>

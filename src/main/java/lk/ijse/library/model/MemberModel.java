@@ -111,4 +111,22 @@ public class MemberModel {
 
             return members;
         }
+    public static ArrayList<String> loadAllMemberIds() throws SQLException {
+
+        Connection con = DBConnection.getInstance().getConnection();
+
+        String sql = "select memberId from member";
+
+        PreparedStatement stm = con.prepareStatement(sql);
+
+        ResultSet result = stm.executeQuery();
+
+        ArrayList<String> MemberIds = new ArrayList<>();
+
+        while (result.next()) {
+            MemberIds.add(result.getString(1));
+        }
+        return MemberIds;
+
+    }
 }
