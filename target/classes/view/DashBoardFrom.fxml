@@ -134,14 +134,14 @@
                         <Font size="17.0" />
                      </font>
                   </Text>
-                  <TableView layoutX="13.0" layoutY="348.0" prefHeight="253.0" prefWidth="463.0">
+                  <TableView fx:id="tblIssuse" layoutX="13.0" layoutY="348.0" prefHeight="253.0" prefWidth="463.0">
                     <columns>
-                      <TableColumn prefWidth="69.0" text="BookID" />
-                      <TableColumn prefWidth="72.0" text="name" />
-                        <TableColumn prefWidth="67.0" text="AutorId" />
-                        <TableColumn prefWidth="92.0" text="PublisherID" />
-                        <TableColumn prefWidth="90.0" text="SupplierID" />
-                        <TableColumn prefWidth="72.0" text="Qty" />
+                      <TableColumn fx:id="coliid" prefWidth="55.0" text="iid" />
+                      <TableColumn fx:id="colBookId" prefWidth="73.0" text="BookID" />
+                        <TableColumn fx:id="colIssuseDate" prefWidth="75.0" text="IsuDate" />
+                        <TableColumn fx:id="colMemberID" prefWidth="88.0" text="MemberID" />
+                        <TableColumn fx:id="colDueDate" prefWidth="99.0" text="DueDate" />
+                        <TableColumn fx:id="colIssuseQty" prefWidth="72.0" text="Issusqty" />
                     </columns>
                   </TableView>
                   <TableView layoutX="490.0" layoutY="348.0" prefHeight="253.0" prefWidth="445.0">
