@@ -150,4 +150,9 @@ public class IssuseFromController implements Initializable {
         }
         cmbMemberID.setItems(ids);
     }
+    public void clear(){
+        txtIssuseID.setText("");
+        txtQty.setText("");
+     //   txtBookQty.setText("");
+    }
 }
