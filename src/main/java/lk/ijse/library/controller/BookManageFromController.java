@@ -198,5 +198,11 @@ public class BookManageFromController implements Initializable {
             ids.add(id);
         }
         cmbSupplierId.setItems(ids);
+    } public void clear(){
+        txtBookID.setText("");
+        txtBookName.setText("");
+        txtBookQty.setText("");
     }
+
+
 }
