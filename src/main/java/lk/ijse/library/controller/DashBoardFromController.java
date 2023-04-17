@@ -97,25 +97,28 @@ public class DashBoardFromController implements Initializable {
         Node node;
         node = FXMLLoader.load(getClass().getResource("/view/IssuseFrom.fxml"));
         MainPane.getChildren().setAll(node);
-        lblTopic.setText("IssuseFrom");
+        lblTopic.setText("Issuse From");
     }
 
-    public void GoReturn(ActionEvent actionEvent) {
-
+    public void GoReturn(ActionEvent actionEvent) throws IOException {
+        Node node;
+        node = FXMLLoader.load(getClass().getResource("/view/ReturnFrom.fxml"));
+        MainPane.getChildren().setAll(node);
+        lblTopic.setText("Return From");
     }
 
     public void goAutor(ActionEvent actionEvent) throws IOException {
         Node node;
         node = FXMLLoader.load(getClass().getResource("/view/AutorAddFrom.fxml"));
         MainPane.getChildren().setAll(node);
-        lblTopic.setText("AutorFrom");
+        lblTopic.setText("Autor From");
     }
 
     public void GoPublishers(ActionEvent actionEvent) throws IOException {
         Node node;
         node = FXMLLoader.load(getClass().getResource("/view/PublisherAddFrom.fxml"));
         MainPane.getChildren().setAll(node);
-        lblTopic.setText("PublisherFrom");
+        lblTopic.setText("Publisher From");
     }
 
     public void GoSuppliers(ActionEvent actionEvent) throws IOException {
