@@ -5,6 +5,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.library.dto.Issuse;
+import lk.ijse.library.model.IssuseModel;
+
+import java.sql.SQLException;
 
 public class ReturnFromController {
     @FXML
@@ -35,11 +39,25 @@ public class ReturnFromController {
     private Label lblQty;
 
 
-    public void GoIssuse(ActionEvent actionEvent) {
+    public void GoIssuse(ActionEvent actionEvent) throws SQLException {
+
+        String IssueseID = txtIssuseID.getText();
+
+        Issuse issuse  = IssuseModel.IssuseSearch(IssueseID);
+
+        lblIssueID.setText(issuse.getIssusId());
+        lblBookID.setText(issuse.getBookId());
+        lblDueDate.setText(issuse.getDueDate());
+        lblIssuseDate.setText(issuse.getIssusDate());
+        lblQty.setText(issuse.getIssuseQty());
+        lblMemberID.setText(issuse.getMemberId());
 
     }
 
-    public void GoReturn(ActionEvent actionEvent) {
+    public void GoReturn(ActionEvent actionEvent) throws SQLException {
+
+
+
 
     }
 }

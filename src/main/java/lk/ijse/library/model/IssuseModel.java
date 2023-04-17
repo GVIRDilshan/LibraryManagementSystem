@@ -62,6 +62,8 @@ public class IssuseModel {
                 issuses.setBookId(result.getString(2));
                 issuses.setIssusDate(result.getString(3));
                 issuses.setMemberId(result.getString(4));
+                issuses.setDueDate(result.getString(5));
+                issuses.setIssuseQty(result.getString(6));
 
                 return issuses;
             }
