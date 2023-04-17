@@ -3,9 +3,7 @@ package lk.ijse.library.model;
 import lk.ijse.library.db.DBConnection;
 import lk.ijse.library.dto.Issuse;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class IssuseModel {
     public static boolean issuseFrom(Issuse issuse, String qty, String Bookd) throws SQLException {
@@ -47,5 +45,29 @@ public class IssuseModel {
 
         return false;
     }
+    public static Issuse IssuseSearch(String iid) throws SQLException {
+
+        Connection con = DBConnection.getInstance().getConnection();
+        String sql = "select * from issuse where iid = ?";
+
+        PreparedStatement stm = con.prepareStatement(sql);
+
+            stm.setObject(1, iid);
+
+            ResultSet result = stm.executeQuery();
+
+            if (result.next()) {
+                Issuse issuses = new Issuse();
+                issuses.setIssusId(result.getString(1));
+                issuses.setBookId(result.getString(2));
+                issuses.setIssusDate(result.getString(3));
+                issuses.setMemberId(result.getString(4));
+
+                return issuses;
+            }
+            return null;
+
+        }
 }
+
 
