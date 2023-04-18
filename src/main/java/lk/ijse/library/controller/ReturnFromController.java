@@ -6,9 +6,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.library.dto.Issuse;
+import lk.ijse.library.dto.Return;
 import lk.ijse.library.model.IssuseModel;
 
+
 import java.sql.SQLException;
+import java.time.LocalDate;
 
 public class ReturnFromController {
     @FXML
@@ -52,12 +55,29 @@ public class ReturnFromController {
         lblQty.setText(issuse.getIssuseQty());
         lblMemberID.setText(issuse.getMemberId());
 
+
     }
 
     public void GoReturn(ActionEvent actionEvent) throws SQLException {
 
+        String IssuseId = txtIssuseID.getText();
+        String ReturnId = txtReturnID.getText();
+        String ReturnDate = String.valueOf(LocalDate.now());
+        String BookId = lblBookID.getText();
+        String IssuseDate = lblIssuseDate.getText();
+        String BookQty = lblQty.getText();
 
 
+        Return return1 = new Return();
+        return1.setIssuseId(IssuseId);
+        return1.setReturnId(ReturnId);
+        return1.setRreturnQty(ReturnDate);
+        return1.setBookId(BookId);
+        return1.setIssuseDate(IssuseDate);
+
+       // boolean b1 = ReturnModel.ReturnSet(return1,BookQty,BookId,IssuseId);
+        System.out.println(return1.getIssuseId()+" "+return1.getReturnId()+" "+return1.getBookId()+" " +
+                " "+return1.getReturnDate()+" "+return1.getIssuseDate());
 
     }
 }
