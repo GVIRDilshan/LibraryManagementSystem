@@ -8,6 +8,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -16,6 +18,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.library.dto.Issuse;
 import lk.ijse.library.dto.Member;
+import lk.ijse.library.model.IssuseModel;
 import lk.ijse.library.model.MemberModel;
 
 import java.io.IOException;
@@ -40,7 +43,7 @@ public class DashBoardFromController implements Initializable {
     private Label lblTopic;
 
     @FXML
-    private TableView<?> tblIssuse;
+    private TableView<Issuse> tblIssuse;
 
     @FXML
     private TableColumn<?, ?> coliid;
@@ -60,6 +63,25 @@ public class DashBoardFromController implements Initializable {
     @FXML
     private TableColumn<?, ?> colIssuseQty;
 
+    @FXML
+    private TableView<?> tblReturn;
+
+    @FXML
+    private TableColumn<?, ?> colReturnID;
+
+    @FXML
+    private TableColumn<?, ?> colReturnDate;
+
+    @FXML
+    private TableColumn<?, ?> colIssuseID;
+
+    @FXML
+    private TableColumn<?, ?> colBookID;
+
+    @FXML
+    private LineChart<?, ?> barChart;
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         tblIssuse.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>(" iid"));
@@ -76,6 +98,61 @@ public class DashBoardFromController implements Initializable {
 //            throw new RuntimeException(e);
 //        }
 //        tblIssuse.setItems(FXCollections.observableArrayList(members));
+        XYChart.Series series1 = new XYChart.Series();
+        series1.setName("first Week");
+        series1.getData().add(new XYChart.Data("Day 1",3));
+        series1.getData().add(new XYChart.Data("Day 2",49));
+        series1.getData().add(new XYChart.Data("Day 3",25));
+        series1.getData().add(new XYChart.Data("Day 4",41));
+        series1.getData().add(new XYChart.Data("Day 5",77));
+//        series1.getData().add(new XYChart.Data("Day 6",75));
+//        series1.getData().add(new XYChart.Data("Day 7",7));
+
+
+        XYChart.Series series2 = new XYChart.Series();
+        series2.setName("Second week");
+        series2.getData().add(new XYChart.Data("Day 1",5));
+        series2.getData().add(new XYChart.Data("Day 2",19));
+        series2.getData().add(new XYChart.Data("Day 3",16));
+        series2.getData().add(new XYChart.Data("Day 4",45));
+        series2.getData().add(new XYChart.Data("Day 5",80));
+//        series2.getData().add(new XYChart.Data("Day 6",50));
+//        series2.getData().add(new XYChart.Data("Day 7",90));
+
+        XYChart.Series series3 = new XYChart.Series();
+        series3.setName("3rd week");
+        series3.getData().add(new XYChart.Data("Day 1",0));
+        series3.getData().add(new XYChart.Data("Day 2",45));
+        series3.getData().add(new XYChart.Data("Day 3",35));
+        series3.getData().add(new XYChart.Data("Day 4",28));
+        series3.getData().add(new XYChart.Data("Day 5",90));
+
+        XYChart.Series series4 = new XYChart.Series();
+        series3.setName("4th week");
+        series4.getData().add(new XYChart.Data("Day 1",1));
+        series4.getData().add(new XYChart.Data("Day 2",34));
+        series4.getData().add(new XYChart.Data("Day 3",26));
+        series4.getData().add(new XYChart.Data("Day 4",76));
+        series4.getData().add(new XYChart.Data("Day 5",90));
+
+        barChart.getData().addAll(series1,series2,series3,series4);
+
+        //-------------------------------------Issuse Tble------------------------------------------------
+
+        tblIssuse.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("iId"));
+        tblIssuse.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("bookId"));
+        tblIssuse.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("issusDate"));
+        tblIssuse.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("memberId"));
+        tblIssuse.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("dueDate"));
+        tblIssuse.getColumns().get(5).setCellValueFactory(new PropertyValueFactory<>("issuseQty"));
+
+        ArrayList<Issuse> issuses1;
+        try {
+            issuses1 = IssuseModel.loadAllIssuse();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        tblIssuse.setItems(FXCollections.observableArrayList(issuses1));
     }
 
 
@@ -150,6 +227,44 @@ public class DashBoardFromController implements Initializable {
         node = FXMLLoader.load(getClass().getResource("/view/EmailFrom.fxml"));
         MainPane.getChildren().setAll(node);
         lblTopic.setText("Send Email");
+    }
+
+    public void GoDonetions(ActionEvent actionEvent) throws IOException {
+        Node node;
+        node = FXMLLoader.load(getClass().getResource("/view/DonetionFrom.fxml"));
+        MainPane.getChildren().setAll(node);
+        lblTopic.setText("Send Email");
+    }
+
+    public void GoExibitions(ActionEvent actionEvent) throws IOException {
+        Node node;
+        node = FXMLLoader.load(getClass().getResource("/view/ExibitionsFrom.fxml"));
+        MainPane.getChildren().setAll(node);
+        lblTopic.setText("Send Email");
+    }
+
+    public void GoMemberView(ActionEvent actionEvent) {
+
+    }
+
+    public void GoAutorViwe(ActionEvent actionEvent) {
+
+    }
+
+    public void GoSupplierView(ActionEvent actionEvent) {
+
+    }
+
+    public void GoPublisherView(ActionEvent actionEvent) {
+
+    }
+
+    public void ShowAllFines(ActionEvent actionEvent) {
+
+    }
+
+    public void GoBookView(ActionEvent actionEvent) {
+
     }
 }
 
