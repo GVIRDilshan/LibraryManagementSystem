@@ -8,6 +8,7 @@ import javafx.scene.layout.AnchorPane;
 import lk.ijse.library.dto.Issuse;
 import lk.ijse.library.dto.Return;
 import lk.ijse.library.model.IssuseModel;
+import lk.ijse.library.model.ReturnModel;
 
 
 import java.sql.SQLException;
@@ -71,11 +72,11 @@ public class ReturnFromController {
         Return return1 = new Return();
         return1.setIssuseId(IssuseId);
         return1.setReturnId(ReturnId);
-        return1.setRreturnQty(ReturnDate);
+        return1.setReturnDate(ReturnDate);
         return1.setBookId(BookId);
         return1.setIssuseDate(IssuseDate);
 
-       // boolean b1 = ReturnModel.ReturnSet(return1,BookQty,BookId,IssuseId);
+        boolean b1 = ReturnModel.ReturnSet(return1,BookQty,BookId,IssuseId);
         System.out.println(return1.getIssuseId()+" "+return1.getReturnId()+" "+return1.getBookId()+" " +
                 " "+return1.getReturnDate()+" "+return1.getIssuseDate());
 

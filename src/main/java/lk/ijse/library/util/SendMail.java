@@ -14,7 +14,7 @@ public class SendMail {
         System.out.println("Giya");
         String to = "ishanravidu750@gmail.com"; // to address. It can be any like gmail, hotmail etc.
         final String from = "ishanravidu750@gmail.com"; // from address. As this is using Gmail SMTP.
-        final String password = "Ishan077@@"; // password for from mail address.
+        final String password = "urmzfdmvxrxgwubk"; // password for from mail address.
         System.out.println("Giya");
         Properties prop = new Properties();
         prop.put("mail.smtp.host", "smtp.gmail.com");
