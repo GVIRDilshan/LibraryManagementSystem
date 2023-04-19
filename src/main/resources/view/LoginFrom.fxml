@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="663.0" prefWidth="1026.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.library.controller.LoginFromController">
+   <children>
+      <Pane layoutX="440.0" prefHeight="663.0" prefWidth="586.0" style="-fx-background-color: #192a56;">
+         <children>
+            <JFXTextField layoutX="58.0" layoutY="201.0" prefHeight="56.0" prefWidth="458.0" promptText="userName" style="-fx-background-color: fff;">
+               <font>
+                  <Font size="20.0" />
+               </font></JFXTextField>
+            <JFXTextField layoutX="58.0" layoutY="312.0" prefHeight="56.0" prefWidth="458.0" promptText="Password" style="-fx-background-color: fff;">
+               <font>
+                  <Font size="20.0" />
+               </font></JFXTextField>
+            <JFXButton buttonType="RAISED" layoutX="404.0" layoutY="564.0" prefHeight="73.0" prefWidth="151.0" style="-fx-background-color: #273c75;" text="Login" textFill="WHITE">
+               <font>
+                  <Font size="27.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+         </children>
+      </Pane>
+      <ImageView fitHeight="663.0" fitWidth="472.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Pic/ancient-books-library-table.jpg" />
+         </image>
+      </ImageView>
+      <Text fill="#ff620d" layoutX="75.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Library Mangement System" textAlignment="JUSTIFY" wrappingWidth="815.6708984375">
+         <font>
+            <Font name="System Bold Italic" size="50.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
