@@ -4,6 +4,7 @@ import lk.ijse.library.db.DBConnection;
 import lk.ijse.library.dto.Issuse;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class IssuseModel {
     public static boolean issuseFrom(Issuse issuse, String qty, String Bookd) throws SQLException {
@@ -68,8 +69,35 @@ public class IssuseModel {
                 return issuses;
             }
             return null;
+        }
+    public static ArrayList<Issuse> loadAllIssuse() throws SQLException {
+
+            Connection con = DBConnection.getInstance().getConnection();
+            String sql = "select * from issuse";
+
+            PreparedStatement stm = con.prepareStatement(sql);
+
+
+            ResultSet result = stm.executeQuery();
+
+            ArrayList<Issuse> issuses = new ArrayList<>();
+
+            while (result.next()) {
+                Issuse issuse1 = new Issuse();
+
+                issuse1.setIssusId(result.getString(1));
+                issuse1.setBookId(result.getString(2));
+                issuse1.setIssusDate(result.getString(3));
+                issuse1.setMemberId(result.getString(4));
+                issuse1.setDueDate(result.getString(5));
+                issuse1.setIssuseQty(result.getString(6));
+
+                issuses.add(issuse1);
+            }
+            return issuses;
 
         }
-}
+    }
+
 
 

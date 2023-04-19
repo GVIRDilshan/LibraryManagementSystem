@@ -1,6 +1,7 @@
 package lk.ijse.library.model;
 
 import lk.ijse.library.db.DBConnection;
+import lk.ijse.library.dto.Issuse;
 import lk.ijse.library.dto.Member;
 
 import java.sql.*;
@@ -128,5 +129,23 @@ public class MemberModel {
         }
         return MemberIds;
 
+    }
+
+    public static ArrayList<String> loadAllMemberEmails() throws SQLException {
+
+        Connection con = DBConnection.getInstance().getConnection();
+
+        String sql = "select Email from member";
+
+        PreparedStatement stm = con.prepareStatement(sql);
+
+        ResultSet result = stm.executeQuery();
+
+        ArrayList<String> Email = new ArrayList<>();
+
+        while (result.next()) {
+            Email.add(result.getString(1));
+        }
+            return Email;
     }
 }
