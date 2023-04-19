@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="root" prefHeight="640.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.library.controller.EmailFromController">
+   <children>
+      <JFXTextArea fx:id="txtWriteEmail" layoutX="178.0" layoutY="224.0" prefHeight="292.0" prefWidth="797.0" style="-fx-background-color: fff;">
+         <font>
+            <Font size="20.0" />
+         </font></JFXTextArea>
+      <JFXComboBox fx:id="cmdSelectEmail" layoutX="178.0" layoutY="100.0" onAction="#OnSelectEmail" prefHeight="44.0" prefWidth="797.0" style="-fx-background-color: ffff;" />
+      <JFXButton layoutX="915.0" layoutY="548.0" onAction="#OnSend" prefHeight="71.0" prefWidth="143.0" style="-fx-background-color: #a5b1c2;" text="Send">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </JFXButton>
+      <Text layoutX="25.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email     :" wrappingWidth="120.6708984375">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Text>
+      <Text layoutX="13.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subject  :" wrappingWidth="143.00002098083496">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
