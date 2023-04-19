@@ -251,24 +251,39 @@ public class DashBoardFromController implements Initializable {
         lblTopic.setText("Member Table View");
     }
 
-    public void GoAutorViwe(ActionEvent actionEvent) {
-
+    public void GoAutorViwe(ActionEvent actionEvent) throws IOException {
+        Node node;
+        node = FXMLLoader.load(getClass().getResource("/view/AutorTableFrom.fxml"));
+        MainPane.getChildren().setAll(node);
+        lblTopic.setText("Book Table View");
     }
 
-    public void GoSupplierView(ActionEvent actionEvent) {
-
+    public void GoSupplierView(ActionEvent actionEvent) throws IOException {
+        Node node;
+        node = FXMLLoader.load(getClass().getResource("/view/SupplierTableFrom.fxml"));
+        MainPane.getChildren().setAll(node);
+        lblTopic.setText("Book Table View");
     }
 
-    public void GoPublisherView(ActionEvent actionEvent) {
-
+    public void GoPublisherView(ActionEvent actionEvent) throws IOException {
+        Node node;
+        node = FXMLLoader.load(getClass().getResource("/view/publisherTableFrom.fxml"));
+        MainPane.getChildren().setAll(node);
+        lblTopic.setText("Book Table View");
     }
 
-    public void ShowAllFines(ActionEvent actionEvent) {
-
+    public void ShowAllFines(ActionEvent actionEvent) throws IOException {
+        Node node;
+        node = FXMLLoader.load(getClass().getResource("/view/FineMoneyTableFrom.fxml"));
+        MainPane.getChildren().setAll(node);
+        lblTopic.setText("Book Table View");
     }
 
-    public void GoBookView(ActionEvent actionEvent) {
-
+    public void GoBookView(ActionEvent actionEvent) throws IOException {
+        Node node;
+        node = FXMLLoader.load(getClass().getResource("/view/BookTableFrom.fxml"));
+        MainPane.getChildren().setAll(node);
+        lblTopic.setText("Book Table View");
     }
 }
 

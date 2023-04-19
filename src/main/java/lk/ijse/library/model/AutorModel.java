@@ -2,6 +2,7 @@ package lk.ijse.library.model;
 
 import lk.ijse.library.db.DBConnection;
 import lk.ijse.library.dto.Autor;
+import lk.ijse.library.dto.Book;
 import lk.ijse.library.dto.Member;
 
 import java.sql.*;
@@ -105,6 +106,28 @@ public class AutorModel {
                AutorIds.add(result.getString(1));
             }
             return AutorIds;
+    }
+    public static ArrayList<Autor> loadAllAutors() throws SQLException {
 
+        Connection con = DBConnection.getInstance().getConnection();
+        String sql = "select * from autor";
+
+        PreparedStatement stm = con.prepareStatement(sql);
+
+        ResultSet result = stm.executeQuery();
+
+        ArrayList<Autor> autors = new ArrayList<>();
+
+        while (result.next()) {
+            Autor autor = new Autor();
+            autor.setAutorID(result.getString(1));
+            autor.setAutorName(result.getString(2));
+            autor.setBookName(result.getString(3));
+            autor.setBookID(result.getString(4));
+
+            autors.add(autor);
+        }
+
+        return autors;
     }
 }
