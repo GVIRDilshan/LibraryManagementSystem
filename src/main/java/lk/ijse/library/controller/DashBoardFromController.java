@@ -139,7 +139,7 @@ public class DashBoardFromController implements Initializable {
 
         //-------------------------------------Issuse Tble------------------------------------------------
 
-        tblIssuse.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("iId"));
+        tblIssuse.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("issusId"));
         tblIssuse.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("bookId"));
         tblIssuse.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("issusDate"));
         tblIssuse.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("memberId"));
@@ -243,8 +243,11 @@ public class DashBoardFromController implements Initializable {
         lblTopic.setText("Send Email");
     }
 
-    public void GoMemberView(ActionEvent actionEvent) {
-
+    public void GoMemberView(ActionEvent actionEvent) throws IOException {
+        Node node;
+        node = FXMLLoader.load(getClass().getResource("/view/MemberTableFrom.fxml"));
+        MainPane.getChildren().setAll(node);
+        lblTopic.setText("Member Table View");
     }
 
     public void GoAutorViwe(ActionEvent actionEvent) {

@@ -61,6 +61,8 @@ public class MemberTableFromController implements Initializable {
         tblMembers.getColumns().get(5).setCellValueFactory(new PropertyValueFactory<>("email"));
         tblMembers.getColumns().get(6).setCellValueFactory(new PropertyValueFactory<>("Gender"));
 
+        tblMembers.refresh();
+
         ArrayList<Member> members;
         try {
             members = MemberModel.loadAllMember();

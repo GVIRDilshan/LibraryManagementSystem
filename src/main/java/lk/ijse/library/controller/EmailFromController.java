@@ -9,8 +9,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.library.dto.Member;
+import lk.ijse.library.model.EmailModel;
 import lk.ijse.library.model.MemberModel;
+import lk.ijse.library.util.Mail;
 
+import javax.mail.MessagingException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -31,7 +34,20 @@ public class EmailFromController implements Initializable {
 
     }
 
-    public void OnSend(ActionEvent actionEvent) {
+    public void OnSend(ActionEvent actionEvent) throws MessagingException {
+        /*System.out.println("Start");
+
+        Mail mail = new Mail(); //creating an instance of Mail class
+        mail.setMsg("Hi");//email message
+        mail.setTo("ishanravindu975@gmail.com"); //receiver's mail
+        mail.setSubject("Test"); //email subject
+
+        Thread thread = new Thread(mail);
+        thread.start();
+
+        System.out.println("end");*/
+
+        EmailModel.sendMail("ishanravidu975@gmail.com" , "jvxnmiacqbmqjsns" , String.valueOf(cmdSelectEmail.getValue()), txtWriteEmail.getText());
 
     }
     public void loadAllEmail() throws SQLException {

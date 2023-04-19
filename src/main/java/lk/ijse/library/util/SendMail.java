@@ -48,7 +48,7 @@ public class SendMail {
             attachmentBodyPart.attachFile(new File("D:/mods/icons8-library-96.png"));
             multipart.addBodyPart(attachmentBodyPart);
             message.setContent(multipart);
-            System.out.println("ked");
+            System.out.println("awa");
             Transport.send(message);
             System.out.println("ssssss");
             System.out.println("Mail successfully sent..");

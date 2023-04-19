@@ -44,11 +44,11 @@ public class ReturnModel {
         }
         if (TakeIt > 0) {
 
-            String sql3 = "DELETE FROM issuse WHERE iid";
+            String sql3 = "DELETE FROM issuse WHERE iid=?";
 
             PreparedStatement stm3 = con.prepareStatement(sql3);
 
-//            stm3.setObject(1,IssuseID);
+            stm3.setObject(1,IssuseID);
 
             int itemUpdate1 = stm3.executeUpdate();
 

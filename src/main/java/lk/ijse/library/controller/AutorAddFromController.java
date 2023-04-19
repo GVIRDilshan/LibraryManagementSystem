@@ -6,10 +6,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.library.dto.Autor;
 import lk.ijse.library.model.AutorModel;
+import lk.ijse.library.util.Alerts;
 import org.checkerframework.checker.units.qual.A;
 
 import java.io.IOException;
@@ -55,8 +57,7 @@ public class AutorAddFromController {
         boolean d1 = AutorModel.deleteFrom(AutorID);
 
         if(d1) {
-//            Alerts alerts = new Alerts();
-//            alerts.notification("Member Delete Sucses....!", "Memebr Delete");
+            new Alert(Alert.AlertType.CONFIRMATION,"Autor Delete Sucses....!").show();
             clear();
         }
     }
@@ -88,8 +89,8 @@ public class AutorAddFromController {
         boolean A1 = AutorModel.updateAutor(autor1);
 
         if(A1) {
-//            Alerts alerts = new Alerts();
-//            alerts.notification("Member Delete Sucses....!", "Memebr Delete");
+            new Alert(Alert.AlertType.CONFIRMATION,"Autor Updating Sucses....!").show();
+            clear();
             clear();
         }
 
@@ -111,8 +112,7 @@ public class AutorAddFromController {
         boolean b1 = AutorModel.AutorAdd(autor);
 
         if(b1) {
-//            Alerts alerts = new Alerts();
-//            alerts.notification("Member Delete Sucses....!", "Memebr Delete");
+            new Alert(Alert.AlertType.CONFIRMATION,"Autor Adding Sucses....!").show();
             clear();
         }
 
