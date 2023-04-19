@@ -9,10 +9,13 @@ import java.util.ArrayList;
 public class IssuseModel {
     public static boolean issuseFrom(Issuse issuse, String qty, String Bookd) throws SQLException {
 
+        DBConnection.getInstance().getConnection().setAutoCommit(false);
+
         Connection con = DBConnection.getInstance().getConnection();
         String sql = "insert into issuse values(?,?,?,?,?,?)";
 
         PreparedStatement stm = con.prepareStatement(sql);
+
 
         stm.setObject(1,issuse.getIssusId());
         stm.setObject(2,issuse.getBookId());

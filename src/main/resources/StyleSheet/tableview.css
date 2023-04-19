@@ -4,8 +4,8 @@
 
 .table-view .column-header{
     -fx-background-color: #192a56;
-    -fx-pref-height: 70px;
-    -fx-font-size: 17px;
+    -fx-pref-height: 60px;
+    -fx-font-size: 15px;
     -fx-font-weight: bold;
 
 }

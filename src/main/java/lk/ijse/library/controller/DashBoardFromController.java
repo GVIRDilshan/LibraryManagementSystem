@@ -21,7 +21,7 @@ import lk.ijse.library.dto.Member;
 import lk.ijse.library.model.IssuseModel;
 import lk.ijse.library.model.MemberModel;
 
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -218,8 +218,9 @@ public class DashBoardFromController implements Initializable {
         }
     }
 
-    public void GetReport(ActionEvent actionEvent) {
-
+    public void GetReport(ActionEvent actionEvent) throws FileNotFoundException {
+        InputStream input=new FileInputStream(new File("src/main/resources/Report/Wood.jrxml"));
+        //JRXmlLoader.load(input);
     }
 
     public void getEmail(ActionEvent actionEvent) throws IOException {
