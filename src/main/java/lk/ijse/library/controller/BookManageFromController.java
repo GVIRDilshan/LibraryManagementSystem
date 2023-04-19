@@ -141,9 +141,9 @@ public class BookManageFromController implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        tblBooks.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("bookId"));
+        tblBooks.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("id"));
         tblBooks.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("name"));
-        tblBooks.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("author_Id"));
+        tblBooks.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("author"));
         tblBooks.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("Publisher"));
         tblBooks.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("Supplier"));
         tblBooks.getColumns().get(5).setCellValueFactory(new PropertyValueFactory<>("qty"));

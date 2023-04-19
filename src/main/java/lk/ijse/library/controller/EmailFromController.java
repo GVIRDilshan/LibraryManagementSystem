@@ -47,7 +47,7 @@ public class EmailFromController implements Initializable {
 
         System.out.println("end");*/
 
-        EmailModel.sendMail("ishanravidu975@gmail.com" , "jvxnmiacqbmqjsns" , String.valueOf(cmdSelectEmail.getValue()), txtWriteEmail.getText());
+        EmailModel.sendMail("librarys586@gmail.com" , "csaywdwsfqnjxjep" , String.valueOf(cmdSelectEmail.getValue()), txtWriteEmail.getText());
 
     }
     public void loadAllEmail() throws SQLException {

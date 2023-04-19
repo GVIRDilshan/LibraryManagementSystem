@@ -68,14 +68,14 @@
             <Font size="20.0" />
          </font>
       </JFXTextField>
-      <TableView fx:id="tblBooks" layoutX="43.0" layoutY="302.0" prefHeight="314.0" prefWidth="672.0">
+      <TableView fx:id="tblBooks" layoutX="26.0" layoutY="302.0" prefHeight="314.0" prefWidth="689.0" stylesheets="@../StyleSheet/tableview.css">
         <columns>
           <TableColumn fx:id="colBookID" prefWidth="92.33332824707031" text="BookID" />
           <TableColumn fx:id="colName" prefWidth="139.66667938232422" text="Name" />
             <TableColumn fx:id="colAutor" prefWidth="113.33334350585938" text="AutorID" />
             <TableColumn fx:id="colPublisherID" prefWidth="116.66665649414062" text="PublisherID" />
             <TableColumn fx:id="colSupplierID" prefWidth="114.0" text="SupplierID" />
-            <TableColumn fx:id="colWty" prefWidth="94.0" text="qty" />
+            <TableColumn fx:id="colWty" prefWidth="110.0" text="qty" />
         </columns>
       </TableView>
       <Label fx:id="lblSupplierName" layoutX="527.0" layoutY="78.0" prefHeight="34.0" prefWidth="112.0" text="Label">
