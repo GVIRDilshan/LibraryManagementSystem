@@ -44,11 +44,6 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Label fx:id="lblContact" layoutX="842.0" layoutY="287.0" prefHeight="37.0" prefWidth="201.0" text="a">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
       <JFXTextField fx:id="txtIssuseID" layoutX="203.0" layoutY="489.0" prefHeight="60.0" prefWidth="201.0" promptText="IssuseID">
          <font>
             <Font size="24.0" />
@@ -100,5 +95,10 @@
             <Image url="@../Pic/icons8-reading-94.png" />
          </image>
       </ImageView>
+      <Label fx:id="lblContact" layoutX="863.0" layoutY="287.0" prefHeight="37.0" prefWidth="241.0" text="a">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

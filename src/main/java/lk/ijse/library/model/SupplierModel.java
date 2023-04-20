@@ -96,4 +96,28 @@ public class SupplierModel {
         }
         return SupplierIds;
     }
+    public static ArrayList<Supplier> loadAllSuppliers() throws SQLException {
+
+        Connection con = DBConnection.getInstance().getConnection();
+
+        String sql = "select * from supplier";
+
+        PreparedStatement stm = con.prepareStatement(sql);
+
+        ResultSet result = stm.executeQuery();
+
+        ArrayList<Supplier> suppliers = new ArrayList<>();
+
+        while (result.next()) {
+            Supplier supplier = new Supplier();
+            supplier.setSupplierID(result.getString(1));
+            supplier.setSupplierName(result.getString(2));
+            supplier.setSupplierContact(result.getString(3));
+            supplier.setSupplierAddress(result.getString(4));
+            supplier.setBookID(result.getString(5));
+
+            suppliers.add(supplier);
+        }
+        return suppliers;
+    }
 }

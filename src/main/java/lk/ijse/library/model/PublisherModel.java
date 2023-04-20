@@ -1,6 +1,7 @@
 package lk.ijse.library.model;
 
 import lk.ijse.library.db.DBConnection;
+import lk.ijse.library.dto.Autor;
 import lk.ijse.library.dto.Member;
 import lk.ijse.library.dto.Publisher;
 
@@ -93,5 +94,27 @@ public class PublisherModel {
             PublisherIds.add(result.getString(1));
         }
         return PublisherIds;
+    }
+    public static ArrayList<Publisher> loadAllPublisher() throws SQLException {
+
+        Connection con = DBConnection.getInstance().getConnection();
+
+        String sql = "select * from publisher";
+
+        PreparedStatement stm = con.prepareStatement(sql);
+
+        ResultSet result = stm.executeQuery();
+
+        ArrayList<Publisher> publishers = new ArrayList<>();
+
+        while (result.next()) {
+            Publisher publisher = new Publisher();
+            publisher.setPublisherID(result.getString(1));
+            publisher.setPublisherName(result.getString(2));
+            publisher.setBookID(result.getString(3));
+            publisher.setPublishDate(result.getString(4));
+            publishers.add(publisher);
+        }
+        return publishers;
     }
 }

@@ -19,9 +19,11 @@ import lk.ijse.library.dto.Book;
 import lk.ijse.library.dto.Issuse;
 import lk.ijse.library.dto.Member;
 import lk.ijse.library.model.BookModel;
+import lk.ijse.library.model.EmailModel;
 import lk.ijse.library.model.IssuseModel;
 import lk.ijse.library.model.MemberModel;
 
+import javax.mail.MessagingException;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -81,7 +83,7 @@ public class IssuseFromController implements Initializable {
     }
 
     @FXML
-    void OnIssuse(ActionEvent event) throws SQLException {
+    void OnIssuse(ActionEvent event) throws SQLException, MessagingException {
         String IssuseID = txtIssuseID.getText();
         String Qty = txtQty.getText();
         String dueDate = String.valueOf(DatePiker.getValue());
@@ -101,6 +103,8 @@ public class IssuseFromController implements Initializable {
 
         boolean i1 = IssuseModel.issuseFrom(issuse,Qty,BookID);
 
+        EmailModel.sendMail("librarys586@gmail.com" , "csaywdwsfqnjxjep" , lblContact.getText(), "Issuse Sucses");
+
     }
     private void setOrderDate() {
         lblLocalDate.setText(String.valueOf(LocalDate.now()));
@@ -117,7 +121,7 @@ public class IssuseFromController implements Initializable {
     void OnSelectMemberID(ActionEvent event) throws SQLException {
         Member member = MemberModel.searchFrom((String) cmbMemberID.getValue());
         lblMemberName.setText(member.getName());
-        lblContact.setText(member.getContact());
+        lblContact.setText(member.getEmail());
     }
 
     @Override
