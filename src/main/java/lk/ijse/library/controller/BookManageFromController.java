@@ -10,16 +10,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import lk.ijse.library.dto.Autor;
-import lk.ijse.library.dto.Book;
-import lk.ijse.library.dto.Publisher;
-import lk.ijse.library.dto.Supplier;
+import lk.ijse.library.dto.*;
 import lk.ijse.library.model.*;
 
 import java.io.IOException;
@@ -62,6 +60,9 @@ public class BookManageFromController implements Initializable {
 
     @FXML
     private TableView<Book> tblBooks;
+
+    @FXML
+    private JFXTextField txtSearchBookID;
 
     @FXML
     private TableColumn<?, ?> colBookID;
@@ -148,6 +149,8 @@ public class BookManageFromController implements Initializable {
         tblBooks.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("Supplier"));
         tblBooks.getColumns().get(5).setCellValueFactory(new PropertyValueFactory<>("qty"));
 
+        tblBooks.refresh();
+
         ArrayList<Book> books;
         try {
             books = BookModel.loadAllBooks();
@@ -162,11 +165,29 @@ public class BookManageFromController implements Initializable {
 
     }
 
-    public void OnDelete(ActionEvent actionEvent) {
+    public void OnDelete(ActionEvent actionEvent) throws SQLException {
 
+        System.out.println("Hi");
+
+        String BookID = txtSearchBookID.getText();
+
+        boolean d1 = BookModel.deleteFrom(BookID);
+
+        if(d1) {
+            new Alert(Alert.AlertType.CONFIRMATION,"member Adding Sucses....!").show();
+            clear();
+        }
     }
 
-    public void OnSearch(ActionEvent actionEvent) {
+    public void OnSearch(ActionEvent actionEvent) throws SQLException {
+        String SearchID = txtSearchBookID.getText();
+
+        Book b1 = BookModel.searchFrom(SearchID);
+
+        txtBookID.setText(b1.getId());
+        txtBookName.setText(b1.getName());
+        txtBookQty.setText(String.valueOf(b1.getQty()));
+
 
     }
     public void loadAutorIds() throws SQLException {

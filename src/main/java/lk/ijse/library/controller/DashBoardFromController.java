@@ -16,12 +16,17 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.library.db.DBConnection;
 import lk.ijse.library.dto.Issuse;
 import lk.ijse.library.dto.Member;
 import lk.ijse.library.dto.Return;
 import lk.ijse.library.model.IssuseModel;
 import lk.ijse.library.model.MemberModel;
 import lk.ijse.library.model.ReturnModel;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 import java.io.*;
 import java.net.URL;
@@ -237,9 +242,15 @@ public class DashBoardFromController implements Initializable {
         }
     }
 
-    public void GetReport(ActionEvent actionEvent) throws FileNotFoundException {
-        InputStream input=new FileInputStream(new File("src/main/resources/Report/Wood.jrxml"));
-        //JRXmlLoader.load(input);
+    public void GetReport(ActionEvent actionEvent) throws FileNotFoundException, JRException, SQLException {
+        InputStream input=new FileInputStream(new File("Report/Wood.jrxml"));
+        JasperDesign jasperDesign = JRXmlLoader.load(input);
+        JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
+
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport,null, DBConnection.getInstance().getConnection());
+
+        JasperViewer.viewReport(jasperPrint,false);
+
     }
 
     public void getEmail(ActionEvent actionEvent) throws IOException {

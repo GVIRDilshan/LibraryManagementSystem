@@ -182,7 +182,7 @@ public class MemberManageFromController implements Initializable {
         boolean d1 = MemberModel.deleteFrom(memberID);
 
         if(d1) {
-            new Alert(Alert.AlertType.CONFIRMATION,"Autor Adding Sucses....!").show();
+            new Alert(Alert.AlertType.CONFIRMATION,"member Adding Sucses....!").show();
             clear();
         }
 
