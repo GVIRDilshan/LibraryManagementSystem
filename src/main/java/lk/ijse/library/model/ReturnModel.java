@@ -1,11 +1,14 @@
 package lk.ijse.library.model;
 
 import lk.ijse.library.db.DBConnection;
+import lk.ijse.library.dto.Member;
 import lk.ijse.library.dto.Return;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class ReturnModel {
 
@@ -64,6 +67,31 @@ public class ReturnModel {
         con.setAutoCommit(true);
 
         return false;
+    }
+    public static ArrayList<Return> loadAllReturnas() throws SQLException {
+
+        Connection con = DBConnection.getInstance().getConnection();
+
+        String sql = "select * from returnse";
+
+        PreparedStatement stm = con.prepareStatement(sql);
+
+        ResultSet result = stm.executeQuery();
+
+        ArrayList<Return> returns = new ArrayList<>();
+
+        while (result.next()) {
+            Return returnss = new Return();
+            returnss.setReturnId(result.getString(1));
+            returnss.setReturnDate(result.getString(2));
+            returnss.setIssuseId(result.getString(3));
+            returnss.setIssuseDate(result.getString(4));
+            returnss.setBookId(result.getString(5));
+
+            returns.add(returnss);
+        }
+
+        return returns;
     }
 }
 

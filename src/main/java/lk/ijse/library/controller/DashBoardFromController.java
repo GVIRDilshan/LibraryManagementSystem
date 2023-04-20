@@ -18,8 +18,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.library.dto.Issuse;
 import lk.ijse.library.dto.Member;
+import lk.ijse.library.dto.Return;
 import lk.ijse.library.model.IssuseModel;
 import lk.ijse.library.model.MemberModel;
+import lk.ijse.library.model.ReturnModel;
 
 import java.io.*;
 import java.net.URL;
@@ -64,7 +66,7 @@ public class DashBoardFromController implements Initializable {
     private TableColumn<?, ?> colIssuseQty;
 
     @FXML
-    private TableView<?> tblReturn;
+    private TableView<Return> tblReturn;
 
     @FXML
     private TableColumn<?, ?> colReturnID;
@@ -153,6 +155,23 @@ public class DashBoardFromController implements Initializable {
             throw new RuntimeException(e);
         }
         tblIssuse.setItems(FXCollections.observableArrayList(issuses1));
+
+        //----------------------------------Return Table---------------------------------------------------
+
+        tblReturn.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("ReturnId"));
+        tblReturn.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("ReturnDate"));
+        tblReturn.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("IssuseId"));
+        tblReturn.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("IssuseDate"));
+        tblReturn.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("BookId"));
+
+        ArrayList<Return> returns;
+        try {
+            returns = ReturnModel.loadAllReturnas();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        tblReturn.setItems(FXCollections.observableArrayList(returns));
+
     }
 
 
