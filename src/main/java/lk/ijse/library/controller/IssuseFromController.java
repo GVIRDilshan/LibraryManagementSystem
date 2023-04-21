@@ -103,7 +103,7 @@ public class IssuseFromController implements Initializable {
 
         boolean i1 = IssuseModel.issuseFrom(issuse,Qty,BookID);
 
-        EmailModel.sendMail("librarys586@gmail.com" , "csaywdwsfqnjxjep" , lblContact.getText(), "Issuse Sucses");
+        EmailModel.sendMail("librarys586@gmail.com" , "csaywdwsfqnjxjep" , lblContact.getText(), "Hi "+lblMemberName.getText()+" You'r Book is Issuse Sucses fully Completed \n"+"You'r IssuseId is : "+txtIssuseID.getText()+"\nBook Id : "+cmbBookID.getValue()+"\nDueDate is :"+DatePiker.getValue()+"\nPlease return your book by the date we have notified. Otherwise, after that date, fines will be added.\n"+"Thank you...."+lblMemberName.getText()+" for visiting our library.");
 
     }
     private void setOrderDate() {
@@ -130,6 +130,7 @@ public class IssuseFromController implements Initializable {
         try {
             loadBookIds();
             loadMemersIds();
+            //generateNextIssuseId();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -159,4 +160,5 @@ public class IssuseFromController implements Initializable {
         txtQty.setText("");
      //   txtBookQty.setText("");
     }
+
 }
