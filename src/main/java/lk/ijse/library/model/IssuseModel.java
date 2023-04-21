@@ -16,7 +16,6 @@ public class IssuseModel {
 
         PreparedStatement stm = con.prepareStatement(sql);
 
-
         stm.setObject(1,issuse.getIssusId());
         stm.setObject(2,issuse.getBookId());
         stm.setObject(3,issuse.getIssusDate());
@@ -80,7 +79,6 @@ public class IssuseModel {
 
             PreparedStatement stm = con.prepareStatement(sql);
 
-
             ResultSet result = stm.executeQuery();
 
             ArrayList<Issuse> issuses = new ArrayList<>();
@@ -98,9 +96,9 @@ public class IssuseModel {
                 issuses.add(issuse1);
             }
             return issuses;
-
         }
-    }
+
+}
 
 
 
