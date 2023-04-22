@@ -38,19 +38,6 @@ public class AutorAddFromController {
     @FXML
     private JFXTextField txtEnterAutorID;
 
-
-    public void OnBack(ActionEvent actionEvent) {
-        try {
-            Parent view = FXMLLoader.load(this.getClass().getResource("/view/DashBoardFrom.fxml"));
-            Stage primaryStage = (Stage) root.getScene().getWindow();
-            Scene scene = new Scene(view);
-            primaryStage.setScene(scene);
-            primaryStage.centerOnScreen();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
     public void OnDelete(ActionEvent actionEvent) throws SQLException {
         String AutorID = txtAutorID.getText();
 
