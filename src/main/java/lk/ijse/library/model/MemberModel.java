@@ -109,7 +109,6 @@ public class MemberModel {
 
                 members.add(member);
             }
-
             return members;
         }
     public static ArrayList<String> loadAllMemberIds() throws SQLException {
@@ -128,7 +127,6 @@ public class MemberModel {
             MemberIds.add(result.getString(1));
         }
         return MemberIds;
-
     }
 
     public static ArrayList<String> loadAllMemberEmails() throws SQLException {
