@@ -124,7 +124,6 @@ public class DashBoardFromController implements Initializable {
         series2.getData().add(new XYChart.Data("Day 4",45));
         series2.getData().add(new XYChart.Data("Day 5",80));
 //        series2.getData().add(new XYChart.Data("Day 6",50));
-//        series2.getData().add(new XYChart.Data("Day 7",90));
 
         XYChart.Series series3 = new XYChart.Series();
         series3.setName("3rd week");
