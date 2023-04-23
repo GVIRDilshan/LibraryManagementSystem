@@ -298,7 +298,7 @@ public class DashBoardFromController implements Initializable {
         Node node;
         node = FXMLLoader.load(getClass().getResource("/view/publisherTableFrom.fxml"));
         MainPane.getChildren().setAll(node);
-        lblTopic.setText("Book Table View");
+        lblTopic.setText("publisher Table From");
     }
 
     public void ShowAllFines(ActionEvent actionEvent) throws IOException {
