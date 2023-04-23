@@ -284,14 +284,14 @@ public class DashBoardFromController implements Initializable {
         Node node;
         node = FXMLLoader.load(getClass().getResource("/view/AutorTableFrom.fxml"));
         MainPane.getChildren().setAll(node);
-        lblTopic.setText("Book Table View");
+        lblTopic.setText("Autor Table From");
     }
 
     public void GoSupplierView(ActionEvent actionEvent) throws IOException {
         Node node;
         node = FXMLLoader.load(getClass().getResource("/view/SupplierTableFrom.fxml"));
         MainPane.getChildren().setAll(node);
-        lblTopic.setText("Book Table View");
+        lblTopic.setText("Supplier Table From");
     }
 
     public void GoPublisherView(ActionEvent actionEvent) throws IOException {
@@ -305,7 +305,7 @@ public class DashBoardFromController implements Initializable {
         Node node;
         node = FXMLLoader.load(getClass().getResource("/view/FineMoneyTableFrom.fxml"));
         MainPane.getChildren().setAll(node);
-        lblTopic.setText("Book Table View");
+        lblTopic.setText("FineMoney Table From");
     }
 
     public void GoBookView(ActionEvent actionEvent) throws IOException {
