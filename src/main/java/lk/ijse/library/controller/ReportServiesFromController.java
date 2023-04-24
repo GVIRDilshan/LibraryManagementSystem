@@ -20,12 +20,18 @@ public class ReportServiesFromController {
     @FXML
     private AnchorPane root;
 
-    public void btnBookReport(ActionEvent actionEvent) {
+    public void btnBookReport(ActionEvent actionEvent) throws FileNotFoundException, JRException, SQLException {
+        InputStream input=new FileInputStream(new File("F:\\rep\\LibraryManagementSystem\\src\\main\\resources\\Report\\BooksReport.jrxml"));
+        JasperDesign jasperDesign = JRXmlLoader.load(input);
+        JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
 
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport,null, DBConnection.getInstance().getConnection());
+
+        JasperViewer.viewReport(jasperPrint,false);
     }
-
     public void btnMemberReport(ActionEvent actionEvent) throws FileNotFoundException, JRException, SQLException {
         InputStream input=new FileInputStream(new File("F:\\rep\\LibraryManagementSystem\\src\\main\\resources\\Report\\Wood.jrxml"));
+   //     InputStream input=new FileInputStream(new File("F:\\rep\\LibraryManagementSystem\\src\\main\\resources\\Report\\BooksReport.jrxml"));
         JasperDesign jasperDesign = JRXmlLoader.load(input);
         JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
 
