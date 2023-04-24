@@ -40,4 +40,27 @@ public class ReportServiesFromController {
 
         JasperViewer.viewReport(jasperPrint,false);
     }
+
+    public void btnIssuseReport(ActionEvent actionEvent) {
+    }
+
+    public void btnReturnReport(ActionEvent actionEvent) {
+
+    }
+
+    public void btnPublisherReport(ActionEvent actionEvent) {
+
+    }
+
+    public void btnSupplierReport(ActionEvent actionEvent) {
+
+    }
+
+    public void btnAutorReport(ActionEvent actionEvent) {
+
+    }
+
+    public void btnFinresReport(ActionEvent actionEvent) {
+
+    }
 }
