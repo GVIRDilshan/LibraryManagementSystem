@@ -17,6 +17,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import lk.ijse.library.db.DBConnection;
@@ -103,6 +104,8 @@ public class DashBoardFromController implements Initializable {
     @FXML
     private Text txtTime;
 
+    @FXML
+    private Pane ReportPane;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -265,14 +268,18 @@ public class DashBoardFromController implements Initializable {
         }
     }
 
-    public void GetReport(ActionEvent actionEvent) throws FileNotFoundException, JRException, SQLException {
-        InputStream input=new FileInputStream(new File("F:\\rep\\LibraryManagementSystem\\src\\main\\resources\\Report\\Wood.jrxml"));
-        JasperDesign jasperDesign = JRXmlLoader.load(input);
-        JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
-
-        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport,null, DBConnection.getInstance().getConnection());
-
-        JasperViewer.viewReport(jasperPrint,false);
+    public void GetReport(ActionEvent actionEvent) throws IOException, JRException, SQLException {
+//        InputStream input=new FileInputStream(new File("F:\\rep\\LibraryManagementSystem\\src\\main\\resources\\Report\\Wood.jrxml"));
+//        JasperDesign jasperDesign = JRXmlLoader.load(input);
+//        JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
+//
+//        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport,null, DBConnection.getInstance().getConnection());
+//
+//        JasperViewer.viewReport(jasperPrint,false);
+        Node node;
+        node = FXMLLoader.load(getClass().getResource("/view/ReportServiesFrom.fxml"));
+        MainPane.getChildren().setAll(node);
+        lblTopic.setText("Report From");
 
     }
 
