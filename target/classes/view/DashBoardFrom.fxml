@@ -399,5 +399,25 @@
             <Font name="System Bold Italic" size="50.0" />
          </font>
       </Label>
+      <Text fx:id="txtDate" layoutX="1020.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date" wrappingWidth="257.6708934009075">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
+      <Text fx:id="txtTime" layoutX="1020.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time" wrappingWidth="257.67089897580445">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
+      <Text layoutX="923.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date :-" wrappingWidth="131.00000496208668">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
+      <Text layoutX="923.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time :-" wrappingWidth="131.0000243782997">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

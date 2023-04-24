@@ -1,5 +1,7 @@
 package lk.ijse.library.controller;
 
+import javafx.animation.Animation;
+import javafx.animation.AnimationTimer;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,6 +17,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import lk.ijse.library.db.DBConnection;
 import lk.ijse.library.dto.Issuse;
@@ -31,6 +34,9 @@ import net.sf.jasperreports.view.JasperViewer;
 import java.io.*;
 import java.net.URL;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -38,6 +44,9 @@ import static com.sun.javafx.scene.control.skin.Utils.getResource;
 
 public class DashBoardFromController implements Initializable {
 
+    public Label dateLbl;
+
+    public Label timeLbl;
     @FXML
     private AnchorPane root;
 
@@ -88,9 +97,24 @@ public class DashBoardFromController implements Initializable {
     @FXML
     private LineChart<?, ?> barChart;
 
+    @FXML
+    private Text txtDate;
+
+    @FXML
+    private Text txtTime;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        AnimationTimer timer = new AnimationTimer() {
+            @Override
+            public void handle(long now) {
+                txtDate.setText(LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+                txtTime.setText(LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss")));
+            }
+        };
+        timer.start();
+
         tblIssuse.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>(" iid"));
         tblIssuse.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("book_Id"));
         tblIssuse.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("issus_date"));
@@ -242,7 +266,7 @@ public class DashBoardFromController implements Initializable {
     }
 
     public void GetReport(ActionEvent actionEvent) throws FileNotFoundException, JRException, SQLException {
-        InputStream input=new FileInputStream(new File("Report/Wood.jrxml"));
+        InputStream input=new FileInputStream(new File("F:\\rep\\LibraryManagementSystem\\src\\main\\resources\\Report\\Wood.jrxml"));
         JasperDesign jasperDesign = JRXmlLoader.load(input);
         JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
 
@@ -314,6 +338,7 @@ public class DashBoardFromController implements Initializable {
         MainPane.getChildren().setAll(node);
         lblTopic.setText("Book Table View");
     }
+
 }
 
 

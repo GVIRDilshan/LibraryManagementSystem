@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -12,5 +14,20 @@
             <Font size="20.0" />
          </font>
       </JFXTextField>
+      <JFXTextField layoutX="42.0" layoutY="159.0" prefHeight="60.0" prefWidth="254.0" promptText="Ammount">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextArea layoutX="42.0" layoutY="268.0" prefHeight="231.0" prefWidth="763.0" promptText="Review">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </JFXTextArea>
+      <JFXButton layoutX="898.0" layoutY="544.0" prefHeight="60.0" prefWidth="120.0" style="-fx-background-color: lightgreen;" text="Add">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>
