@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -13,6 +14,9 @@
          <font>
             <Font size="26.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </JFXButton>
       <ImageView fitHeight="641.0" fitWidth="464.0" layoutX="677.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -33,6 +37,9 @@
          <font>
             <Font size="26.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </JFXButton>
       <ImageView fitHeight="117.0" fitWidth="117.0" layoutX="48.0" layoutY="334.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -58,31 +65,49 @@
          <font>
             <Font size="26.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </JFXButton>
       <JFXButton buttonType="RAISED" layoutX="41.0" layoutY="483.0" onAction="#btnReturnReport" prefHeight="117.0" prefWidth="296.0" style="-fx-background-color: #192a56;" text="." textFill="WHITE">
          <font>
             <Font size="26.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </JFXButton>
       <JFXButton buttonType="RAISED" layoutX="364.0" layoutY="52.0" onAction="#btnPublisherReport" prefHeight="117.0" prefWidth="296.0" style="-fx-background-color: #192a56;" text="." textFill="WHITE">
          <font>
             <Font size="26.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </JFXButton>
       <JFXButton buttonType="RAISED" layoutX="364.0" layoutY="194.0" onAction="#btnSupplierReport" prefHeight="117.0" prefWidth="296.0" style="-fx-background-color: #192a56;" text="." textFill="WHITE">
          <font>
             <Font size="26.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </JFXButton>
       <JFXButton buttonType="RAISED" layoutX="364.0" layoutY="334.0" onAction="#btnAutorReport" prefHeight="117.0" prefWidth="296.0" style="-fx-background-color: #192a56;" text="." textFill="WHITE">
          <font>
             <Font size="26.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </JFXButton>
       <JFXButton buttonType="RAISED" layoutX="364.0" layoutY="483.0" onAction="#btnFinresReport" prefHeight="117.0" prefWidth="296.0" style="-fx-background-color: #192a56;" text="." textFill="WHITE">
          <font>
             <Font size="26.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </JFXButton>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="18.0" layoutY="318.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="331.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true" />
