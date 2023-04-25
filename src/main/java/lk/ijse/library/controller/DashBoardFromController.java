@@ -109,6 +109,45 @@ public class DashBoardFromController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        BarCharts();
+        realDateTimes();
+        IssuseTableView();
+        ReturnTableView();
+
+    }
+    public void ReturnTableView(){
+        tblReturn.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("ReturnId"));
+        tblReturn.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("ReturnDate"));
+        tblReturn.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("IssuseId"));
+        tblReturn.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("IssuseDate"));
+        tblReturn.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("BookId"));
+
+        ArrayList<Return> returns;
+        try {
+            returns = ReturnModel.loadAllReturnas();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        tblReturn.setItems(FXCollections.observableArrayList(returns));
+    }
+    public void IssuseTableView(){
+        tblIssuse.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("issusId"));
+        tblIssuse.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("bookId"));
+        tblIssuse.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("issusDate"));
+        tblIssuse.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("memberId"));
+        tblIssuse.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("dueDate"));
+        tblIssuse.getColumns().get(5).setCellValueFactory(new PropertyValueFactory<>("issuseQty"));
+
+        ArrayList<Issuse> issuses;
+        try {
+            issuses = IssuseModel.loadAllIssuse();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        tblIssuse.setItems(FXCollections.observableArrayList(issuses));
+
+    }
+    public void realDateTimes(){
         AnimationTimer timer = new AnimationTimer() {
             @Override
             public void handle(long now) {
@@ -117,21 +156,8 @@ public class DashBoardFromController implements Initializable {
             }
         };
         timer.start();
-
-        tblIssuse.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>(" iid"));
-        tblIssuse.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("book_Id"));
-        tblIssuse.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("issus_date"));
-        tblIssuse.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("member_Id"));
-        tblIssuse.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("dueDate"));
-        tblIssuse.getColumns().get(5).setCellValueFactory(new PropertyValueFactory<>("issuse_Qty"));
-
-        ArrayList<Issuse> issuses;
-        //  try {
-        //   issuses = MemberModel.loadAllMember();
-//        } catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        }
-//        tblIssuse.setItems(FXCollections.observableArrayList(members));
+    }
+    public void BarCharts(){
         XYChart.Series series1 = new XYChart.Series();
         series1.setName("first Week");
         series1.getData().add(new XYChart.Data("Day 1",3));
@@ -139,9 +165,6 @@ public class DashBoardFromController implements Initializable {
         series1.getData().add(new XYChart.Data("Day 3",25));
         series1.getData().add(new XYChart.Data("Day 4",41));
         series1.getData().add(new XYChart.Data("Day 5",77));
-//        series1.getData().add(new XYChart.Data("Day 6",75));
-//        series1.getData().add(new XYChart.Data("Day 7",7));
-
 
         XYChart.Series series2 = new XYChart.Series();
         series2.setName("Second week");
@@ -170,92 +193,49 @@ public class DashBoardFromController implements Initializable {
 
         barChart.getData().addAll(series1,series2,series3,series4);
 
-        //-------------------------------------Issuse Tble------------------------------------------------
-
-        tblIssuse.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("issusId"));
-        tblIssuse.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("bookId"));
-        tblIssuse.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("issusDate"));
-        tblIssuse.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("memberId"));
-        tblIssuse.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("dueDate"));
-        tblIssuse.getColumns().get(5).setCellValueFactory(new PropertyValueFactory<>("issuseQty"));
-
-        ArrayList<Issuse> issuses1;
-        try {
-            issuses1 = IssuseModel.loadAllIssuse();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        tblIssuse.setItems(FXCollections.observableArrayList(issuses1));
-
-        //----------------------------------Return Table---------------------------------------------------
-
-        tblReturn.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("ReturnId"));
-        tblReturn.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("ReturnDate"));
-        tblReturn.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("IssuseId"));
-        tblReturn.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("IssuseDate"));
-        tblReturn.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("BookId"));
-
-        ArrayList<Return> returns;
-        try {
-            returns = ReturnModel.loadAllReturnas();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        tblReturn.setItems(FXCollections.observableArrayList(returns));
-
     }
-
-
     public void GoMember(javafx.event.ActionEvent actionEvent) throws IOException {
         Node node;
         node = FXMLLoader.load(getClass().getResource("/view/MemberManageFrom.fxml"));
         MainPane.getChildren().setAll(node);
         lblTopic.setText("MemberFrom");
     }
-
     public void GoBook(ActionEvent actionEvent) throws IOException {
         Node node;
         node = FXMLLoader.load(getClass().getResource("/view/BookManageFrom.fxml"));
         MainPane.getChildren().setAll(node);
         lblTopic.setText("BookFrom");
     }
-
     public void GoIssuse(ActionEvent actionEvent) throws IOException {
         Node node;
         node = FXMLLoader.load(getClass().getResource("/view/IssuseFrom.fxml"));
         MainPane.getChildren().setAll(node);
         lblTopic.setText("Issuse From");
     }
-
     public void GoReturn(ActionEvent actionEvent) throws IOException {
         Node node;
         node = FXMLLoader.load(getClass().getResource("/view/ReturnFrom.fxml"));
         MainPane.getChildren().setAll(node);
         lblTopic.setText("Return From");
     }
-
     public void goAutor(ActionEvent actionEvent) throws IOException {
         Node node;
         node = FXMLLoader.load(getClass().getResource("/view/AutorAddFrom.fxml"));
         MainPane.getChildren().setAll(node);
         lblTopic.setText("Autor From");
     }
-
     public void GoPublishers(ActionEvent actionEvent) throws IOException {
         Node node;
         node = FXMLLoader.load(getClass().getResource("/view/PublisherAddFrom.fxml"));
         MainPane.getChildren().setAll(node);
         lblTopic.setText("Publisher From");
     }
-
     public void GoSuppliers(ActionEvent actionEvent) throws IOException {
         Node node;
         node = FXMLLoader.load(getClass().getResource("/view/SupplierAddFrom.fxml"));
         MainPane.getChildren().setAll(node);
         lblTopic.setText("Supplier From");
-
     }
-
     public void GoDashBoard(ActionEvent actionEvent) throws IOException {
         try {
             Parent view = FXMLLoader.load(this.getClass().getResource("/view/DashBoardFrom.fxml"));
@@ -267,7 +247,6 @@ public class DashBoardFromController implements Initializable {
             e.printStackTrace();
         }
     }
-
     public void GetReport(ActionEvent actionEvent) throws IOException, JRException, SQLException {
 //        InputStream input=new FileInputStream(new File("F:\\rep\\LibraryManagementSystem\\src\\main\\resources\\Report\\Wood.jrxml"));
 //        JasperDesign jasperDesign = JRXmlLoader.load(input);
@@ -280,73 +259,59 @@ public class DashBoardFromController implements Initializable {
         node = FXMLLoader.load(getClass().getResource("/view/ReportServiesFrom.fxml"));
         MainPane.getChildren().setAll(node);
         lblTopic.setText("Report From");
-
     }
-
     public void getEmail(ActionEvent actionEvent) throws IOException {
         Node node;
         node = FXMLLoader.load(getClass().getResource("/view/EmailFrom.fxml"));
         MainPane.getChildren().setAll(node);
         lblTopic.setText("Send Email");
     }
-
     public void GoDonetions(ActionEvent actionEvent) throws IOException {
         Node node;
         node = FXMLLoader.load(getClass().getResource("/view/DonetionFrom.fxml"));
         MainPane.getChildren().setAll(node);
         lblTopic.setText("Send Email");
     }
-
     public void GoExibitions(ActionEvent actionEvent) throws IOException {
         Node node;
         node = FXMLLoader.load(getClass().getResource("/view/ExibitionsFrom.fxml"));
         MainPane.getChildren().setAll(node);
         lblTopic.setText("Send Email");
     }
-
     public void GoMemberView(ActionEvent actionEvent) throws IOException {
         Node node;
         node = FXMLLoader.load(getClass().getResource("/view/MemberTableFrom.fxml"));
         MainPane.getChildren().setAll(node);
         lblTopic.setText("Member Table View");
     }
-
     public void GoAutorViwe(ActionEvent actionEvent) throws IOException {
         Node node;
         node = FXMLLoader.load(getClass().getResource("/view/AutorTableFrom.fxml"));
         MainPane.getChildren().setAll(node);
         lblTopic.setText("Autor Table From");
     }
-
     public void GoSupplierView(ActionEvent actionEvent) throws IOException {
         Node node;
         node = FXMLLoader.load(getClass().getResource("/view/SupplierTableFrom.fxml"));
         MainPane.getChildren().setAll(node);
         lblTopic.setText("Supplier Table From");
     }
-
     public void GoPublisherView(ActionEvent actionEvent) throws IOException {
         Node node;
         node = FXMLLoader.load(getClass().getResource("/view/publisherTableFrom.fxml"));
         MainPane.getChildren().setAll(node);
         lblTopic.setText("publisher Table From");
     }
-
     public void ShowAllFines(ActionEvent actionEvent) throws IOException {
         Node node;
         node = FXMLLoader.load(getClass().getResource("/view/FineMoneyTableFrom.fxml"));
         MainPane.getChildren().setAll(node);
         lblTopic.setText("FineMoney Table From");
     }
-
     public void GoBookView(ActionEvent actionEvent) throws IOException {
         Node node;
         node = FXMLLoader.load(getClass().getResource("/view/BookTableFrom.fxml"));
         MainPane.getChildren().setAll(node);
         lblTopic.setText("Book Table View");
     }
-
 }
-
-
-
