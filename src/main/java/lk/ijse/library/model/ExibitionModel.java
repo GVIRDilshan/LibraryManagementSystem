@@ -3,6 +3,7 @@ package lk.ijse.library.model;
 import lk.ijse.library.db.DBConnection;
 import lk.ijse.library.dto.Donetion;
 import lk.ijse.library.dto.Exibition;
+import lk.ijse.library.dto.Member;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -41,5 +42,24 @@ public class ExibitionModel {
             ExibitionIds.add(result.getString(1));
         }
         return ExibitionIds;
+    }
+    public static Exibition searchFrom(String id) throws SQLException {
+        Connection con = DBConnection.getInstance().getConnection();
+        String sql = "select * from exibitions where ExibitionsId=?";
+
+        PreparedStatement stm = con.prepareStatement(sql);
+        stm.setObject(1,id);
+
+        ResultSet result = stm.executeQuery();
+
+        if (result.next()) {
+            Exibition exibition = new Exibition();
+            exibition.setExibitionId(result.getString(1));
+            exibition.setExibitionDate(result.getString(2));
+            exibition.setExibitionTime(result.getString(3));
+            exibition.setExibitionDesc(result.getString(4));
+            return exibition;
+        }
+        return null;
     }
 }

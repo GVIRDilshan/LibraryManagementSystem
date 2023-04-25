@@ -3,15 +3,25 @@ package lk.ijse.library.controller;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.library.dto.Donetion;
+import lk.ijse.library.dto.Exibition;
+import lk.ijse.library.dto.Member;
 import lk.ijse.library.model.DonetionModel;
+import lk.ijse.library.model.ExibitionModel;
+import lk.ijse.library.model.MemberModel;
 
+import java.net.URL;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
 
-public class DonetionFromController {
+public class DonetionFromController implements Initializable {
     @FXML
     private AnchorPane root;
 
@@ -40,14 +50,34 @@ public class DonetionFromController {
         Donetion donetion = new Donetion();
         donetion.setDonetionId(donetionID);
         donetion.setDonetionName(donetBy);
-        donetion.setAmmount(Integer.parseInt(ammount));
+        donetion.setAmmount(Double.parseDouble(ammount));
         donetion.setReview(review);
         donetion.setExibitionId(exibitionID);
 
         boolean d1 = DonetionModel.DonetionAdd(donetion);
     }
 
-    public void onSelectCmbExibitonID(ActionEvent actionEvent) {
+    public void onSelectCmbExibitonID(ActionEvent actionEvent) throws SQLException {
+        Exibition exibition  = ExibitionModel.searchFrom((String) cmbExibitionID.getValue());
 
+    }
+    public void loadExibitionIds() throws SQLException {
+        ArrayList<String> ExibitionIds = ExibitionModel.loadAllExibitionIds();
+
+        ObservableList ids = FXCollections.observableArrayList();
+
+        for (String id : ExibitionIds){
+            ids.add(id);
+        }
+        cmbExibitionID.setItems(ids);
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        try {
+            loadExibitionIds();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

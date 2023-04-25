@@ -10,7 +10,7 @@ import lombok.*;
 public class Donetion {
     private String donetionId;
     private String review;
-    private int Ammount;
+    private double Ammount;
     private String donetionName;
     private String ExibitionId;
 
