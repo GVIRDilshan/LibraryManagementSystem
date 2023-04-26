@@ -19,6 +19,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.library.dto.*;
 import lk.ijse.library.model.*;
+import lombok.SneakyThrows;
 
 import java.io.IOException;
 import java.net.URL;
@@ -98,6 +99,7 @@ public class BookManageFromController implements Initializable {
         book.setPublisher(String.valueOf(cmbPulisherID.getValue()));
 
         boolean b1 = BookModel.BookAdd(book);
+        tableLoad();
     }
 
     @FXML
@@ -132,16 +134,9 @@ public class BookManageFromController implements Initializable {
         lblAutorName.setText(autor.getAutorName());
     }
 
+    @SneakyThrows
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
-        try {
-            loadAutorIds();
-            loadSupplierIds();
-            loadPublisherIds();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
         tblBooks.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("id"));
         tblBooks.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("name"));
         tblBooks.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("author"));
@@ -151,13 +146,15 @@ public class BookManageFromController implements Initializable {
 
         tblBooks.refresh();
 
-        ArrayList<Book> books;
-        try {
-            books = BookModel.loadAllBooks();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        tblBooks.setItems(FXCollections.observableArrayList(books));
+       // txtBookID.setEditable(false);
+        tableLoad();
+        loadAutorIds();
+        loadSupplierIds();
+        loadPublisherIds();
+    }
+    public  void tableLoad() throws SQLException {
+        ArrayList<Book> books = BookModel.loadAllBooks();
+        this.tblBooks.setItems(FXCollections.observableArrayList(books));
 
     }
 
@@ -172,6 +169,7 @@ public class BookManageFromController implements Initializable {
         String BookID = txtSearchBookID.getText();
 
         boolean d1 = BookModel.deleteFrom(BookID);
+        tableLoad();
 
         if(d1) {
             new Alert(Alert.AlertType.CONFIRMATION,"member Adding Sucses....!").show();
