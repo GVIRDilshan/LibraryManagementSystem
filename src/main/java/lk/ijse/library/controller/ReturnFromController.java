@@ -1,21 +1,31 @@
 package lk.ijse.library.controller;
 
 import com.jfoenix.controls.JFXTextField;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.library.dto.Issuse;
+import lk.ijse.library.dto.Member;
 import lk.ijse.library.dto.Return;
 import lk.ijse.library.model.EmailModel;
 import lk.ijse.library.model.IssuseModel;
+import lk.ijse.library.model.MemberModel;
 import lk.ijse.library.model.ReturnModel;
 
 
+import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
 
-public class ReturnFromController {
+public class ReturnFromController implements Initializable {
     @FXML
     private AnchorPane root;
 
@@ -46,6 +56,29 @@ public class ReturnFromController {
     @FXML
     private Label lblMemebrEmail;
 
+    @FXML
+    private TableView<Return> tblReturns;
+
+    @FXML
+    private TableColumn<?, ?> colReturnID;
+
+    @FXML
+    private TableColumn<?, ?> ReturnDate;
+
+    @FXML
+    private TableColumn<?, ?> colIssuseID;
+
+    @FXML
+    private TableColumn<?, ?> ColIssuseDate;
+
+    @FXML
+    private TableColumn<?, ?> colBookID;
+
+    Issuse issuse = new Issuse();
+
+    public ReturnFromController() throws SQLException {
+    }
+
 
     public void GoIssuse(ActionEvent actionEvent) throws SQLException {
 
@@ -60,8 +93,13 @@ public class ReturnFromController {
         lblQty.setText(issuse.getIssuseQty());
         lblMemberID.setText(issuse.getMemberId());
 
+//        lblMemberID.getText();
+//        Member member = MemberModel.searchFrom(String.valueOf(lblMemberID));
+//        lblMemebrEmail.setText(member.getEmail());
 
     }
+
+
 
     public void GoReturn(ActionEvent actionEvent) throws SQLException {
 
@@ -88,4 +126,26 @@ public class ReturnFromController {
 
 
     }
+
+    public void ReturnTableView(){
+        tblReturns.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("ReturnId"));
+        tblReturns.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("ReturnDate"));
+        tblReturns.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("IssuseId"));
+        tblReturns.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("IssuseDate"));
+        tblReturns.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("BookId"));
+
+        ArrayList<Return> returns;
+        try {
+            returns = ReturnModel.loadAllReturnas();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        tblReturns.setItems(FXCollections.observableArrayList(returns));
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        ReturnTableView();
+    }
+
 }
