@@ -3,6 +3,7 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -30,6 +31,11 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
+            <Label layoutX="7.0" layoutY="627.0" onMouseClicked="#forgetPasswordOnMouseClicked" text="forget password" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
       <ImageView fitHeight="663.0" fitWidth="472.0" pickOnBounds="true" preserveRatio="true">

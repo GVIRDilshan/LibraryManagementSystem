@@ -105,6 +105,8 @@ public class IssuseFromController implements Initializable {
 
         EmailModel.sendMail("librarys586@gmail.com" , "csaywdwsfqnjxjep" , lblContact.getText(), "Hi "+lblMemberName.getText()+" You'r Book is Issuse Sucses fully Completed \n"+"You'r IssuseId is : "+txtIssuseID.getText()+"\nBook Id : "+cmbBookID.getValue()+"\nDueDate is :"+DatePiker.getValue()+"\nPlease return your book by the date we have notified. Otherwise, after that date, fines will be added.\n"+"Thank you...."+lblMemberName.getText()+" for visiting our library.");
 
+
+
     }
     private void setOrderDate() {
         lblLocalDate.setText(String.valueOf(LocalDate.now()));
@@ -159,6 +161,15 @@ public class IssuseFromController implements Initializable {
         txtIssuseID.setText("");
         txtQty.setText("");
      //   txtBookQty.setText("");
+    }
+    void DateDiff(){
+//        Issuse issuse = new Issuse();
+//        LocalDate date1 = LocalDate.parse(issuse.getIssusDate());
+//        LocalDate date2 = LocalDate.parse(issuse.getDueDate());
+//
+//        if (date1.isAfter(date2));
+//        System.out.println("Date Diff is : ");
+
     }
 
 }
