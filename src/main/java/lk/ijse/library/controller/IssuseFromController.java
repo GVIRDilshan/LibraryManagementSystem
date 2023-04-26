@@ -27,9 +27,12 @@ import javax.mail.MessagingException;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 public class IssuseFromController implements Initializable {
@@ -83,7 +86,7 @@ public class IssuseFromController implements Initializable {
     }
 
     @FXML
-    void OnIssuse(ActionEvent event) throws SQLException, MessagingException {
+    void OnIssuse(ActionEvent event) throws SQLException, MessagingException, ParseException {
         String IssuseID = txtIssuseID.getText();
         String Qty = txtQty.getText();
         String dueDate = String.valueOf(DatePiker.getValue());
@@ -99,12 +102,12 @@ public class IssuseFromController implements Initializable {
         issuse.setMemberId(memberID);
         issuse.setIssuseQty(IssuseQty);
 
+
         System.out.println(Qty+" "+issuse.getIssusDate()+" "+issuse.getDueDate()+" "+issuse.getIssusId()+" "+issuse.getMemberId());
 
         boolean i1 = IssuseModel.issuseFrom(issuse,Qty,BookID);
 
         EmailModel.sendMail("librarys586@gmail.com" , "csaywdwsfqnjxjep" , lblContact.getText(), "Hi "+lblMemberName.getText()+" You'r Book is Issuse Sucses fully Completed \n"+"You'r IssuseId is : "+txtIssuseID.getText()+"\nBook Id : "+cmbBookID.getValue()+"\nDueDate is :"+DatePiker.getValue()+"\nPlease return your book by the date we have notified. Otherwise, after that date, fines will be added.\n"+"Thank you...."+lblMemberName.getText()+" for visiting our library.");
-
 
 
     }
@@ -162,14 +165,21 @@ public class IssuseFromController implements Initializable {
         txtQty.setText("");
      //   txtBookQty.setText("");
     }
-    void DateDiff(){
-//        Issuse issuse = new Issuse();
-//        LocalDate date1 = LocalDate.parse(issuse.getIssusDate());
-//        LocalDate date2 = LocalDate.parse(issuse.getDueDate());
-//
-//        if (date1.isAfter(date2));
-//        System.out.println("Date Diff is : ");
+    public void DateDiff() throws ParseException {
 
+        Issuse issuse = new Issuse();
+
+        String date1 = issuse.getIssusDate();
+        String date2 = issuse.getDueDate();
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/mm/yyyy");
+
+        Date d1 = simpleDateFormat.parse(date1);
+        Date d2 = simpleDateFormat.parse(date2);
+
+        long DateDiff = d2.getTime() - d1.getTime();
+
+        System.out.println("Date Diff is : "+DateDiff/3600000/24+" Days");
     }
 
 }
