@@ -4,22 +4,30 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.library.dto.Autor;
 import lk.ijse.library.model.AutorModel;
 import lk.ijse.library.util.Alerts;
+import lk.ijse.library.util.Regex;
 import org.checkerframework.checker.units.qual.A;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import static com.jfoenix.svg.SVGGlyphLoader.clear;
 
-public class AutorAddFromController {
+public class AutorAddFromController implements Initializable {
     @FXML
     private AnchorPane root;
 
@@ -37,6 +45,18 @@ public class AutorAddFromController {
 
     @FXML
     private JFXTextField txtEnterAutorID;
+
+    @FXML
+    private Label lbl1;
+
+    @FXML
+    private Label lbl2;
+
+    @FXML
+    private Label lbl3;
+
+    @FXML
+    private Label lbl4;
 
     public void OnDelete(ActionEvent actionEvent) throws SQLException {
         String AutorID = txtAutorID.getText();
@@ -110,4 +130,43 @@ public class AutorAddFromController {
         txtBookID.setText("");
         txtBookName.setText("");
     }
+    private void setTurnId() {
+        try {
+            String newTurnId = AutorModel.genarateTurnId();
+            txtAutorID.setText(newTurnId);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        setTurnId();
+        txtAutorID.setEditable(false);
+    }
+    @FXML
+    void AuthorNameOnAction(KeyEvent event) {
+        Pattern compile= Regex.getNamePattern();
+        Matcher matcher=compile.matcher(txtAutorName.getText());
+        boolean matches= matcher.matches();
+        if (matches){
+            lbl2.setStyle("-fx-background-color: #2ecc71;");
+        }else{
+            lbl2.setStyle("-fx-background-color: #c0392b;");
+        }
+    }
+
+    @FXML
+    void BookNameOnAction(KeyEvent event) {
+        Pattern compile= Regex.getNamePattern();
+        Matcher matcher=compile.matcher(txtBookName.getText());
+        boolean matches= matcher.matches();
+        if (matches){
+            lbl4.setStyle("-fx-background-color: #2ecc71;");
+        }else{
+            lbl4.setStyle("-fx-background-color: #c0392b;");
+        }
+    }
+
 }

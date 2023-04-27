@@ -130,4 +130,31 @@ public class AutorModel {
 
         return autors;
     }
+    public static String genarateTurnId() throws SQLException {
+        Connection con = DBConnection.getInstance().getConnection();
+
+        PreparedStatement ps = con.prepareStatement("SELECT autorId FROM autor ORDER BY autorId DESC LIMIT 1 ");
+
+        ResultSet rs = ps.executeQuery();
+
+        if (rs.next()){
+            String lastAutorId = rs.getString(1);
+
+            String[] temp = lastAutorId.split("A");
+
+            int value = Integer.parseInt((temp[1]));
+            String nextValue = (value+1) + "";
+
+            if (nextValue.length() == 1 ){
+                return "A00"+ nextValue;
+            }else if (nextValue.length() == 2 ){
+                return "A0" + nextValue;
+            }else {
+                return "A";
+            }
+
+
+        }
+        return  "A001";
+    }
 }
