@@ -17,22 +17,22 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </JFXButton>
-        <JFXTextField fx:id="txtMemberId" labelFloat="true" layoutX="21.0" layoutY="38.0" prefHeight="52.0" prefWidth="532.0" promptText="MemberId">
+        <JFXTextField labelFloat="true" layoutX="21.0" layoutY="38.0" prefHeight="52.0" prefWidth="532.0" promptText="MemberId">
             <font>
                 <Font size="20.0" />
             </font>
         </JFXTextField>
-        <JFXTextField fx:id="txtMemberName" labelFloat="true" layoutX="16.0" layoutY="118.0" prefHeight="52.0" prefWidth="532.0" promptText="Name">
+        <JFXTextField fx:id="txtMemberName" labelFloat="true" layoutX="16.0" layoutY="118.0" onKeyReleased="#memberNameOnAction" prefHeight="52.0" prefWidth="532.0" promptText="Name">
             <font>
                 <Font size="20.0" />
             </font>
         </JFXTextField>
-        <JFXTextField fx:id="txtMemberAddress" labelFloat="true" layoutX="20.0" layoutY="204.0" prefHeight="52.0" prefWidth="532.0" promptText="Address">
+        <JFXTextField fx:id="txtMemberAddress" labelFloat="true" layoutX="20.0" layoutY="204.0" onKeyTyped="#memberAddressOnAction" prefHeight="52.0" prefWidth="532.0" promptText="Address">
             <font>
                 <Font size="20.0" />
             </font>
         </JFXTextField>
-        <JFXTextField fx:id="txtMemberContact" labelFloat="true" layoutX="16.0" layoutY="478.0" prefHeight="52.0" prefWidth="532.0" promptText="Contact">
+        <JFXTextField fx:id="txtMemberContact" labelFloat="true" layoutX="16.0" layoutY="478.0" onKeyReleased="#MemberContactOnAction" prefHeight="52.0" prefWidth="532.0" promptText="Contact">
             <font>
                 <Font size="20.0" />
             </font>
@@ -42,7 +42,7 @@
                 <Font size="20.0" />
             </font>
         </JFXTextField>
-        <JFXTextField fx:id="txtMemberEmail" labelFloat="true" layoutX="21.0" layoutY="554.0" prefHeight="52.0" prefWidth="532.0" promptText="Email">
+        <JFXTextField fx:id="txtMemberEmail" labelFloat="true" layoutX="21.0" layoutY="554.0" onKeyReleased="#memberEmailOnAction" prefHeight="52.0" prefWidth="532.0" promptText="Email">
             <font>
                 <Font size="20.0" />
             </font>
@@ -55,9 +55,9 @@
         <Label fx:id="lbl1" layoutX="570.0" layoutY="64.0" prefHeight="36.0" prefWidth="41.0" style="-fx-background-color: #95a5a6;" />
         <Label fx:id="lbl2" layoutX="570.0" layoutY="137.0" prefHeight="36.0" prefWidth="41.0" style="-fx-background-color: #95a5a6;" />
         <Label fx:id="lbl3" layoutX="570.0" layoutY="212.0" prefHeight="36.0" prefWidth="41.0" style="-fx-background-color: #95a5a6;" />
-        <Label fx:id="lbl4" layoutX="570.0" layoutY="486.0" prefHeight="36.0" prefWidth="41.0" style="-fx-background-color: #95a5a6;" />
+        <Label fx:id="lbl6" layoutX="570.0" layoutY="486.0" prefHeight="36.0" prefWidth="41.0" style="-fx-background-color: #95a5a6;" />
         <Label fx:id="lbl5" layoutX="570.0" layoutY="395.0" prefHeight="36.0" prefWidth="41.0" style="-fx-background-color: #95a5a6;" />
-        <Label fx:id="lbl6" layoutX="570.0" layoutY="302.0" prefHeight="36.0" prefWidth="41.0" style="-fx-background-color: #95a5a6;" />
+        <Label fx:id="lbl4" layoutX="570.0" layoutY="302.0" prefHeight="36.0" prefWidth="41.0" style="-fx-background-color: #95a5a6;" />
         <Label fx:id="lbl7" layoutX="570.0" layoutY="570.0" prefHeight="36.0" prefWidth="41.0" style="-fx-background-color: #95a5a6;" />
         <JFXTextField fx:id="txtMemberIdSearch" labelFloat="true" layoutX="779.0" layoutY="56.0" prefHeight="52.0" prefWidth="231.0" promptText="EnterMemberId">
             <font>

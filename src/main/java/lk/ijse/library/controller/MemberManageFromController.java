@@ -3,6 +3,7 @@ package lk.ijse.library.controller;
 import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -14,19 +15,28 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Paint;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import lk.ijse.library.dto.Member;
+import lk.ijse.library.model.AutorModel;
 import lk.ijse.library.model.MemberModel;
 import lk.ijse.library.util.Alerts;
+import lk.ijse.library.util.Regex;
+import lombok.SneakyThrows;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-public class MemberManageFromController implements Initializable {
+public class MemberManageFromController{
     @FXML
     private AnchorPane root;
 
@@ -71,6 +81,8 @@ public class MemberManageFromController implements Initializable {
     private JFXTextField txtMemberIdSearch;
 
     @FXML
+    private Text txt1;
+    @FXML
     private Label lbl1;
 
     @FXML
@@ -113,8 +125,8 @@ public class MemberManageFromController implements Initializable {
 
         boolean member1 = MemberModel.memberAdd(memberss);
 
-        if(member1) {
-            new Alert(Alert.AlertType.CONFIRMATION,"Member Adding Sucses....!").show();
+        if (member1) {
+            new Alert(Alert.AlertType.CONFIRMATION, "Member Adding Sucses....!").show();
             clear();
         }
 
@@ -145,7 +157,7 @@ public class MemberManageFromController implements Initializable {
         txtMemberEmail.setText(m1.getEmail());
         txtMemberContact.setText(m1.getContact());
         txtMemberGender.setText(m1.getGender());
-        
+
     }
 
     public void OnUpdate(ActionEvent actionEvent) throws SQLException {
@@ -168,8 +180,8 @@ public class MemberManageFromController implements Initializable {
 
         boolean m2 = MemberModel.updateMember(member);
 
-        if(m2) {
-            new Alert(Alert.AlertType.CONFIRMATION,"Member Update Sucses....!").show();
+        if (m2) {
+            new Alert(Alert.AlertType.CONFIRMATION, "Member Update Sucses....!").show();
 
             clear();
         }
@@ -181,13 +193,14 @@ public class MemberManageFromController implements Initializable {
 
         boolean d1 = MemberModel.deleteFrom(memberID);
 
-        if(d1) {
-            new Alert(Alert.AlertType.CONFIRMATION,"member Adding Sucses....!").show();
+        if (d1) {
+            new Alert(Alert.AlertType.CONFIRMATION, "member Adding Sucses....!").show();
             clear();
         }
 
     }
-    public void clear(){
+
+    public void clear() {
         txtMemberId.setText("");
         txtMemberName.setText("");
         txtMemberAddress.setText("");
@@ -195,12 +208,6 @@ public class MemberManageFromController implements Initializable {
         txtMemberAge.setText("");
         txtMemberEmail.setText("");
         txtMemberGender.setText("");
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-
-
     }
 
     public void GoView(ActionEvent actionEvent) {
@@ -214,4 +221,63 @@ public class MemberManageFromController implements Initializable {
             e.printStackTrace();
         }
     }
+
+    public void MemberContactOnAction(KeyEvent keyEvent) {
+        Pattern compile = Regex.getMobilePattern();
+        Matcher matcher = compile.matcher(txtMemberContact.getText());
+        boolean matches = matcher.matches();
+        if (matches) {
+            lbl6.setStyle("-fx-background-color: #2ecc71;");
+        } else {
+            lbl6.setStyle("-fx-background-color: #c0392b;");
+        }
+    }
+
+    public void memberEmailOnAction(KeyEvent keyEvent) {
+        Pattern compile = Regex.getEmailPattern();
+        Matcher matcher = compile.matcher(txtMemberEmail.getText());
+        boolean matches = matcher.matches();
+        if (matches) {
+            lbl7.setStyle("-fx-background-color: #2ecc71;");
+        } else {
+            lbl7.setStyle("-fx-background-color: #c0392b;");
+        }
+    }
+
+    public void memberNameOnAction(KeyEvent keyEvent) {
+        Pattern compile = Regex.getNamePattern();
+        Matcher matcher = compile.matcher(txtMemberName.getText());
+        boolean matches = matcher.matches();
+        if (matches) {
+            lbl2.setStyle("-fx-background-color: #2ecc71;");
+        } else {
+            lbl2.setStyle("-fx-background-color: #c0392b;");
+        }
+    }
+
+    public void memberAddressOnAction(KeyEvent keyEvent) {
+        Pattern compile = Regex.getAddressPattern();
+        Matcher matcher = compile.matcher(txtMemberAddress.getText());
+        boolean matches = matcher.matches();
+        if (matches) {
+            lbl3.setStyle("-fx-background-color: #2ecc71;");
+        } else {
+            lbl3.setStyle("-fx-background-color: #c0392b;");
+        }
+    }
+//    private void setTurnId() {
+//        try {
+//            String newTurnId = MemberModel.genarateTurnId();
+//            txtMemberId.setText(newTurnId);
+//
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//    }
+//
+//    @Override
+//    public void initialize(URL location, ResourceBundle resources) {
+//        setTurnId();
+//        txtMemberId.setEditable(false);
+//    }
 }

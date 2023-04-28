@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -12,7 +13,7 @@
                 <Font size="19.0" />
             </font>
         </JFXTextField>
-        <JFXTextField fx:id="txtPublisherName" labelFloat="true" layoutX="163.0" layoutY="294.0" prefHeight="53.0" prefWidth="555.0" promptText="Publisher Name">
+        <JFXTextField fx:id="txtPublisherName" labelFloat="true" layoutX="163.0" layoutY="294.0" onKeyReleased="#PublisherNameOnAction" prefHeight="53.0" prefWidth="555.0" promptText="Publisher Name">
             <font>
                 <Font size="19.0" />
             </font>
@@ -47,6 +48,7 @@
                 <Font size="23.0" />
             </font>
         </JFXButton>
+      <Label fx:id="lbl1" layoutX="729.0" layoutY="298.0" prefHeight="45.0" prefWidth="47.0" />
     </children>
 
 </AnchorPane>

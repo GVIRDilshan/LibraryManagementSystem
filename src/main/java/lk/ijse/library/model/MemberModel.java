@@ -146,5 +146,29 @@ public class MemberModel {
         }
             return Email;
     }
+    public static String genarateTurnId() throws SQLException {
+        Connection con = DBConnection.getInstance().getConnection();
 
+        PreparedStatement ps = con.prepareStatement("SELECT memberId FROM Member ORDER BY memberId DESC LIMIT 1 ");
+
+        ResultSet rs = ps.executeQuery();
+
+        if (rs.next()){
+            String lastMemberId = rs.getString(1);
+
+            String[] temp = lastMemberId.split("M");
+
+            int value = Integer.parseInt((temp[1]));
+            String nextValue = (value+1) + "";
+
+            if (nextValue.length() == 1 ){
+                return "M00"+ nextValue;
+            }else if (nextValue.length() == 2 ){
+                return "M0" + nextValue;
+            }else {
+                return "M";
+            }
+        }
+        return  "M001";
+    }
 }
