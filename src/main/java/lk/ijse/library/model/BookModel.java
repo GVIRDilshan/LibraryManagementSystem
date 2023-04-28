@@ -115,5 +115,54 @@ public class BookModel {
             return false;
         }
     }
+    public static Boolean updateBook(Book book) throws SQLException {
+        Connection con = DBConnection.getInstance().getConnection();
+        String sql = "update book set name=?,author_Id=?" +
+                ",Publisher=?,Supplier=?," +
+                "qty=? where bookId=?";
+
+        PreparedStatement stm = con.prepareStatement(sql);
+
+        stm.setObject(1,book.getName());
+        stm.setObject(2,book.getAuthor());
+        stm.setObject(3,book.getPublisher());
+        stm.setObject(4,book.getSupplier());
+        stm.setObject(5,book.getQty());
+        stm.setObject(6,book.getId());
+
+        int result = stm.executeUpdate();
+
+        if (result == 1) {
+            return true;
+        }
+        return null;
+    }
+//    public static String genarateTurnId() throws SQLException {
+//        Connection con = DBConnection.getInstance().getConnection();
+//
+//        PreparedStatement ps = con.prepareStatement("SELECT memberId FROM member ORDER BY memberId DESC LIMIT 1 ");
+//
+//        ResultSet rs = ps.executeQuery();
+//
+//        if (rs.next()){
+//            String lastBookId = rs.getString(1);
+//
+//            String[] temp = lastBookId.split("B");
+//
+//            int value = Integer.parseInt((temp[1));
+//            String nextValue = (value+1) + "";
+//
+//            if (nextValue.length() == 1 ){
+//                return "B00"+ nextValue;
+//            }else if (nextValue.length() == 2 ){
+//                return "B0" + nextValue;
+//            }else {
+//                return "B";
+//            }
+//
+//
+//        }
+//        return "B001";
+//    }
 }
 

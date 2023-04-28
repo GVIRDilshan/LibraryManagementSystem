@@ -151,15 +151,31 @@ public class BookManageFromController implements Initializable {
         loadAutorIds();
         loadSupplierIds();
         loadPublisherIds();
+     //   setTurnId();
+      //  txtBookID.setEditable(false);
     }
     public  void tableLoad() throws SQLException {
         ArrayList<Book> books = BookModel.loadAllBooks();
         this.tblBooks.setItems(FXCollections.observableArrayList(books));
-
     }
 
-    public void OnUpdate(ActionEvent actionEvent) {
+    public void OnUpdate(ActionEvent actionEvent) throws SQLException {
+        String BookId = txtBookID.getText();
+        String BookName = txtBookName.getText();
+        String AutorId = String.valueOf(cmbAutorId.getValue());
+        String PublisherId = String.valueOf(cmbPulisherID.getValue());
+        String SupplierId = String.valueOf(cmbSupplierId.getValue());
+        String Qty = txtBookQty.getText();
 
+        Book book = new Book();
+        book.setId(BookId);
+        book.setName(BookName);
+        book.setAuthor(AutorId);
+        book.setPublisher(PublisherId);
+        book.setSupplier(SupplierId);
+        book.setQty(Integer.parseInt(Qty));
+
+        boolean b1 = BookModel.updateBook(book);
     }
 
     public void OnDelete(ActionEvent actionEvent) throws SQLException {
@@ -224,6 +240,13 @@ public class BookManageFromController implements Initializable {
         txtBookName.setText("");
         txtBookQty.setText("");
     }
-
-
+//    private void setTurnId() {
+//        try {
+//            String newTurnId = BookModel.genarateTurnId();
+//            txtBookID.setText(newTurnId);
+//
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//    }
 }

@@ -131,7 +131,7 @@
                         <Font size="17.0" />
                      </font>
                   </Text>
-                  <TableView fx:id="tblIssuse" layoutX="13.0" layoutY="348.0" prefHeight="253.0" prefWidth="463.0" stylesheets="@../StyleSheet/tableview.css">
+                  <TableView fx:id="tblIssuse" layoutX="9.0" layoutY="357.0" prefHeight="253.0" prefWidth="463.0" stylesheets="@../StyleSheet/tableview.css">
                     <columns>
                       <TableColumn fx:id="coliid" prefWidth="55.0" text="iid" />
                       <TableColumn fx:id="colBookId" prefWidth="73.0" text="BookID" />
@@ -141,7 +141,7 @@
                         <TableColumn fx:id="colIssuseQty" prefWidth="70.0" text="Issusqty" />
                     </columns>
                   </TableView>
-                  <TableView fx:id="tblReturn" layoutX="490.0" layoutY="348.0" prefHeight="253.0" prefWidth="471.0" stylesheets="@../StyleSheet/tableview.css">
+                  <TableView fx:id="tblReturn" layoutX="490.0" layoutY="357.0" prefHeight="253.0" prefWidth="471.0" stylesheets="@../StyleSheet/tableview.css">
                      <columns>
                         <TableColumn fx:id="colReturnID" prefWidth="75.0" text="ReturnID" />
                         <TableColumn fx:id="colReturnDate" prefWidth="112.0" text=" ReturnDate" />
@@ -167,6 +167,13 @@
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
+                     <graphic>
+                        <ImageView fitHeight="58.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Pic/images-removebg-preview%20(2).png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </JFXButton>
                   <JFXButton buttonType="RAISED" layoutX="161.0" layoutY="11.0" onAction="#GoAutorViwe" prefHeight="93.0" prefWidth="131.0" style="-fx-background-color: #192a56; -fx-background-radius: 26;" text="." textFill="WHITE">
                      <font>
@@ -175,6 +182,13 @@
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
+                     <graphic>
+                        <ImageView fitHeight="58.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Pic/images-removebg-preview%20(2).png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </JFXButton>
                   <JFXButton buttonType="RAISED" layoutX="311.0" layoutY="11.0" onAction="#GoSupplierView" prefHeight="93.0" prefWidth="131.0" style="-fx-background-color: #192a56; -fx-background-radius: 26;" text="." textFill="WHITE">
                      <font>
@@ -183,6 +197,13 @@
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
+                     <graphic>
+                        <ImageView fitHeight="58.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Pic/images-removebg-preview%20(2).png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </JFXButton>
                   <JFXButton buttonType="RAISED" layoutX="471.0" layoutY="11.0" onAction="#GoPublisherView" prefHeight="93.0" prefWidth="131.0" style="-fx-background-color: #192a56; -fx-background-radius: 26;" text="." textFill="WHITE">
                      <font>
@@ -191,6 +212,13 @@
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
+                     <graphic>
+                        <ImageView fitHeight="58.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Pic/images-removebg-preview%20(2).png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </JFXButton>
                   <JFXButton buttonType="RAISED" layoutX="635.0" layoutY="10.0" onAction="#ShowAllFines" prefHeight="95.0" prefWidth="131.0" style="-fx-background-color: #192a56; -fx-background-radius: 26;" text="." textFill="WHITE">
                      <font>
@@ -199,6 +227,13 @@
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
+                     <graphic>
+                        <ImageView fitHeight="58.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Pic/images-removebg-preview%20(2).png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </JFXButton>
                   <JFXButton buttonType="RAISED" layoutX="799.0" layoutY="10.0" onAction="#GoBookView" prefHeight="95.0" prefWidth="131.0" style="-fx-background-color: #192a56; -fx-background-radius: 26;" text="." textFill="WHITE">
                      <font>
@@ -207,6 +242,13 @@
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
+                     <graphic>
+                        <ImageView fitHeight="58.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Pic/images-removebg-preview%20(2).png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </JFXButton>
                   <Text fill="WHITE" layoutX="22.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Member View" wrappingWidth="115.20310285687447">
                      <font>
@@ -250,6 +292,13 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <graphic>
+                  <ImageView fitHeight="48.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Pic/open-book.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </JFXButton>
             <JFXButton buttonType="RAISED" layoutX="7.0" layoutY="316.0" onAction="#GoIssuse" prefHeight="71.0" prefWidth="149.0" style="-fx-background-color: #192a56;" text=".">
                <font>
@@ -258,6 +307,16 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <graphic>
+                  <ImageView fitHeight="55.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Pic/pngtree-white-search-icon-image_1344885-removebg-preview.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </graphic>
             </JFXButton>
             <JFXButton buttonType="RAISED" layoutX="7.0" layoutY="396.0" onAction="#GoReturn" prefHeight="68.0" prefWidth="149.0" style="-fx-background-color: #192a56;" text=".">
                <font>
@@ -266,6 +325,16 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <graphic>
+                  <ImageView fitHeight="45.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Pic/transparent-emails-icon-reply-icon-return-icon-605db657ca7974.5523131916167542638293-removebg-preview.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </graphic>
             </JFXButton>
             <JFXButton buttonType="RAISED" layoutX="5.0" layoutY="156.0" onAction="#GoMember" prefHeight="70.0" prefWidth="159.0" style="-fx-background-color: #192a56;" text=".">
                <font>
@@ -274,6 +343,13 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <graphic>
+                  <ImageView fitHeight="58.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Pic/user.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </JFXButton>
             <JFXButton buttonType="RAISED" layoutX="5.0" layoutY="67.0" onAction="#GoDashBoard" prefHeight="80.0" prefWidth="159.0" style="-fx-background-color: #192a56;" text="." textAlignment="JUSTIFY">
                <font>
@@ -282,6 +358,13 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <graphic>
+                  <ImageView fitHeight="55.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Pic/home.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </JFXButton>
             <JFXButton buttonType="RAISED" layoutX="7.0" layoutY="561.0" onAction="#getEmail" prefHeight="80.0" prefWidth="148.0" style="-fx-background-color: #192a56;" text="     Return Books">
                <font>
@@ -297,7 +380,7 @@
                   <Font size="15.5" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="57.0" layoutY="299.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Book" wrappingWidth="39.6708984375">
+            <Text fill="WHITE" layoutX="61.0" layoutY="309.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Book" wrappingWidth="39.6708984375">
                <font>
                   <Font size="16.0" />
                </font></Text>
@@ -334,43 +417,12 @@
                   <Image url="@../Pic/icons8-reading-94.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="55.0" fitWidth="54.0" layoutX="50.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../Pic/home.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="58.0" fitWidth="58.0" layoutX="49.0" layoutY="156.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../Pic/user.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="48.0" fitWidth="71.0" layoutX="54.0" layoutY="237.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../Pic/open-book.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="55.0" fitWidth="68.0" layoutX="48.0" layoutY="318.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../Pic/pngtree-white-search-icon-image_1344885-removebg-preview.png" />
-               </image>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </ImageView>
-            <ImageView fitHeight="45.0" fitWidth="66.0" layoutX="46.0" layoutY="395.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../Pic/transparent-emails-icon-reply-icon-return-icon-605db657ca7974.5523131916167542638293-removebg-preview.png" />
-               </image>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </ImageView>
             <ImageView fitHeight="55.0" fitWidth="55.0" layoutX="44.0" layoutY="477.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Pic/report.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="54.0" fitWidth="65.0" layoutX="49.0" layoutY="569.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="54.0" fitWidth="76.0" layoutX="48.0" layoutY="569.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Pic/png-mail-email-address-round-outline-white-icon-11637079490wb440m0iml-removebg-preview.png" />
                </image>
@@ -385,25 +437,25 @@
             <Font name="System Bold Italic" size="50.0" />
          </font>
       </Label>
-      <Text fx:id="txtDate" layoutX="1020.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date" wrappingWidth="257.6708934009075">
+      <Text fx:id="txtDate" layoutX="1045.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date" wrappingWidth="232.67089340090752">
          <font>
             <Font size="30.0" />
          </font>
       </Text>
-      <Text fx:id="txtTime" layoutX="1020.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time" wrappingWidth="257.67089897580445">
+      <Text fx:id="txtTime" layoutX="1045.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time" wrappingWidth="232.67089414596558">
          <font>
             <Font size="30.0" />
          </font>
       </Text>
-      <Text layoutX="923.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date :-" wrappingWidth="131.00000496208668">
-         <font>
-            <Font size="30.0" />
-         </font>
-      </Text>
-      <Text layoutX="923.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time :-" wrappingWidth="131.0000243782997">
-         <font>
-            <Font size="30.0" />
-         </font>
-      </Text>
+      <ImageView fitHeight="40.0" fitWidth="51.0" layoutX="989.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Pic/download-removebg-preview%20(1).png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="40.0" fitWidth="51.0" layoutX="989.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Pic/free-time-icon-3487-thumb-removebg-preview.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
