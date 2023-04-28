@@ -6,17 +6,31 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.library.dto.Supplier;
 import lk.ijse.library.model.SupplierModel;
+import javafx.scene.control.Label;
+import lk.ijse.library.util.Regex;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class SupplierAddFromController {
     @FXML
     private AnchorPane root;
+
+    @FXML
+    private Label lbl1;
+
+    @FXML
+    private Label lbl2;
+
+    @FXML
+    private Label lbl3;
 
     @FXML
     private JFXTextField txtSupllierID;
@@ -117,5 +131,40 @@ public class SupplierAddFromController {
         txtSupplierAddress.setText("");
         txtContact.setText("");
         txtBookID.setText("");
+    }
+    @FXML
+    void SuplierAddressOnAction(KeyEvent event) {
+        Pattern compile= Regex.getAddressPattern();
+        Matcher matcher=compile.matcher(txtSupplierAddress.getText());
+        boolean matches= matcher.matches();
+        if (matches){
+            lbl3.setStyle("-fx-background-color: #2ecc71;");
+        }else{
+            lbl3.setStyle("-fx-background-color: #c0392b;");
+        }
+    }
+
+    @FXML
+    void SuplierConractOnAction(KeyEvent event) {
+        Pattern compile= Regex.getMobilePattern();
+        Matcher matcher=compile.matcher(txtContact.getText());
+        boolean matches= matcher.matches();
+        if (matches){
+            lbl2.setStyle("-fx-background-color: #2ecc71;");
+        }else{
+            lbl2.setStyle("-fx-background-color: #c0392b;");
+        }
+    }
+
+    @FXML
+    void suplierNameOnAction(KeyEvent event) {
+        Pattern compile= Regex.getNamePattern();
+        Matcher matcher=compile.matcher(txtSupplierName.getText());
+        boolean matches= matcher.matches();
+        if (matches){
+            lbl1.setStyle("-fx-background-color: #2ecc71;");
+        }else{
+            lbl1.setStyle("-fx-background-color: #c0392b;");
+        }
     }
 }

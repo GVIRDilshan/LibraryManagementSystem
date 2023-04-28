@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -12,12 +13,12 @@
             <Font size="19.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtSupplierName" labelFloat="true" layoutX="115.0" layoutY="245.0" prefHeight="50.0" prefWidth="526.0" promptText="Supplier Name">
+      <JFXTextField fx:id="txtSupplierName" labelFloat="true" layoutX="115.0" layoutY="245.0" onKeyReleased="#suplierNameOnAction" prefHeight="50.0" prefWidth="526.0" promptText="Supplier Name">
          <font>
             <Font size="19.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtContact" labelFloat="true" layoutX="122.0" layoutY="330.0" prefHeight="50.0" prefWidth="526.0" promptText="Contact">
+      <JFXTextField fx:id="txtContact" labelFloat="true" layoutX="122.0" layoutY="330.0" onKeyReleased="#SuplierConractOnAction" prefHeight="50.0" prefWidth="526.0" promptText="Contact">
          <font>
             <Font size="19.0" />
          </font>
@@ -27,7 +28,7 @@
             <Font size="19.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtSupplierAddress" labelFloat="true" layoutX="122.0" layoutY="420.0" prefHeight="50.0" prefWidth="526.0" promptText="Address">
+      <JFXTextField fx:id="txtSupplierAddress" labelFloat="true" layoutX="122.0" layoutY="420.0" onKeyReleased="#SuplierAddressOnAction" prefHeight="50.0" prefWidth="526.0" promptText="Address">
          <font>
             <Font size="19.0" />
          </font>
@@ -57,5 +58,8 @@
             <Font size="22.0" />
          </font>
       </JFXButton>
+      <Label fx:id="lbl1" layoutX="663.0" layoutY="256.0" prefHeight="39.0" prefWidth="39.0" />
+      <Label fx:id="lbl2" layoutX="663.0" layoutY="341.0" prefHeight="39.0" prefWidth="39.0" />
+      <Label fx:id="lbl3" layoutX="663.0" layoutY="426.0" prefHeight="39.0" prefWidth="39.0" />
    </children>
 </AnchorPane>

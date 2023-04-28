@@ -21,7 +21,7 @@ public class ReportServiesFromController {
     private AnchorPane root;
 
     public void btnBookReport(ActionEvent actionEvent) throws FileNotFoundException, JRException, SQLException {
-        InputStream input=new FileInputStream(new File(""));
+        InputStream input=new FileInputStream(new File("G:\\SemFinalProject\\LibraryManagementSystem\\src\\main\\resources\\Report\\BookReport.jrxml"));
         JasperDesign jasperDesign = JRXmlLoader.load(input);
         JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
 
@@ -31,7 +31,7 @@ public class ReportServiesFromController {
     }
 
     public void btnMemberReport(ActionEvent actionEvent) throws FileNotFoundException, JRException, SQLException {
-        InputStream input=new FileInputStream(new File("F:\\rep\\LibraryManagementSystem\\src\\main\\resources\\Report\\Wood.jrxml"));
+        InputStream input=new FileInputStream(new File("G:\\SemFinalProject\\LibraryManagementSystem\\src\\main\\resources\\Report\\MemberReport.jrxml"));
         JasperDesign jasperDesign = JRXmlLoader.load(input);
         JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
 
@@ -41,7 +41,7 @@ public class ReportServiesFromController {
     }
 
     public void btnIssuseReport(ActionEvent actionEvent) throws FileNotFoundException, JRException, SQLException {
-        InputStream input=new FileInputStream(new File("F:\\rep\\LibraryManagementSystem\\src\\main\\resources\\Report\\isssuseFrom.jrxml"));
+        InputStream input=new FileInputStream(new File("G:\\SemFinalProject\\LibraryManagementSystem\\src\\main\\resources\\Report\\IssuseReport.jrxml"));
         JasperDesign jasperDesign = JRXmlLoader.load(input);
         JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
 
@@ -50,8 +50,14 @@ public class ReportServiesFromController {
         JasperViewer.viewReport(jasperPrint,false);
     }
 
-    public void btnReturnReport(ActionEvent actionEvent) {
+    public void btnReturnReport(ActionEvent actionEvent) throws FileNotFoundException, JRException, SQLException {
+        InputStream input=new FileInputStream(new File("G:\\SemFinalProject\\LibraryManagementSystem\\src\\main\\resources\\Report\\ReturnReports.jrxml"));
+        JasperDesign jasperDesign = JRXmlLoader.load(input);
+        JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
 
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport,null, DBConnection.getInstance().getConnection());
+
+        JasperViewer.viewReport(jasperPrint,false);
     }
 
     public void btnPublisherReport(ActionEvent actionEvent) {
