@@ -6,19 +6,27 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.library.dto.Publisher;
 import lk.ijse.library.model.PublisherModel;
+import lk.ijse.library.util.Regex;
 
 import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 public class PublisherAddFromController {
     @FXML
     private AnchorPane root;
+
+    @FXML
+    private Label lbl1;
 
     @FXML
     private JFXTextField txtPublisherID;
@@ -94,5 +102,16 @@ public class PublisherAddFromController {
 
         boolean P1 = PublisherModel.PublisherAdd(publisher);
 
+    }
+
+    public void PublisherNameOnAction(KeyEvent keyEvent) {
+        Pattern compile= Regex.getNamePattern();
+        Matcher matcher=compile.matcher(txtPublisherName.getText());
+        boolean matches= matcher.matches();
+        if (matches){
+            lbl1.setStyle("-fx-background-color: #2ecc71;");
+        }else{
+            lbl1.setStyle("-fx-background-color: #c0392b;");
+        }
     }
 }
