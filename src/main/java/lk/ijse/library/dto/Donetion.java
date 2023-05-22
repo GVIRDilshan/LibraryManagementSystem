@@ -13,5 +13,6 @@ public class Donetion {
     private double Ammount;
     private String donetionName;
     private String ExibitionId;
+    
 
 }
