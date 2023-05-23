@@ -28,6 +28,7 @@ public class AutorModel {
             return false;
         }
     }
+    
     public static Autor searchFrom(String id) throws SQLException {
 
         Connection con = DBConnection.getInstance().getConnection();
@@ -51,6 +52,7 @@ public class AutorModel {
         }
         return null;
     }
+    
     public static Boolean updateAutor(Autor autor) throws SQLException {
 
         Connection con = DBConnection.getInstance().getConnection();
@@ -72,6 +74,7 @@ public class AutorModel {
         }
         return null;
     }
+    
     public static boolean deleteFrom(String id) throws SQLException {
 
         Connection con = DBConnection.getInstance().getConnection();
@@ -90,6 +93,7 @@ public class AutorModel {
             return false;
         }
     }
+    
     public static ArrayList<String> loadAllAutorIds() throws SQLException {
 
         Connection con = DBConnection.getInstance().getConnection();
@@ -107,6 +111,7 @@ public class AutorModel {
             }
             return AutorIds;
     }
+    
     public static ArrayList<Autor> loadAllAutors() throws SQLException {
 
         Connection con = DBConnection.getInstance().getConnection();
