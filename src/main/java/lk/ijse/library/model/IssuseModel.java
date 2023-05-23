@@ -48,6 +48,7 @@ public class IssuseModel {
 
         return false;
     }
+    
     public static Issuse IssuseSearch(String iid) throws SQLException {
 
         Connection con = DBConnection.getInstance().getConnection();
@@ -71,7 +72,8 @@ public class IssuseModel {
                 return issuses;
             }
             return null;
-        }
+     }
+    
     public static ArrayList<Issuse> loadAllIssuse() throws SQLException {
 
             Connection con = DBConnection.getInstance().getConnection();
