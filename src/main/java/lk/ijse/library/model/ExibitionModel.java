@@ -26,6 +26,7 @@ public class ExibitionModel {
 
         return stm.executeUpdate() > 0;
     }
+    
     public static ArrayList<String> loadAllExibitionIds() throws SQLException {
 
         Connection con = DBConnection.getInstance().getConnection();
@@ -43,6 +44,7 @@ public class ExibitionModel {
         }
         return ExibitionIds;
     }
+    
     public static Exibition searchFrom(String id) throws SQLException {
         Connection con = DBConnection.getInstance().getConnection();
         String sql = "select * from exibitions where ExibitionsId=?";
