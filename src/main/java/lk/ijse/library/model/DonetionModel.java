@@ -25,5 +25,4 @@ public class DonetionModel {
 
         return stm.executeUpdate() > 0;
     }
-
 }
