@@ -130,7 +130,7 @@ public class BookManageFromController implements Initializable {
 
     @FXML
     void onSelectAutorId(ActionEvent event) throws SQLException {
-        Autor autor = AutorModel.searchFrom((String) cmbAutorId.getValue());
+        Autor autor = AutorModelDTO.searchFrom((String) cmbAutorId.getValue());
         lblAutorName.setText(autor.getAutorName());
     }
 
@@ -205,7 +205,7 @@ public class BookManageFromController implements Initializable {
 
     }
     public void loadAutorIds() throws SQLException {
-        ArrayList<String> AutorIds = AutorModel.loadAllAutorIds();
+        ArrayList<String> AutorIds = AutorModelDTO.loadAllAutorIds();
 
         ObservableList ids = FXCollections.observableArrayList();
 

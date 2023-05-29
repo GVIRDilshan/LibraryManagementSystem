@@ -2,13 +2,11 @@ package lk.ijse.library.model;
 
 import lk.ijse.library.db.DBConnection;
 import lk.ijse.library.dto.Autor;
-import lk.ijse.library.dto.Book;
-import lk.ijse.library.dto.Member;
 
 import java.sql.*;
 import java.util.ArrayList;
 
-public class AutorModel {
+public class AutorModelDTO {
     public static boolean AutorAdd(Autor Aotor) throws SQLException {
         Connection con = DBConnection.getInstance().getConnection();
         String sql = "insert into autor values(?,?,?,?)";

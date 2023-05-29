@@ -6,9 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import lk.ijse.library.dto.Autor;
 import lk.ijse.library.dto.Publisher;
-import lk.ijse.library.model.AutorModel;
 import lk.ijse.library.model.PublisherModel;
 
 import java.net.URL;

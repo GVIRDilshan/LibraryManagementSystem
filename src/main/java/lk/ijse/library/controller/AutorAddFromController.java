@@ -3,29 +3,20 @@ package lk.ijse.library.controller;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 import lk.ijse.library.dto.Autor;
-import lk.ijse.library.model.AutorModel;
-import lk.ijse.library.util.Alerts;
+import lk.ijse.library.model.AutorModelDTO;
 import lk.ijse.library.util.Regex;
-import org.checkerframework.checker.units.qual.A;
 
-import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import static com.jfoenix.svg.SVGGlyphLoader.clear;
 
 public class AutorAddFromController implements Initializable {
     @FXML
@@ -61,7 +52,7 @@ public class AutorAddFromController implements Initializable {
     public void OnDelete(ActionEvent actionEvent) throws SQLException {
         String AutorID = txtAutorID.getText();
 
-        boolean d1 = AutorModel.deleteFrom(AutorID);
+        boolean d1 = AutorModelDTO.deleteFrom(AutorID);
 
         if(d1) {
             new Alert(Alert.AlertType.CONFIRMATION,"Autor Delete Sucses....!").show();
@@ -72,7 +63,7 @@ public class AutorAddFromController implements Initializable {
     public void OnSearch(ActionEvent actionEvent) throws SQLException {
         String AutorID = txtEnterAutorID.getText();
 
-        Autor autor = AutorModel.searchFrom(AutorID);
+        Autor autor = AutorModelDTO.searchFrom(AutorID);
 
         txtAutorID.setText(autor.getAutorID());
         txtAutorName.setText(autor.getAutorName());
@@ -93,7 +84,7 @@ public class AutorAddFromController implements Initializable {
         autor1.setBookName(BookName);
         autor1.setBookID(BookID);
 
-        boolean A1 = AutorModel.updateAutor(autor1);
+        boolean A1 = AutorModelDTO.updateAutor(autor1);
 
         if(A1) {
             new Alert(Alert.AlertType.CONFIRMATION,"Autor Updating Sucses....!").show();
@@ -116,7 +107,7 @@ public class AutorAddFromController implements Initializable {
         autor.setBookName(BookName);
         autor.setBookID(BookID);
 
-        boolean b1 = AutorModel.AutorAdd(autor);
+        boolean b1 = AutorModelDTO.AutorAdd(autor);
 
         if(b1) {
             new Alert(Alert.AlertType.CONFIRMATION,"Autor Adding Sucses....!").show();
@@ -132,7 +123,7 @@ public class AutorAddFromController implements Initializable {
     }
     private void setTurnId() {
         try {
-            String newTurnId = AutorModel.genarateTurnId();
+            String newTurnId = AutorModelDTO.genarateTurnId();
             txtAutorID.setText(newTurnId);
 
         } catch (SQLException e) {

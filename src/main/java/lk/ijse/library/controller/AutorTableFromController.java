@@ -7,9 +7,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import lk.ijse.library.dto.Autor;
-import lk.ijse.library.dto.Member;
-import lk.ijse.library.model.AutorModel;
-import lk.ijse.library.model.MemberModel;
+import lk.ijse.library.model.AutorModelDTO;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -44,7 +42,7 @@ public class AutorTableFromController implements Initializable {
 
         ArrayList<Autor> autors;
         try {
-            autors = AutorModel.loadAllAutors();
+            autors = AutorModelDTO.loadAllAutors();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
