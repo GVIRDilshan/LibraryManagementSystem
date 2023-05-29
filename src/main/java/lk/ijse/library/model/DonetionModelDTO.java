@@ -2,13 +2,12 @@ package lk.ijse.library.model;
 
 import lk.ijse.library.db.DBConnection;
 import lk.ijse.library.dto.Donetion;
-import lk.ijse.library.dto.Member;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class DonetionModel {
+public class DonetionModelDTO {
 
     public static boolean DonetionAdd(Donetion donetion) throws SQLException {
 

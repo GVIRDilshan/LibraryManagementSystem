@@ -1,14 +1,12 @@
 package lk.ijse.library.model;
 
 import lk.ijse.library.db.DBConnection;
-import lk.ijse.library.dto.Member;
-import lk.ijse.library.dto.Publisher;
 import lk.ijse.library.dto.Supplier;
 
 import java.sql.*;
 import java.util.ArrayList;
 
-public class SupplierModel {
+public class SupplierModelDTO {
 
     public static boolean SupplierAdd(Supplier supplier) throws SQLException {
         Connection con = DBConnection.getInstance().getConnection();

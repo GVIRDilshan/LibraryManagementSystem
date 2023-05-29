@@ -98,7 +98,7 @@ public class BookManageFromController implements Initializable {
         book.setSupplier(String.valueOf(cmbSupplierId.getValue()));
         book.setPublisher(String.valueOf(cmbPulisherID.getValue()));
 
-        boolean b1 = BookModel.BookAdd(book);
+        boolean b1 = BookModelDTO.BookAdd(book);
         tableLoad();
     }
 
@@ -117,14 +117,14 @@ public class BookManageFromController implements Initializable {
 
     @FXML
     void OnSelectPulisherID(ActionEvent event) throws SQLException {
-        Publisher publisher = PublisherModel.searchFrom((String) cmbPulisherID.getValue());
+        Publisher publisher = PublisherModelDTO.searchFrom((String) cmbPulisherID.getValue());
         lblPublisherName.setText(publisher.getPublisherName());
 
     }
 
     @FXML
     void OnSelectSuplierId(ActionEvent event) throws SQLException {
-        Supplier supplier = SupplierModel.searchFrom((String) cmbSupplierId.getValue());
+        Supplier supplier = SupplierModelDTO.searchFrom((String) cmbSupplierId.getValue());
         lblSupplierName.setText(supplier.getSupplierName());
     }
 
@@ -155,7 +155,7 @@ public class BookManageFromController implements Initializable {
       //  txtBookID.setEditable(false);
     }
     public  void tableLoad() throws SQLException {
-        ArrayList<Book> books = BookModel.loadAllBooks();
+        ArrayList<Book> books = BookModelDTO.loadAllBooks();
         this.tblBooks.setItems(FXCollections.observableArrayList(books));
     }
 
@@ -175,7 +175,7 @@ public class BookManageFromController implements Initializable {
         book.setSupplier(SupplierId);
         book.setQty(Integer.parseInt(Qty));
 
-        boolean b1 = BookModel.updateBook(book);
+        boolean b1 = BookModelDTO.updateBook(book);
     }
 
     public void OnDelete(ActionEvent actionEvent) throws SQLException {
@@ -184,7 +184,7 @@ public class BookManageFromController implements Initializable {
 
         String BookID = txtSearchBookID.getText();
 
-        boolean d1 = BookModel.deleteFrom(BookID);
+        boolean d1 = BookModelDTO.deleteFrom(BookID);
         tableLoad();
 
         if(d1) {
@@ -196,7 +196,7 @@ public class BookManageFromController implements Initializable {
     public void OnSearch(ActionEvent actionEvent) throws SQLException {
         String SearchID = txtSearchBookID.getText();
 
-        Book b1 = BookModel.searchFrom(SearchID);
+        Book b1 = BookModelDTO.searchFrom(SearchID);
 
         txtBookID.setText(b1.getId());
         txtBookName.setText(b1.getName());
@@ -215,7 +215,7 @@ public class BookManageFromController implements Initializable {
         cmbAutorId.setItems(ids);
     }
     public void loadPublisherIds() throws SQLException {
-        ArrayList<String> PublisherIds = PublisherModel.loadAllPublisherIds();
+        ArrayList<String> PublisherIds = PublisherModelDTO.loadAllPublisherIds();
 
         ObservableList ids = FXCollections.observableArrayList();
 
@@ -225,7 +225,7 @@ public class BookManageFromController implements Initializable {
         cmbPulisherID.setItems(ids);
     }
     public void loadSupplierIds() throws SQLException {
-        ArrayList<String> SupplierIds = SupplierModel.loadAllSupplierIds();
+        ArrayList<String> SupplierIds = SupplierModelDTO.loadAllSupplierIds();
 
         ObservableList ids = FXCollections.observableArrayList();
 

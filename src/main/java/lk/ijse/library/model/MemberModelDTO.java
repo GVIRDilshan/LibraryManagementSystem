@@ -1,13 +1,12 @@
 package lk.ijse.library.model;
 
 import lk.ijse.library.db.DBConnection;
-import lk.ijse.library.dto.Issuse;
 import lk.ijse.library.dto.Member;
 
 import java.sql.*;
 import java.util.ArrayList;
 
-public class MemberModel {
+public class MemberModelDTO {
 
     public static boolean memberAdd(Member member) throws SQLException {
         Connection con = DBConnection.getInstance().getConnection();

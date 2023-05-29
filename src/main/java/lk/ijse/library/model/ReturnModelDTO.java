@@ -1,7 +1,6 @@
 package lk.ijse.library.model;
 
 import lk.ijse.library.db.DBConnection;
-import lk.ijse.library.dto.Member;
 import lk.ijse.library.dto.Return;
 
 import java.sql.Connection;
@@ -10,7 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class ReturnModel {
+public class ReturnModelDTO {
 
     public static boolean ReturnSet(Return returns, String Qty, String BookId, String IssuseID) throws SQLException {
 

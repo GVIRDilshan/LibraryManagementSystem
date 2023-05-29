@@ -1,6 +1,5 @@
 package lk.ijse.library.controller;
 
-import javafx.animation.Animation;
 import javafx.animation.AnimationTimer;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -20,17 +19,11 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import lk.ijse.library.db.DBConnection;
 import lk.ijse.library.dto.Issuse;
-import lk.ijse.library.dto.Member;
 import lk.ijse.library.dto.Return;
-import lk.ijse.library.model.IssuseModel;
-import lk.ijse.library.model.MemberModel;
-import lk.ijse.library.model.ReturnModel;
+import lk.ijse.library.model.IssuseModelDTO;
+import lk.ijse.library.model.ReturnModelDTO;
 import net.sf.jasperreports.engine.*;
-import net.sf.jasperreports.engine.design.JasperDesign;
-import net.sf.jasperreports.engine.xml.JRXmlLoader;
-import net.sf.jasperreports.view.JasperViewer;
 
 import java.io.*;
 import java.net.URL;
@@ -40,8 +33,6 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-
-import static com.sun.javafx.scene.control.skin.Utils.getResource;
 
 public class DashBoardFromController implements Initializable {
 
@@ -124,7 +115,7 @@ public class DashBoardFromController implements Initializable {
 
         ArrayList<Return> returns;
         try {
-            returns = ReturnModel.loadAllReturnas();
+            returns = ReturnModelDTO.loadAllReturnas();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -140,7 +131,7 @@ public class DashBoardFromController implements Initializable {
 
         ArrayList<Issuse> issuses;
         try {
-            issuses = IssuseModel.loadAllIssuse();
+            issuses = IssuseModelDTO.loadAllIssuse();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

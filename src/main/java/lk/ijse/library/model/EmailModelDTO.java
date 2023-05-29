@@ -1,12 +1,11 @@
 package lk.ijse.library.model;
 
 import javax.mail.*;
-import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 
-public class EmailModel {
+public class EmailModelDTO {
 
     public static void sendMail(String sender , String senderPassword  , String receiver , String messageTxt) throws MessagingException {
         Properties properties = new Properties();

@@ -1,9 +1,7 @@
 package lk.ijse.library.model;
 
 import lk.ijse.library.db.DBConnection;
-import lk.ijse.library.dto.Donetion;
 import lk.ijse.library.dto.Exibition;
-import lk.ijse.library.dto.Member;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,7 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class ExibitionModel {
+public class ExibitionModelDTO {
     public static boolean SaveExibition(Exibition exibition) throws SQLException {
 
         Connection con = DBConnection.getInstance().getConnection();

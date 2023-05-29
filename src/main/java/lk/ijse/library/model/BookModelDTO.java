@@ -1,14 +1,12 @@
 package lk.ijse.library.model;
 
 import lk.ijse.library.db.DBConnection;
-import lk.ijse.library.dto.Autor;
 import lk.ijse.library.dto.Book;
-import lk.ijse.library.dto.Member;
 
 import java.sql.*;
 import java.util.ArrayList;
 
-public class BookModel {
+public class BookModelDTO {
 
     public static boolean BookAdd(Book book) throws SQLException {
         Connection con = DBConnection.getInstance().getConnection();

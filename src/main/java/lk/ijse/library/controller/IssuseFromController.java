@@ -1,7 +1,6 @@
 package lk.ijse.library.controller;
 
 import com.jfoenix.controls.JFXComboBox;
-import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -18,10 +17,10 @@ import javafx.stage.Stage;
 import lk.ijse.library.dto.Book;
 import lk.ijse.library.dto.Issuse;
 import lk.ijse.library.dto.Member;
-import lk.ijse.library.model.BookModel;
-import lk.ijse.library.model.EmailModel;
-import lk.ijse.library.model.IssuseModel;
-import lk.ijse.library.model.MemberModel;
+import lk.ijse.library.model.BookModelDTO;
+import lk.ijse.library.model.EmailModelDTO;
+import lk.ijse.library.model.IssuseModelDTO;
+import lk.ijse.library.model.MemberModelDTO;
 
 import javax.mail.MessagingException;
 import java.io.IOException;
@@ -30,7 +29,6 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.ResourceBundle;
@@ -105,9 +103,9 @@ public class IssuseFromController implements Initializable {
 
         System.out.println(Qty+" "+issuse.getIssusDate()+" "+issuse.getDueDate()+" "+issuse.getIssusId()+" "+issuse.getMemberId());
 
-        boolean i1 = IssuseModel.issuseFrom(issuse,Qty,BookID);
+        boolean i1 = IssuseModelDTO.issuseFrom(issuse,Qty,BookID);
 
-        EmailModel.sendMail("librarys586@gmail.com" , "csaywdwsfqnjxjep" , lblContact.getText(), "Hi "+lblMemberName.getText()+" You'r Book is Issuse Sucses fully Completed \n"+"You'r IssuseId is : "+txtIssuseID.getText()+"\nBook Id : "+cmbBookID.getValue()+"\nDueDate is :"+DatePiker.getValue()+"\nPlease return your book by the date we have notified. Otherwise, after that date, fines will be added.\n"+"Thank you...."+lblMemberName.getText()+" for visiting our library.");
+        EmailModelDTO.sendMail("librarys586@gmail.com" , "csaywdwsfqnjxjep" , lblContact.getText(), "Hi "+lblMemberName.getText()+" You'r Book is Issuse Sucses fully Completed \n"+"You'r IssuseId is : "+txtIssuseID.getText()+"\nBook Id : "+cmbBookID.getValue()+"\nDueDate is :"+DatePiker.getValue()+"\nPlease return your book by the date we have notified. Otherwise, after that date, fines will be added.\n"+"Thank you...."+lblMemberName.getText()+" for visiting our library.");
 
 
     }
@@ -117,14 +115,14 @@ public class IssuseFromController implements Initializable {
 
     @FXML
     void OnSelectBookID(ActionEvent event) throws SQLException {
-        Book book = BookModel.searchFrom((String) cmbBookID.getValue());
+        Book book = BookModelDTO.searchFrom((String) cmbBookID.getValue());
         lblBookName.setText(book.getName());
         lblQty.setText(String.valueOf(book.getQty()));
     }
 
     @FXML
     void OnSelectMemberID(ActionEvent event) throws SQLException {
-        Member member = MemberModel.searchFrom((String) cmbMemberID.getValue());
+        Member member = MemberModelDTO.searchFrom((String) cmbMemberID.getValue());
         lblMemberName.setText(member.getName());
         lblContact.setText(member.getEmail());
     }
@@ -141,7 +139,7 @@ public class IssuseFromController implements Initializable {
         }
     }
     public void loadBookIds() throws SQLException {
-        ArrayList<String> BookIds = BookModel.loadAllBookIds();
+        ArrayList<String> BookIds = BookModelDTO.loadAllBookIds();
 
         ObservableList ids = FXCollections.observableArrayList();
 
@@ -151,7 +149,7 @@ public class IssuseFromController implements Initializable {
         cmbBookID.setItems(ids);
     }
     public void loadMemersIds() throws SQLException {
-        ArrayList<String> MemberIds = MemberModel.loadAllMemberIds();
+        ArrayList<String> MemberIds = MemberModelDTO.loadAllMemberIds();
 
         ObservableList ids = FXCollections.observableArrayList();
 

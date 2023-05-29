@@ -6,7 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.library.dto.Issuse;
-import lk.ijse.library.model.IssuseModel;
+import lk.ijse.library.model.IssuseModelDTO;
 
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -66,7 +66,7 @@ public class FineMoneyTableFromController {
 
         String SearchID = txtSeachId.getText();
 
-        Issuse issuse  = IssuseModel.IssuseSearch(SearchID);
+        Issuse issuse  = IssuseModelDTO.IssuseSearch(SearchID);
 
         lblIssuseDate.setText(issuse.getIssusDate());
         lblDueDate.setText(issuse.getDueDate());

@@ -2,21 +2,16 @@ package lk.ijse.library.controller;
 
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
-import javafx.animation.AnimationTimer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.library.dto.Exibition;
-import lk.ijse.library.model.ExibitionModel;
+import lk.ijse.library.model.ExibitionModelDTO;
 
 import java.net.URL;
 import java.sql.SQLException;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 public class ExibitionsFromController implements Initializable {
@@ -51,7 +46,7 @@ public class ExibitionsFromController implements Initializable {
         exibition.setExibitionTime(ExibitionTime);
         exibition.setExibitionDesc(ExibitionDesc);
 
-        boolean e1 = ExibitionModel.SaveExibition(exibition);
+        boolean e1 = ExibitionModelDTO.SaveExibition(exibition);
     }
 
     @Override

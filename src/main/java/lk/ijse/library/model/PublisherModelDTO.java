@@ -1,15 +1,12 @@
 package lk.ijse.library.model;
 
 import lk.ijse.library.db.DBConnection;
-import lk.ijse.library.dto.Autor;
-import lk.ijse.library.dto.Member;
 import lk.ijse.library.dto.Publisher;
 
 import java.sql.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class PublisherModel {
+public class PublisherModelDTO {
     public static boolean PublisherAdd(Publisher publisher) throws SQLException {
 
         Connection con = DBConnection.getInstance().getConnection();
