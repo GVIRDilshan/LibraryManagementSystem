@@ -9,17 +9,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UserModelDTO {
-//    public static boolean updateUser(User user) throws SQLException {
-//        Connection con = DBConnection.getInstance().getConnection();
-//        PreparedStatement ps = con.prepareStatement("UPDATE user SET password = ? WHERE userName = ?");
-//
-//        ps.setString(1 , user.getPassword());
-//        ps.setString(2 , user.getUserName());
-//
-//        return ps.executeUpdate() > 0;
-//
-//    }
-
     public static User SearchUser(String name) throws SQLException {
         Connection con = DBConnection.getInstance().getConnection();
         String sql = "select * from user where useName = ?";
